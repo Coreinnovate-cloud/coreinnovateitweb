@@ -68,18 +68,18 @@ export default function Home() {
     <div className="space-y-0">
       {/* Hero Section */}
 
-      <div className=" min-h-screen items-center overflow-hidden relative">
+      <div className="min-h-screen flex items-center overflow-hidden relative">
         {/* Blue Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/40 via-blue-500/20 to-transparent pointer-events-none z-10" />
 
         {/* Animated Grid Background */}
 
         <div
+          className="absolute inset-0"
           style={{
             width: "100%",
-            height: "950px",
-            position: "relative",
-            zIndex: 20,
+            height: "100%",
+            zIndex: 1,
           }}
         >
           <Dither
@@ -92,23 +92,24 @@ export default function Home() {
             waveFrequency={3}
             waveSpeed={0.05}
           />
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-40 relative sm:absolute sm:top-10 sm:left-0 lg:left-40 z-10 pointer-events-none">
+        </div>
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20 pointer-events-none">
             <div className="flex flex-col gap-y-8 max-w-3xl">
               {/* AI + Human Badge */}
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-3 py-3 px-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white w-fit"
+                className="flex items-center gap-2 sm:gap-3 py-2 sm:py-3 px-4 sm:px-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white w-fit text-xs sm:text-sm"
               >
-                <div className="flex items-center gap-2">
-                  <Brain className="w-5 h-5 text-cyan-400" />
-                  <span className="text-sm font-semibold">AI-Powered</span>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                  <span className="font-semibold">AI-Powered</span>
                 </div>
-                <div className="w-px h-4 bg-white/30" />
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm font-semibold">Human-Driven</span>
+                <div className="w-px h-3 sm:h-4 bg-white/30" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                  <span className="font-semibold">Human-Driven</span>
                 </div>
               </motion.span>
 
@@ -117,9 +118,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6"
               >
-                <h1 className="text-white font-dm-sans font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.1]">
+                <h1 className="text-white font-dm-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1]">
                   <span className="block">
                     <DecryptedText
                       text="Intelligent IT."
@@ -157,7 +158,7 @@ export default function Home() {
                     />
                   </span>
                 </h1>
-                <p className="text-white/90 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                <p className="text-white/90 text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed max-w-2xl">
                   Core Innovate IT combines cutting-edge AI technology with
                   expert human oversight to deliver enterprise-grade IT and
                   cybersecurity solutions that protect, optimize, and transform
@@ -170,7 +171,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
                 <Link href="/contact-us" className="pointer-events-auto">
                   <Button
@@ -199,23 +200,23 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex items-center gap-4 pt-4"
+                className="flex items-center gap-3 sm:gap-4 pt-2 sm:pt-4"
               >
                 <div className="flex -space-x-2">
                   <RemoteAvatar
-                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white/30"
+                    className="inline-block h-8 w-8 sm:h-10 sm:w-10 rounded-full ring-2 ring-white/30"
                     primarySrc="https://i.pravatar.cc/100?img=1"
                     fallbackSrc="https://api.dicebear.com/9.x/initials/png?seed=AA&scale=80&radius=50&size=100"
                     size={40}
                   />
                   <RemoteAvatar
-                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white/30"
+                    className="inline-block h-8 w-8 sm:h-10 sm:w-10 rounded-full ring-2 ring-white/30"
                     primarySrc="https://i.pravatar.cc/100?img=2"
                     fallbackSrc="https://api.dicebear.com/9.x/initials/png?seed=BB&scale=80&radius=50&size=100"
                     size={40}
                   />
                   <RemoteAvatar
-                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white/30"
+                    className="inline-block h-8 w-8 sm:h-10 sm:w-10 rounded-full ring-2 ring-white/30"
                     primarySrc="https://i.pravatar.cc/100?img=3"
                     fallbackSrc="https://api.dicebear.com/9.x/initials/png?seed=CC&scale=80&radius=50&size=100"
                     size={40}
@@ -223,15 +224,14 @@ export default function Home() {
                 </div>
 
                 <div className="text-white">
-                  <p className="text-2xl font-bold font-dm-sans">200+</p>
-                  <p className="text-sm text-white/80">
+                  <p className="text-xl sm:text-2xl font-bold font-dm-sans">200+</p>
+                  <p className="text-xs sm:text-sm text-white/80">
                     Trusted by businesses worldwide
                   </p>
                 </div>
               </motion.div>
             </div>
           </div>
-        </div>
 
         {/* Floating Elements */}
         <div className="absolute top-1/4 right-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
