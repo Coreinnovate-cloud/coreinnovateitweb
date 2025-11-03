@@ -21,14 +21,14 @@ const page = () => {
   };
 
   return (
-    <div className="pt-48 space-y-20">
+    <div className="pt-24 sm:pt-32 lg:pt-48 space-y-12 sm:space-y-20">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Background Decorations */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
 
-        <div className="flex flex-col gap-y-8 max-w-7xl mx-auto px-4 items-center relative">
+        <div className="flex flex-col gap-y-6 sm:gap-y-8 max-w-7xl mx-auto px-4 sm:px-6 items-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,18 +41,18 @@ const page = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-center max-w-3xl"
+            className="text-center max-w-3xl px-4"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary mb-4 sm:mb-6 leading-tight">
               We&apos;re Here to Help You Succeed
             </h1>
-            <p className="text-lg sm:text-xl text-grey leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-grey leading-relaxed">
               Have a project or question? Our team of experts is ready to assist you with tailored IT solutions
             </p>
           </motion.div>
 
           {/* Contact Cards */}
-          <div className="grid gap-6 sm:grid-cols-3 w-full mt-8">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-3 w-full mt-4 sm:mt-8">
             {contacts.map((contact, index) => {
               const Icon = iconMap[contact.title as keyof typeof iconMap];
               const gradientColor = colorMap[contact.title as keyof typeof colorMap];

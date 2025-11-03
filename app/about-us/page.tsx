@@ -68,13 +68,13 @@ const page = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold font-dm-sans text-white leading-[1.1]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-dm-sans text-white leading-[1.1] px-4"
             >
-              <span className="block mb-4">Building Stronger</span>
+              <span className="block mb-3 sm:mb-4">Building Stronger</span>
               <span className="block bg-gradient-to-r from-primary via-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Businesses Through
               </span>
-              <span className="block mt-4">Technology</span>
+              <span className="block mt-3 sm:mt-4">Technology</span>
             </motion.h1>
 
             {/* Description */}
@@ -82,7 +82,7 @@ const page = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-white/80 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
+              className="text-white/80 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-4"
             >
               At CoreInnovate, our mission is simple: make technology secure,
               seamless, and a true driver of growth. We combine cutting-edge AI
@@ -94,7 +94,7 @@ const page = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-5xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16 max-w-5xl mx-auto px-4"
             >
               {[
                 {
