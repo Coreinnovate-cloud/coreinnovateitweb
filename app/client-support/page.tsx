@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Shield, Lock, Monitor, ExternalLink, Download, User, Key } from "lucide-react"
+import { Shield, Lock, Monitor, ExternalLink, Download, Key } from "lucide-react"
 import { Button } from "@/components/shared/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"

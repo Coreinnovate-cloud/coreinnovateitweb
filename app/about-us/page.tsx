@@ -166,7 +166,7 @@ const page = () => {
               key={i}
               className="absolute w-1 h-1 bg-primary/40 rounded-full"
               initial={{
-                x: Math.random() * window.innerWidth,
+                x: Math.random() * 1920,
                 y: Math.random() * 600,
                 opacity: 0,
               }}

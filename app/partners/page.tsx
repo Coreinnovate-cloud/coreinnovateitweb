@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Handshake, Shield, Cloud, Code, Award, Building2 } from "lucide-react"
-import Image from "next/image"
 
 export default function PartnersPage() {
   // Placeholder partner categories
