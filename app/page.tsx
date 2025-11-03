@@ -92,7 +92,7 @@ export default function Home() {
             waveFrequency={3}
             waveSpeed={0.05}
           />
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-40 absolute top-10 left-40 z-10 pointer-events-none">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-40 relative sm:absolute sm:top-10 sm:left-0 lg:left-40 z-10 pointer-events-none">
             <div className="flex flex-col gap-y-8 max-w-3xl">
               {/* AI + Human Badge */}
               <motion.span
