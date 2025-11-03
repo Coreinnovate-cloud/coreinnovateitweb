@@ -1,92 +1,258 @@
-import Image from "next/image";
-import React from "react";
-import { Button } from "./button";
-import Link from "next/link";
+"use client"
+
+import Image from "next/image"
+import React from "react"
+import { motion } from "framer-motion"
+import { Button } from "./button"
+import Link from "next/link"
+import { Mail, MapPin, Phone, Twitter, Linkedin, Github, ArrowRight } from "lucide-react"
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "#", label: "GitHub" },
+  ]
+
   return (
-    <div className="px-4 max-w-7xl mx-auto space-y-16 pt-16">
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="col-span-1 flex flex-col gap-y-6">
-          <Link href={`/`}>
-            <Image
-              src={`/logo-white.png`}
-              width={107}
-              height={68}
-              alt="coreinnovate logo"
-            />
-          </Link>
+    <footer className="relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark via-secondary to-dark" />
 
-          <div className="space-y-6">
-            <p className="text-[#344054] text-base">
-              Be the first to receive all the recent updates, articles, and
-              valuable materials.
-            </p>
-            <div className="flex items-center gap-2">
-              <input
-                className="placeholder:text-[#98A2B3] text-sm py-3 px-4 border-[#D0D5DD] border rounded-[100px]"
-                placeholder="Email address"
-              />
-              <Button>Subscribe</Button>
-            </div>
-          </div>
-        </div>
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-3 col-span-2 justify-between">
-          <div className="space-y-6">
-            <p className="text-base text-[#98A2B3]">Company</p>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent" />
 
-            <div className="space-y-4 text-base text-[#667185] font-medium">
-              <Link href={`/about-us`}>
-                <p className="hover:underline">About</p>
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+
+      <div className="relative px-4 max-w-7xl mx-auto">
+        {/* Main Footer Content */}
+        <div className="py-16 lg:py-20">
+          <div className="grid gap-12 lg:grid-cols-3">
+            {/* Company Info & Newsletter */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="col-span-1 space-y-6"
+            >
+              {/* Logo */}
+              <Link href="/" className="inline-block group">
+                <div className="relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-cyan-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Image
+                    src="/logo-white.png"
+                    width={120}
+                    height={76}
+                    alt="CoreInnovate logo"
+                    className="relative transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
               </Link>
-              <p className="hover:underline">Security</p>
-              <p className="hover:underline">Partnerships</p>
-              <p className="hover:underline">Community</p>
-            </div>
-          </div>
 
-          <div className="space-y-6">
-            <p className="text-base text-[#98A2B3]">Services</p>
+              {/* Description */}
+              <p className="text-white/70 text-base leading-relaxed">
+                Be the first to receive all the recent updates, articles, and
+                valuable materials about IT security and innovation.
+              </p>
 
-            <Link href={`/services`}>
-              <div className="space-y-4 text-base text-[#667185] font-medium">
-                <p className="hover:underline">Managed IT & Security</p>
-                <p className="hover:underline">Cloud Solutions</p>
-                <p className="hover:underline">Development & Digital</p>
-                <p className="hover:underline">Project Excellence</p>
-                <p className="hover:underline">Training Services</p>
+              {/* Newsletter */}
+              <div className="space-y-3">
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full opacity-20 group-hover:opacity-40 blur transition-opacity duration-500" />
+                  <div className="relative flex items-center gap-2">
+                    <div className="relative flex-1">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                      <input
+                        className="w-full placeholder:text-white/40 text-sm py-3 pl-11 pr-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                        placeholder="Enter your email"
+                        type="email"
+                      />
+                    </div>
+                    <Button className="rounded-full px-6 shadow-lg hover:shadow-primary/50 transition-all duration-300">
+                      Subscribe
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </Link>
-          </div>
 
-          <div className="space-y-6">
-            <p className="text-base text-[#98A2B3]">Resources</p>
+              {/* Social Links */}
+              <div className="flex items-center gap-3 pt-2">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * index }}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="group relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300"
+                  >
+                    <social.icon className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors duration-300" />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
 
-            <div className="space-y-4 text-base text-[#667185] font-medium">
-              <Link href={`/resources`}>
-                {" "}
-                <p className="hover:underline">Blog / Insights / Guides</p>
-              </Link>
-              <p className="hover:underline">Case Studies</p>
-              <p className="hover:underline">Certifications & Partnerships</p>
+            {/* Links Grid */}
+            <div className="grid grid-cols-2 gap-8 lg:grid-cols-3 col-span-2">
+              {/* Company */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="space-y-4"
+              >
+                <h3 className="text-base font-bold font-dm-sans text-white mb-6 relative inline-block">
+                  Company
+                  <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full" />
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { label: "About", href: "/about-us" },
+                    { label: "Security", href: "#" },
+                    { label: "Partnerships", href: "#" },
+                    { label: "Community", href: "#" },
+                  ].map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                    >
+                      <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
+                      <span className="text-sm font-medium">{link.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Services */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="space-y-4"
+              >
+                <h3 className="text-base font-bold font-dm-sans text-white mb-6 relative inline-block">
+                  Services
+                  <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full" />
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    "Managed IT & Security",
+                    "Cloud Solutions",
+                    "Development & Digital",
+                    "Project Excellence",
+                    "Training Services",
+                  ].map((service) => (
+                    <Link
+                      key={service}
+                      href="/services"
+                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                    >
+                      <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
+                      <span className="text-sm font-medium">{service}</span>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Resources */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="space-y-4"
+              >
+                <h3 className="text-base font-bold font-dm-sans text-white mb-6 relative inline-block">
+                  Resources
+                  <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full" />
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { label: "Blog / Insights", href: "/resources" },
+                    { label: "Case Studies", href: "#" },
+                    { label: "Certifications", href: "#" },
+                  ].map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                    >
+                      <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
+                      <span className="text-sm font-medium">{link.label}</span>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Contact Info */}
+                <div className="pt-6 space-y-3">
+                  <div className="flex items-start gap-2 text-white/60 text-xs">
+                    <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>London, United Kingdom</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white/60 text-xs">
+                    <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span>+44 (0) 20 1234 5678</span>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
+
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="border-t border-white/10 py-6"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+            {/* Legal Links */}
+            <div className="flex flex-wrap text-sm font-medium text-white/60 items-center gap-6">
+              <Link
+                href="#"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Terms of Service
+              </Link>
+              <span className="w-1 h-1 bg-white/20 rounded-full" />
+              <Link
+                href="#"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Privacy Policy
+              </Link>
+              <span className="w-1 h-1 bg-white/20 rounded-full" />
+              <Link
+                href="#"
+                className="hover:text-primary transition-colors duration-300"
+              >
+                Cookie Policy
+              </Link>
+            </div>
+
+            {/* Copyright */}
+            <div className="flex items-center gap-2 text-sm text-white/40">
+              <span>© 2025 CoreInnovate IT.</span>
+              <span>All rights reserved.</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
+    </footer>
+  )
+}
 
-      <div className="border-t flex flex-wrap gap-6 items-center justify-between border-[#E4E7EC] py-8">
-        <div className="flex flex-wrap text-sm font-medium text-[#667185] items-center gap-8">
-          <p className="hover:underline">Terms of Service</p>
-          <p className="hover:underline">Privacy Policy</p>
-          {/* <p className="hover:underline">Security</p>
-          <p className="hover:underline">Site Map</p> */}
-        </div>
-
-        <p className="text-sm text-[#98A2B3]">© 2025. All rights reserved.</p>
-      </div>
-    </div>
-  );
-};
-
-export default Footer;
+export default Footer
