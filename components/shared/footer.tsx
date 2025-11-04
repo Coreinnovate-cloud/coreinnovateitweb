@@ -243,7 +243,7 @@ const Footer = () => {
               </Link>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <Link
-                href="/privacy-policy#cookies"
+                href="/cookie-policy"
                 className="hover:text-primary transition-colors duration-300"
               >
                 Cookie Policy
