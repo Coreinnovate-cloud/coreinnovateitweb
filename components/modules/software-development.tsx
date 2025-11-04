@@ -16,24 +16,20 @@ const SoftwareDevelopment = () => {
             Web & Software Development Services
           </h3>
           <p className="text-tertiary max-w-[464px] mx-auto text-base font-medium">
-            Whether you need a sleek website, a custom business application, or
-            enterprise-grade software, our team of developers and designers
-            bring your vision to life with the latest technologies and best
-            practices.
+            Transform your ideas into powerful digital solutions. From responsive websites to custom enterprise applications, we deliver scalable, secure, and user-focused software that drives business growth.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 relative z-10">
           <div className="space-y-6">
-            <SectionBadge title="Why Choose CoreInnovate for Web development" />
+            <SectionBadge title="Why Choose CoreInnovate for Development" />
 
             <div>
               <h3 className="text-secondary max-w-[396px] text-[28px] font-semibold font-dm-sans">
-                We help you simplify, secure, & scale.
+                Build, Deploy, and Scale with Confidence
               </h3>
               <p className="text-tertiary max-w-[436px] text-base font-medium">
-                Our Cloud Management Services provides your business with the
-                following
+                Our development services deliver modern, efficient solutions tailored to your business needs
               </p>
             </div>
 
@@ -58,28 +54,28 @@ export default SoftwareDevelopment;
 
 const services = [
   {
-    title: "Seamless Migration",
+    title: "Custom Web Applications",
     description:
-      "Move your workloads, applications, and data to the cloud with minimal disruption. We design and execute a clear migration plan that ensures a smooth transition from on-premise systems to Azure or AWS.",
+      "Build responsive, fast, and secure web applications tailored to your business processes. We use modern frameworks like React, Next.js, and Node.js to deliver scalable solutions.",
   },
   {
-    title: "Performance Optimisation",
+    title: "Enterprise Software Development",
     description:
-      "We monitor and fine-tune your cloud environment to deliver speed, reliability, and scalability. Our experts continuously optimise workloads to keep your business running at peak performance.",
+      "Develop custom business applications that streamline operations, improve efficiency, and integrate seamlessly with your existing systems.",
   },
   {
-    title: "Cost Control and Transparency",
+    title: "Mobile App Development",
     description:
-      "Cloud costs can spiral if unmanaged. We analyse your usage, remove waste, and right-size resources to ensure you only pay for what you need.",
+      "Create native and cross-platform mobile applications for iOS and Android that provide exceptional user experiences and drive engagement.",
   },
   {
-    title: "Security and Compliance",
+    title: "E-commerce Solutions",
     description:
-      "Your data is safe with us. We implement robust security frameworks, enforce best practices, and ensure compliance with industry regulations such as GDPR, ISO 27001, and HIPAA.",
+      "Launch powerful online stores with secure payment processing, inventory management, and seamless customer experiences that drive sales.",
   },
   {
-    title: "Hybrid and Multi-Cloud Support",
+    title: "API Development & Integration",
     description:
-      "Whether you are running Azure, AWS, or a hybrid mix, we manage complex environments with ease and ensure seamless integration with your on-premises systems.",
+      "Connect your systems with robust RESTful APIs and integrate third-party services to extend functionality and automate workflows.",
   },
 ];

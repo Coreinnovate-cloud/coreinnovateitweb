@@ -68,7 +68,7 @@ export default function Home() {
     <div className="space-y-0">
       {/* Hero Section */}
 
-      <div className="min-h-screen flex items-center overflow-hidden relative">
+      <div className="min-h-screen flex items-center justify-center overflow-hidden relative">
         {/* Blue Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-600/40 via-blue-500/20 to-transparent pointer-events-none z-10" />
 
@@ -93,8 +93,9 @@ export default function Home() {
             waveSpeed={0.05}
           />
         </div>
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20 pointer-events-none">
-            <div className="flex flex-col gap-y-8 max-w-3xl">
+          <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20 pointer-events-none">
+            <div className="max-w-7xl mx-auto lg:ml-[10rem]">
+            <div className="flex flex-col gap-y-6 sm:gap-y-8 max-w-3xl">
               {/* AI + Human Badge */}
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -230,6 +231,7 @@ export default function Home() {
                   </p>
                 </div>
               </motion.div>
+            </div>
             </div>
           </div>
 

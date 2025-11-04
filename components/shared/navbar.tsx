@@ -145,7 +145,7 @@ const NavBar = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {services.map((service, index) => (
                     <motion.div
-                      key={service}
+                      key={service.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
@@ -156,13 +156,13 @@ const NavBar = () => {
                       }}
                     >
                       <Link
-                        href="/services"
+                        href={`/services#${service.id}`}
                         className="group block px-6 py-4 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-base font-medium border border-transparent hover:border-white/10"
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
                           <span className="group-hover:translate-x-1 transition-transform duration-300">
-                            {service}
+                            {service.name}
                           </span>
                         </div>
                       </Link>
@@ -244,17 +244,17 @@ const NavBar = () => {
                     >
                       {services.map((service, index) => (
                         <motion.div
-                          key={service}
+                          key={service.id}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
                         >
                           <Link
                             onClick={() => setIsOpen(false)}
-                            href="/services"
+                            href={`/services#${service.id}`}
                             className="block text-center text-white/70 hover:text-primary transition-colors text-base"
                           >
-                            {service}
+                            {service.name}
                           </Link>
                         </motion.div>
                       ))}
@@ -301,10 +301,10 @@ const NavBar = () => {
 export default NavBar
 
 const services = [
-  "Managed IT Services",
-  "Cloud Management",
-  "Managed Security",
-  "Project Risk Management",
-  "Software Development",
-  "Project Risk",
+  { name: "Managed IT Services", id: "managed-it-services" },
+  { name: "Cloud Management", id: "cloud-management" },
+  { name: "Managed Security", id: "managed-security" },
+  { name: "Project Management", id: "project-management" },
+  { name: "Software Development", id: "software-development" },
+  { name: "Project Risk", id: "project-risk" },
 ]

@@ -84,7 +84,7 @@ const WhatSetsUsApart = () => {
             {/* Heading */}
             <div className="space-y-4">
               <h2 className="text-4xl sm:text-5xl font-bold font-dm-sans leading-tight">
-                From IT management to cloud, security, and training —{" "}
+                From IT management to cloud, security, and training,{" "}
                 <span className="text-cyan-400">
                   we align technology with your business goals
                 </span>
@@ -94,7 +94,7 @@ const WhatSetsUsApart = () => {
             {/* Description */}
             <div className="space-y-4 text-lg text-gray-200 leading-relaxed">
               <p>
-                At CoreInnovate, we don&apos;t just provide IT tools — we create
+                At CoreInnovate, we don&apos;t just provide IT tools, we create
                 technology strategies that move your business forward. Our
                 approach combines proactive support, enterprise-grade security,
                 and smart optimization to ensure your systems stay reliable,

@@ -1,17 +1,24 @@
 "use client"
 
-import Image from "next/image"
-import React from "react"
 import { motion } from "framer-motion"
-import { Button } from "./button"
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+} from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
-import { Mail, MapPin, Phone, Twitter, Linkedin, Github, ArrowRight } from "lucide-react"
+import { Button } from "./button"
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Twitter, href: "https://twitter.com/coreinnovateit", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/coreinnovate-it", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/coreinnovate", label: "GitHub" },
   ]
 
   return (
@@ -117,9 +124,9 @@ const Footer = () => {
                 <div className="space-y-3">
                   {[
                     { label: "About", href: "/about-us" },
-                    { label: "Security", href: "#" },
-                    { label: "Partnerships", href: "#" },
-                    { label: "Community", href: "#" },
+                    { label: "Services", href: "/services" },
+                    { label: "Resources", href: "/resources" },
+                    { label: "Contact", href: "/contact-us" },
                   ].map((link) => (
                     <Link
                       key={link.label}
@@ -147,19 +154,19 @@ const Footer = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    "Managed IT & Security",
-                    "Cloud Solutions",
-                    "Development & Digital",
-                    "Project Excellence",
-                    "Training Services",
+                    { name: "Managed IT & Security", id: "managed-it-services" },
+                    { name: "Cloud Solutions", id: "cloud-management" },
+                    { name: "Managed Security", id: "managed-security" },
+                    { name: "Software Development", id: "software-development" },
+                    { name: "Project Risk", id: "project-risk" },
                   ].map((service) => (
                     <Link
-                      key={service}
-                      href="/services"
+                      key={service.id}
+                      href={`/services#${service.id}`}
                       className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
                     >
                       <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
-                      <span className="text-sm font-medium">{service}</span>
+                      <span className="text-sm font-medium">{service.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -180,8 +187,8 @@ const Footer = () => {
                 <div className="space-y-3">
                   {[
                     { label: "Blog / Insights", href: "/resources" },
-                    { label: "Case Studies", href: "#" },
-                    { label: "Certifications", href: "#" },
+                    { label: "Contact Us", href: "/contact-us" },
+                    { label: "About Us", href: "/about-us" },
                   ].map((link) => (
                     <Link
                       key={link.label}
@@ -198,11 +205,11 @@ const Footer = () => {
                 <div className="pt-6 space-y-3">
                   <div className="flex items-start gap-2 text-white/60 text-xs">
                     <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>London, United Kingdom</span>
+                    <span>United Kingdom</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/60 text-xs">
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span>+44 (0) 20 1234 5678</span>
+                    <span>+44 (0) 1452 222192</span>
                   </div>
                 </div>
               </motion.div>
@@ -222,21 +229,21 @@ const Footer = () => {
             {/* Legal Links */}
             <div className="flex flex-wrap text-sm font-medium text-white/60 items-center gap-6">
               <Link
-                href="#"
+                href="/terms-of-service"
                 className="hover:text-primary transition-colors duration-300"
               >
                 Terms of Service
               </Link>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <Link
-                href="#"
+                href="/privacy-policy"
                 className="hover:text-primary transition-colors duration-300"
               >
                 Privacy Policy
               </Link>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <Link
-                href="#"
+                href="/privacy-policy#cookies"
                 className="hover:text-primary transition-colors duration-300"
               >
                 Cookie Policy
@@ -244,11 +251,26 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="flex items-center gap-2 text-sm text-white/40">
-              <span>© 2025 CoreInnovate IT.</span>
-              <span>All rights reserved.</span>
+            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/40 text-center sm:text-right">
+              <div className="flex flex-col sm:flex-row items-center gap-2">
+                <span>© 2025 Core Innovate IT Ltd.</span>
+                <span className="hidden sm:inline">All rights reserved.</span>
+              </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Company Registration Information */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="border-t border-white/10 py-4 text-center"
+        >
+          <p className="text-xs text-white/30 leading-relaxed px-4">
+            Registered in England and Wales (Company No. 15566009). Registered Office: Suite 248, Corinium House, Barnwood Point Business Park, Gloucester, GL4 0XZ.
+          </p>
         </motion.div>
       </div>
     </footer>

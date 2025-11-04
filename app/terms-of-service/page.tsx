@@ -44,8 +44,8 @@ export default function TermsOfServicePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="prose prose-lg max-w-none mb-12"
         >
-          <p className="text-grey leading-relaxed">
-            Please read these Terms of Service (&quot;Terms&quot;, &quot;Terms of Service&quot;) carefully before using the CoreInnovate IT website and services operated by CoreInnovate IT (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;).
+          <p className="text-grey leading-relaxed text-lg">
+            Please read these Terms of Service (&quot;Terms&quot;, &quot;Terms of Service&quot;) carefully before using the Core Innovate IT Ltd website and services. By accessing or using our services, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access our services.
           </p>
         </motion.div>
 
@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
             },
             {
               title: "3. Services Description",
-              content: "CoreInnovate IT provides managed IT services, cybersecurity solutions, cloud services, and related technology consulting. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without notice."
+              content: "Core Innovate IT Ltd provides managed IT services, cybersecurity solutions, cloud services, and related technology consulting. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without notice."
             },
             {
               title: "4. User Responsibilities",
@@ -70,7 +70,7 @@ export default function TermsOfServicePage() {
             },
             {
               title: "5. Intellectual Property",
-              content: "The service and its original content, features, and functionality are owned by CoreInnovate IT and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws."
+              content: "The service and its original content, features, and functionality are owned by Core Innovate IT Ltd and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws."
             },
             {
               title: "6. Service Level Agreements",
@@ -82,11 +82,11 @@ export default function TermsOfServicePage() {
             },
             {
               title: "8. Limitation of Liability",
-              content: "In no event shall CoreInnovate IT, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses."
+              content: "In no event shall Core Innovate IT Ltd, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses."
             },
             {
               title: "9. Indemnification",
-              content: "You agree to defend, indemnify, and hold harmless CoreInnovate IT and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from any claims, damages, obligations, losses, liabilities, costs or debt, and expenses arising from your use of our services."
+              content: "You agree to defend, indemnify, and hold harmless Core Innovate IT Ltd and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from any claims, damages, obligations, losses, liabilities, costs or debt, and expenses arising from your use of our services."
             },
             {
               title: "10. Termination",
@@ -135,16 +135,21 @@ export default function TermsOfServicePage() {
             </div>
 
             <div className="flex-1 space-y-4">
-              <h2 className="text-2xl font-bold font-dm-sans text-secondary">
+              <h2 className="text-2xl font-bold font-dm-sans text-white">
                 Questions About These Terms?
               </h2>
               <p className="text-grey leading-relaxed">
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <ul className="space-y-2 text-grey">
-                <li>Email: hello@coreinnovate.co.uk</li>
-                <li>Address: London, United Kingdom</li>
-              </ul>
+              <div className="text-grey space-y-2">
+                <p><strong className="text-white">Core Innovate IT Ltd</strong></p>
+                <p>Email: <a href="mailto:hello@coreinnovate.co.uk" className="text-primary hover:text-cyan-400 transition-colors">hello@coreinnovate.co.uk</a></p>
+                <p>Phone: <a href="tel:+441452222192" className="text-primary hover:text-cyan-400 transition-colors">+44 (0) 1452 222192</a></p>
+                <p className="leading-relaxed">
+                  Registered Office: Suite 248, Corinium House, Barnwood Point Business Park, Gloucester, GL4 0XZ, United Kingdom
+                </p>
+                <p>Company Number: 15566009</p>
+              </div>
             </div>
           </div>
         </motion.div>

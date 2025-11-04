@@ -1,3 +1,5 @@
+"use client";
+
 import CloudManagement from "@/components/modules/cloud-management";
 import ManagedSecurity from "@/components/modules/managed-security";
 import ManagedServices from "@/components/modules/managed-services";
@@ -7,8 +9,32 @@ import SoftwareDevelopment from "@/components/modules/software-development";
 import TrainingPath from "@/components/modules/training-path";
 import TrainingServices from "@/components/modules/training-services";
 import BookAssessment from "@/components/modules/book-assessment";
+import { useEffect } from "react";
 
-const page = () => {
+const ServicesPage = () => {
+  useEffect(() => {
+    // Handle scroll to section on page load
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove the # from the hash
+      const id = hash.substring(1);
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 100; // Offset for fixed navbar
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="space-y-16 pt-10 sm:pt-36">
       <div className="bg-dark min-h-[280px] sm:min-h-[369px] flex items-center px-4 sm:px-8 lg:px-12">
@@ -23,17 +49,33 @@ const page = () => {
         </div>
       </div>
 
-      <ManagedServices />
-      <CloudManagement />
-      <ManagedSecurity />
-      <ProjectManagement />
-      <SoftwareDevelopment />
-      <ProjectRisk />
-      <TrainingServices />
-      <TrainingPath />
+      <div id="managed-it-services">
+        <ManagedServices />
+      </div>
+      <div id="cloud-management">
+        <CloudManagement />
+      </div>
+      <div id="managed-security">
+        <ManagedSecurity />
+      </div>
+      <div id="project-management">
+        <ProjectManagement />
+      </div>
+      <div id="software-development">
+        <SoftwareDevelopment />
+      </div>
+      <div id="project-risk">
+        <ProjectRisk />
+      </div>
+      <div id="training-services">
+        <TrainingServices />
+      </div>
+      <div id="training-path">
+        <TrainingPath />
+      </div>
       <BookAssessment />
     </div>
   );
 };
 
-export default page;
+export default ServicesPage;
