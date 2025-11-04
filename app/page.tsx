@@ -93,8 +93,8 @@ export default function Home() {
             waveSpeed={0.05}
           />
         </div>
-          <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20 pointer-events-none">
-            <div className="max-w-7xl mx-auto lg:ml-[10rem]">
+          <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20">
+            <div className="max-w-7xl mx-auto">
             <div className="flex flex-col gap-y-6 sm:gap-y-8 max-w-3xl">
               {/* AI + Human Badge */}
               <motion.span
@@ -174,7 +174,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
-                <Link href="/contact-us" className="pointer-events-auto">
+                <Link href="/contact-us">
                   <Button
                     className="w-full sm:w-fit shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all"
                     size="lg"
@@ -182,7 +182,7 @@ export default function Home() {
                     Get Started Today
                   </Button>
                 </Link>
-                <Link href="/contact-us" className="pointer-events-auto">
+                <Link href="/contact-us">
                   <Button
                     className="w-full sm:w-fit bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white/30 text-amber-50"
                     size="lg"
