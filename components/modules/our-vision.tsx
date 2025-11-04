@@ -90,9 +90,9 @@ const OurVision = () => {
                 CoreInnovate was created with a simple but powerful mission: to
                 bridge the gap between technology and business outcomes. Too
                 often, organisations struggle with IT that is reactive, insecure,
-                or misaligned with their goals. Our founder, Michael Folorunsho,
+                or misaligned with their goals. Our founder, Michael Folley,
                 saw first-hand how the right strategy and support could transform
-                businesses — not just by fixing problems, but by preventing them
+                businesses, not just by fixing problems, but by preventing them
                 and driving growth.
               </p>
             </motion.div>

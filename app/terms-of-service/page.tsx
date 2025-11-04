@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FileText, AlertCircle } from "lucide-react"
+import { FileText, AlertCircle, Shield, Scale, Lock } from "lucide-react"
 import Link from "next/link"
 
 export default function TermsOfServicePage() {
@@ -25,18 +25,18 @@ export default function TermsOfServicePage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-dm-sans text-white">
-              Terms of Service
+              Terms & Conditions
             </h1>
 
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Last updated: January 2025
+              Last updated: November 3rd, 2025
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         {/* Introduction */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,110 +44,487 @@ export default function TermsOfServicePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="prose prose-lg max-w-none mb-12"
         >
-          <p className="text-grey leading-relaxed">
-            Please read these Terms of Service (&quot;Terms&quot;, &quot;Terms of Service&quot;) carefully before using the CoreInnovate IT website and services operated by CoreInnovate IT (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;).
-          </p>
-        </motion.div>
-
-        {/* Sections */}
-        <div className="space-y-8">
-          {[
-            {
-              title: "1. Agreement to Terms",
-              content: "By accessing or using our services, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access our services."
-            },
-            {
-              title: "2. Use License",
-              content: "Permission is granted to temporarily access our services for personal, non-commercial use only. This license does not include: modifying or copying the materials, using the materials for commercial purposes, attempting to reverse engineer any software, removing any copyright or proprietary notations, or transferring the materials to another person."
-            },
-            {
-              title: "3. Services Description",
-              content: "CoreInnovate IT provides managed IT services, cybersecurity solutions, cloud services, and related technology consulting. We reserve the right to modify, suspend, or discontinue any aspect of our services at any time without notice."
-            },
-            {
-              title: "4. User Responsibilities",
-              content: "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account."
-            },
-            {
-              title: "5. Intellectual Property",
-              content: "The service and its original content, features, and functionality are owned by CoreInnovate IT and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws."
-            },
-            {
-              title: "6. Service Level Agreements",
-              content: "Specific service level agreements (SLAs) will be detailed in individual service contracts. We strive to maintain 99.9% uptime for critical services, with planned maintenance communicated in advance."
-            },
-            {
-              title: "7. Data Protection and Privacy",
-              content: "We are committed to protecting your data in accordance with GDPR and other applicable data protection regulations. Please refer to our Privacy Policy for detailed information on how we handle your data."
-            },
-            {
-              title: "8. Limitation of Liability",
-              content: "In no event shall CoreInnovate IT, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses."
-            },
-            {
-              title: "9. Indemnification",
-              content: "You agree to defend, indemnify, and hold harmless CoreInnovate IT and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from any claims, damages, obligations, losses, liabilities, costs or debt, and expenses arising from your use of our services."
-            },
-            {
-              title: "10. Termination",
-              content: "We may terminate or suspend access to our service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. All provisions of the Terms shall survive termination."
-            },
-            {
-              title: "11. Governing Law",
-              content: "These Terms shall be governed and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights."
-            },
-            {
-              title: "12. Changes to Terms",
-              content: "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our service after those revisions become effective, you agree to be bound by the revised terms."
-            }
-          ].map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-primary/30 transition-all duration-500"
-            >
-              <h2 className="text-xl font-bold font-dm-sans text-secondary mb-4">
-                {section.title}
-              </h2>
-              <p className="text-grey leading-relaxed">
-                {section.content}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 bg-gradient-to-r from-primary/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-8 border border-primary/30"
-        >
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
-                <AlertCircle className="w-6 h-6 text-white" />
-              </div>
-            </div>
-
-            <div className="flex-1 space-y-4">
-              <h2 className="text-2xl font-bold font-dm-sans text-secondary">
-                Questions About These Terms?
-              </h2>
-              <p className="text-grey leading-relaxed">
-                If you have any questions about these Terms of Service, please contact us:
-              </p>
-              <ul className="space-y-2 text-grey">
-                <li>Email: hello@coreinnovate.co.uk</li>
-                <li>Address: London, United Kingdom</li>
-              </ul>
-            </div>
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">General Terms</h2>
+            <p className="text-grey leading-relaxed text-lg mb-4">
+              By accessing and placing an order with Core Innovate IT Ltd, you confirm that you are in agreement with and bound by the terms of service contained in the Terms & Conditions outlined below. These terms apply to the entire website and any email or other type of communication between you and Core Innovate IT.
+            </p>
+            <p className="text-grey leading-relaxed">
+              Under no circumstances shall Core Innovate IT team be liable for any direct, indirect, special, incidental or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if Core Innovate IT team or an authorized representative has been advised of the possibility of such damages.
+            </p>
           </div>
         </motion.div>
+
+        {/* Main Sections */}
+        <div className="space-y-8">
+
+          {/* Definitions */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-6">
+              Definitions and Key Terms
+            </h2>
+
+            <div className="space-y-4">
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Cookie</h3>
+                <p className="text-grey leading-relaxed">
+                  Small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Company</h3>
+                <p className="text-grey leading-relaxed">
+                  When these terms mention &quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our,&quot; it refers to Core Innovate IT Ltd (Suite 248, Corinium House, Barnwood Business Park, Gloucester, GL4 3HX, United Kingdom), which is responsible for your information under these Terms & Conditions.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Country</h3>
+                <p className="text-grey leading-relaxed">
+                  Where Core Innovate IT or the owners/founders of Core Innovate IT are based, in this case is United Kingdom.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Device</h3>
+                <p className="text-grey leading-relaxed">
+                  Any internet connected device such as a phone, tablet, computer or any other device that can be used to visit Core Innovate IT and use the services.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Service</h3>
+                <p className="text-grey leading-relaxed">
+                  Refers to the service provided by Core Innovate IT Ltd as described in the relative terms (if available) and on this platform.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Third-party Service</h3>
+                <p className="text-grey leading-relaxed">
+                  Refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">Website</h3>
+                <p className="text-grey leading-relaxed">
+                  Core Innovate IT&apos;s site, which can be accessed via this URL:{" "}
+                  <a href="https://www.coreinnovateit.com" className="text-primary hover:text-cyan-400 transition-colors">
+                    https://www.coreinnovateit.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="pl-4 border-l-2 border-primary/30">
+                <h3 className="text-lg font-semibold text-white mb-2">You</h3>
+                <p className="text-grey leading-relaxed">
+                  A person or entity that is registered with Core Innovate IT to use the Services.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* License */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <h2 className="text-2xl font-bold font-dm-sans text-white">License</h2>
+                <p className="text-grey leading-relaxed">
+                  Core Innovate IT Ltd grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the website strictly in accordance with the terms of this Agreement.
+                </p>
+                <p className="text-grey leading-relaxed">
+                  You are agreeing to be bound by these Terms & Conditions. If you do not agree to these Terms & Conditions, please do not use the Core Innovate IT Service. In these Terms & Conditions, &quot;you&quot; refers both to you as an individual and to the entity you represent. If you violate any of these Terms & Conditions, we reserve the right to cancel your account or block access to your account without notice.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Restrictions */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
+                  <Lock className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <h2 className="text-2xl font-bold font-dm-sans text-white">Restrictions</h2>
+                <p className="text-grey leading-relaxed">
+                  You agree not to, and you will not permit others to:
+                </p>
+
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-3 text-grey">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the website or make the platform available to any third party</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-grey">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>Modify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the website</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-grey">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>Remove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of Core Innovate IT or its affiliates, partners, suppliers or the licensors of the website</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Return and Refund Policy */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Return and Refund Policy
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              Thanks for shopping at Core Innovate IT. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you&apos;re exploring, evaluating, and purchasing our products.
+            </p>
+            <p className="text-grey leading-relaxed">
+              If, for any reason, You are not completely satisfied with any good or service that we provide, don&apos;t hesitate to contact us and we will discuss any of the issues you are going through with our product.
+            </p>
+          </motion.div>
+
+          {/* Intellectual Property */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <h2 className="text-2xl font-bold font-dm-sans text-white">Intellectual Property</h2>
+                <p className="text-grey leading-relaxed">
+                  The website and its entire contents, features and functionality (including but not limited to all information, software, text, displays, images, video and audio, and the design, selection and arrangement thereof), are owned by Core Innovate IT, its licensors or other providers of such material and are protected by United Kingdom and international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws.
+                </p>
+                <p className="text-grey leading-relaxed">
+                  The material may not be copied, modified, reproduced, downloaded or distributed in any way, in whole or in part, without the express prior written permission of Core Innovate IT, unless and except as is expressly provided in these Terms & Conditions. Any unauthorized use of the material is prohibited.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Your Suggestions */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Your Suggestions
+            </h2>
+            <p className="text-grey leading-relaxed">
+              Any feedback, comments, ideas, improvements or suggestions (collectively, &quot;Suggestions&quot;) provided by you to Core Innovate IT with respect to the website shall remain the sole and exclusive property of Core Innovate IT. Core Innovate IT shall be free to use, copy, modify, publish, or redistribute the Suggestions for any purpose and in any way without any credit or any compensation to you.
+            </p>
+          </motion.div>
+
+          {/* Links to Other Websites */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Links to Other Websites
+            </h2>
+            <p className="text-grey leading-relaxed">
+              This Terms & Conditions applies only to the Services. The Services may contain links to other websites not operated or controlled by Core Innovate IT. We are not responsible for the content, accuracy or opinions expressed in such websites, and such websites are not investigated, monitored or checked for accuracy or completeness by us. Your browsing and interaction on any other website, including those that have a link on our platform, is subject to that website&apos;s own rules and policies.
+            </p>
+          </motion.div>
+
+          {/* Cookies */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Cookies
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              Core Innovate IT uses &quot;Cookies&quot; to identify the areas of our website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to enhance the performance and functionality of our website but are non-essential to their use.
+            </p>
+            <p className="text-grey leading-relaxed">
+              However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the website as we would not be able to remember that you had logged in previously. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our website correctly or at all. We never place Personally Identifiable Information in Cookies.
+            </p>
+            <p className="text-grey leading-relaxed mt-4">
+              For more information, please visit our{" "}
+              <Link href="/cookie-policy" className="text-primary hover:text-cyan-400 transition-colors">
+                Cookie Policy
+              </Link>
+              .
+            </p>
+          </motion.div>
+
+          {/* Term and Termination */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
+                  <Scale className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <h2 className="text-2xl font-bold font-dm-sans text-white">Term and Termination</h2>
+                <p className="text-grey leading-relaxed">
+                  This Agreement shall remain in effect until terminated by you or Core Innovate IT. Core Innovate IT may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.
+                </p>
+                <p className="text-grey leading-relaxed">
+                  This Agreement will terminate immediately, without prior notice from Core Innovate IT, in the event that you fail to comply with any provision of this Agreement. You may also terminate this Agreement by deleting the website and all copies thereof from your computer.
+                </p>
+                <p className="text-grey leading-relaxed">
+                  Upon termination of this Agreement, you shall cease all use of the website and delete all copies of the website from your computer. Termination of this Agreement will not limit any of Core Innovate IT&apos;s rights or remedies at law or in equity in case of breach by you (during the term of this Agreement) of any of your obligations under the present Agreement.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Indemnification */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Indemnification
+            </h2>
+            <p className="text-grey leading-relaxed">
+              You agree to indemnify and hold Core Innovate IT and its parents, subsidiaries, affiliates, officers, employees, agents, partners and licensors (if any) harmless from any claim or demand, including reasonable attorneys&apos; fees, due to or arising out of your: (a) use of the website; (b) violation of this Agreement or any law or regulation; or (c) violation of any right of a third party.
+            </p>
+          </motion.div>
+
+          {/* No Warranties */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              No Warranties
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              The website is provided to you &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, Core Innovate IT, on its own behalf and on behalf of its affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the website, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement.
+            </p>
+            <p className="text-grey leading-relaxed">
+              Without limitation to the foregoing, Core Innovate IT provides no warranty or undertaking, and makes no representation of any kind that the website will meet your requirements, achieve any intended results, be compatible or work with any other software, websites, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
+            </p>
+          </motion.div>
+
+          {/* Limitation of Liability */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Limitation of Liability
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              Notwithstanding any damages that you might incur, the entire liability of Core Innovate IT and any of its suppliers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by you for the website.
+            </p>
+            <p className="text-grey leading-relaxed">
+              To the maximum extent permitted by applicable law, in no event shall Core Innovate IT or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, for loss of data or other information, for business interruption, for personal injury, for loss of privacy arising out of or in any way related to the use of or inability to use the website, third-party software and/or third-party hardware used with the website, or otherwise in connection with any provision of this Agreement), even if Core Innovate IT or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.
+            </p>
+          </motion.div>
+
+          {/* Severability */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Severability
+            </h2>
+            <p className="text-grey leading-relaxed">
+              If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect. No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and Core Innovate IT&apos;s failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision.
+            </p>
+          </motion.div>
+
+          {/* Amendments */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-gradient-to-r from-primary/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-8 border border-primary/30"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Amendments to this Agreement
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              Core Innovate IT reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 30 days&apos; notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+            </p>
+            <p className="text-grey leading-relaxed">
+              By continuing to access or use our website after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use Core Innovate IT.
+            </p>
+          </motion.div>
+
+          {/* Governing Law */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Governing Law
+            </h2>
+            <p className="text-grey leading-relaxed">
+              The laws of United Kingdom, excluding its conflicts of law rules, shall govern this Agreement and your use of the website. Your use of the website may also be subject to other local, state, national, or international laws.
+            </p>
+          </motion.div>
+
+          {/* Dispute Resolution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Agreement to Arbitrate & Dispute Resolution
+            </h2>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Notice of Dispute</h3>
+                <p className="text-grey leading-relaxed">
+                  In the event of a dispute, you or Core Innovate IT must give the other a Notice of Dispute, which is a written statement that sets forth the name, address, and contact information of the party giving it, the facts giving rise to the dispute, and the relief requested. You must send any Notice of Dispute via email to:{" "}
+                  <a href="mailto:hello@coreinnovateit.co.uk" className="text-primary hover:text-cyan-400 transition-colors">
+                    hello@coreinnovateit.co.uk
+                  </a>
+                  . Core Innovate IT will send any Notice of Dispute to you by mail to your address if we have it, or otherwise to your email address. You and Core Innovate IT will attempt to resolve any dispute through informal negotiation within sixty (60) days from the date the Notice of Dispute is sent.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Binding Arbitration</h3>
+                <p className="text-grey leading-relaxed">
+                  If you and Core Innovate IT don&apos;t resolve any dispute by informal negotiation, any other effort to resolve the dispute will be conducted exclusively by binding arbitration as described in this section. You are giving up the right to litigate (or participate in as a party or class member) all disputes in court before a judge or jury.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Disclaimer */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          >
+            <h2 className="text-2xl font-bold font-dm-sans text-white mb-4">
+              Disclaimer
+            </h2>
+            <p className="text-grey leading-relaxed mb-4">
+              Core Innovate IT is not responsible for any content, code or any other imprecision. Core Innovate IT does not provide warranties or guarantees.
+            </p>
+            <p className="text-grey leading-relaxed">
+              In no event shall Core Innovate IT be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. The Company reserves the right to make additions, deletions, or modifications to the contents on the Service at any time without prior notice.
+            </p>
+          </motion.div>
+
+          {/* Contact Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-gradient-to-r from-primary/10 to-cyan-500/10 backdrop-blur-sm rounded-2xl p-8 border border-primary/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-cyan-500 rounded-xl flex items-center justify-center">
+                  <AlertCircle className="w-6 h-6 text-white" />
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <h2 className="text-2xl font-bold font-dm-sans text-white">
+                  Contact Us
+                </h2>
+                <p className="text-grey leading-relaxed">
+                  Don&apos;t hesitate to contact us if you have any questions regarding these Terms & Conditions:
+                </p>
+                <div className="text-grey space-y-2">
+                  <p><strong className="text-white">Core Innovate IT Ltd</strong></p>
+                  <p>Email: <a href="mailto:hello@coreinnovate.co.uk" className="text-primary hover:text-cyan-400 transition-colors">hello@coreinnovate.co.uk</a></p>
+                  <p>Phone: <a href="tel:+441452222192" className="text-primary hover:text-cyan-400 transition-colors">+44 (0) 1452 222192</a></p>
+                  <p className="leading-relaxed">
+                    Registered Office: Suite 248, Corinium House, Barnwood Point Business Park, Gloucester, GL4 0XZ, United Kingdom
+                  </p>
+                  <p>Company Number: 15566009</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
 
         {/* Back Link */}
         <motion.div

@@ -11,11 +11,15 @@ import CookieConsent from "@/components/shared/cookie-consent";
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -71,9 +75,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://coreinnovateit.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#16365f" />
+      </head>
       <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
         <NavBar />
-        {children}
+        <main>
+          {children}
+        </main>
         <Footer />
         <CookieConsent />
         <Toaster position="top-center" />

@@ -200,7 +200,7 @@ const testimonials = [
     position: "Director, Excellis Care Group Ltd",
     rating: 5,
     content:
-      "We were struggling with data security and compliance. Core Innovate guided us through Cyber Essentials certification and set up stronger protection for our systems. They made the process smooth and stress-free. Now our clients trust us more, and we feel safer from threats.",
+      "We were struggling with data security and compliance. Core Innovate guided us through Cyber Essentials certification and set up stronger protection for our systems. They made the process smooth and stress-free.",
   },
   {
     id: 2,
@@ -209,7 +209,7 @@ const testimonials = [
     position: "Founder, 7th Care",
     rating: 5,
     content:
-      "Core Innovate built our website from scratch and nailed the look we wanted. It's clean, fast, and works beautifully on mobile. They didn't just build a site, they helped us understand how to attract customers online. We've seen a big jump in inquiries since launch.",
+      "Core Innovate built our website from scratch and nailed the look we wanted. It's clean, fast, and works beautifully on mobile. We've seen a big jump in inquiries since launch.",
   },
   {
     id: 3,
@@ -218,24 +218,6 @@ const testimonials = [
     position: "Director, Statecare Solutions",
     rating: 5,
     content:
-      "Core Innovate transformed how we manage our IT. Their team is quick to respond and always explains things in plain English. Since moving to their managed support, downtime has dropped to nearly zero, and our staff can work without constant tech issues. It's like having our own IT department.",
-  },
-  {
-    id: 4,
-    title: "Professional cloud migration that exceeded expectations",
-    name: "David K.",
-    position: "CTO, HealthTech Solutions",
-    rating: 5,
-    content:
-      "Moving to the cloud felt daunting, but Core Innovate made it seamless. They planned everything meticulously, minimized disruption, and delivered ahead of schedule. Our systems are now faster, more secure, and easier to scale. The ROI has been exceptional.",
-  },
-  {
-    id: 5,
-    title: "Exceptional project management and delivery",
-    name: "Sarah L.",
-    position: "Operations Manager, Finance Corp",
-    rating: 5,
-    content:
-      "Core Innovate managed our entire IT infrastructure upgrade with precision. Clear communication, transparent timelines, and expert execution. They anticipated challenges before they became problems and kept everything on track and within budget.",
+      "Core Innovate transformed how we manage our IT. Their team is quick to respond and always explains things in plain English. Since moving to their managed support, downtime has dropped to nearly zero.",
   },
 ]

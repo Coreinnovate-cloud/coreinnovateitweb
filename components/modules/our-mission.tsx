@@ -60,15 +60,15 @@ const OurMission = () => {
           </div>
         </motion.div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Main Content */}
+        <div className="space-y-12">
           {/* Title Section */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="space-y-8"
+            className="space-y-8 max-w-4xl mx-auto text-center"
           >
             <div className="relative">
               {/* Decorative Element */}
@@ -112,7 +112,7 @@ const OurMission = () => {
             </div>
 
             {/* Mission Cards Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {missionPoints.map((point, index) => (
                 <motion.div
                   key={point.title}
@@ -148,11 +148,11 @@ const OurMission = () => {
 
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="space-y-6"
+            className="space-y-6 max-w-4xl mx-auto"
           >
             {/* Paragraph 1 */}
             <motion.div
@@ -171,9 +171,9 @@ const OurMission = () => {
                   CoreInnovate was created with a simple but powerful mission: to
                   bridge the gap between technology and business outcomes. Too often,
                   organisations struggle with IT that is reactive, insecure, or
-                  misaligned with their goals. Our founder, Michael Folorunsho, saw
+                  misaligned with their goals. Our founder, Michael Folley, saw
                   first-hand how the right strategy and support could transform
-                  businesses — not just by fixing problems, but by preventing them and
+                  businesses, not just by fixing problems, but by preventing them and
                   driving growth.
                 </p>
               </div>

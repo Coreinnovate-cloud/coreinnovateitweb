@@ -109,7 +109,7 @@ const OurValues = () => {
                     MF
                   </div>
                   <div>
-                    <p className="text-lg font-bold">Michael Folorunsho</p>
+                    <p className="text-lg font-bold">Michael Folley</p>
                     <p className="text-cyan-200 text-sm font-medium">
                       CEO & Founder
                     </p>
@@ -133,7 +133,7 @@ const OurValues = () => {
             <div className="relative h-[400px] lg:h-full rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/founder.jpg"
-                alt="Michael Folorunsho, CEO"
+                alt="Michael Folley, CEO"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -143,7 +143,7 @@ const OurValues = () => {
               {/* Name Badge */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
                 <p className="text-white font-bold text-lg">
-                  Michael Folorunsho
+                  Michael Folley
                 </p>
                 <p className="text-white/80 text-sm">CEO & Founder</p>
               </div>

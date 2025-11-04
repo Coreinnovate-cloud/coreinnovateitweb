@@ -74,7 +74,7 @@ const Founder = () => {
             Meet{" "}
             <span className="relative inline-block">
               <span className="relative z-10 bg-gradient-to-r from-primary via-cyan-500 to-blue-500 bg-clip-text text-transparent">
-                Michael Folorunsho
+                Michael Folley
               </span>
               <motion.span
                 initial={{ scaleX: 0 }}
@@ -117,7 +117,7 @@ const Founder = () => {
               <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
                 <Image
                   src="/mike.jpg"
-                  alt="Michael Folorunsho - Founder"
+                  alt="Michael Folley - Founder"
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   priority
@@ -203,7 +203,7 @@ const Founder = () => {
               >
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-500 to-transparent rounded-full" />
                 <p className="text-base text-grey leading-relaxed group-hover:text-secondary transition-colors duration-300">
-                  Michael Folorunsho is an accomplished Information Security and GRC
+                  Michael Folley is an accomplished Information Security and GRC
                   professional with over 15 years of experience spanning IT,
                   healthcare, public sector, and consulting. With deep expertise in
                   cyber risk management, compliance, and cloud security, he has a
