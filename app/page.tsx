@@ -31,36 +31,42 @@ export default function Home() {
       title: "Managed IT Services",
       description: "24/7 proactive IT support and infrastructure management",
       color: "from-blue-500 to-cyan-500",
+      link: "/services#managed-it-services",
     },
     {
       icon: Shield,
       title: "Cybersecurity",
       description: "Advanced threat protection and security operations",
       color: "from-red-500 to-orange-500",
+      link: "/services#managed-security",
     },
     {
       icon: Cloud,
       title: "Cloud Solutions",
       description: "Secure cloud migration and optimization services",
       color: "from-purple-500 to-indigo-500",
+      link: "/services#cloud-management",
     },
     {
       icon: Target,
-      title: "Project Risk Management",
+      title: "Project Management",
       description: "Expert IT project delivery and coordination",
       color: "from-green-500 to-teal-500",
+      link: "/services#project-management",
     },
     {
       icon: AlertTriangle,
       title: "Risk Management",
       description: "Comprehensive risk assessment and mitigation",
       color: "from-yellow-500 to-orange-500",
+      link: "/services#project-risk",
     },
     {
       icon: Lock,
       title: "Information Security",
       description: "Data protection and compliance solutions",
       color: "from-indigo-500 to-blue-500",
+      link: "/services#managed-security",
     },
   ]
 
@@ -93,8 +99,8 @@ export default function Home() {
             waveSpeed={0.05}
           />
         </div>
-          <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20">
-            <div className="max-w-7xl mx-auto">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20">
+          <div className="max-w-7xl mx-auto">
             <div className="flex flex-col gap-y-6 sm:gap-y-8 max-w-3xl">
               {/* AI + Human Badge */}
               <motion.span
@@ -225,15 +231,17 @@ export default function Home() {
                 </div>
 
                 <div className="text-white">
-                  <p className="text-xl sm:text-2xl font-bold font-dm-sans">200+</p>
+                  <p className="text-xl sm:text-2xl font-bold font-dm-sans">
+                    200+
+                  </p>
                   <p className="text-xs sm:text-sm text-white/80">
                     Trusted by businesses worldwide
                   </p>
                 </div>
               </motion.div>
             </div>
-            </div>
           </div>
+        </div>
 
         {/* Floating Elements */}
         <div className="absolute top-1/4 right-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
@@ -310,10 +318,12 @@ export default function Home() {
                       </p>
 
                       {/* Learn More Link */}
-                      <div className="flex items-center justify-center gap-2 text-primary font-semibold group-hover:gap-4 transition-all duration-300 cursor-pointer pt-2">
-                        <span>Learn More</span>
-                        <MoveUpRight className="w-5 h-5" />
-                      </div>
+                      <Link href={offering.link}>
+                        <div className="flex items-center justify-center gap-2 text-primary font-semibold group-hover:gap-4 transition-all duration-300 cursor-pointer pt-2">
+                          <span>Learn More</span>
+                          <MoveUpRight className="w-5 h-5" />
+                        </div>
+                      </Link>
                     </div>
                   </div>
 

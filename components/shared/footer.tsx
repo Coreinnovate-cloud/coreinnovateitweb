@@ -3,12 +3,13 @@
 import { motion } from "framer-motion"
 import {
   ArrowRight,
-  Github,
+  Facebook,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
+  X,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -16,9 +17,10 @@ import { Button } from "./button"
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/coreinnovateit", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/coreinnovate-it", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/coreinnovate", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/coreinnovate-it-solutions/", label: "LinkedIn" },
+    { icon: X, href: "https://x.com/CoreinnovateIT", label: "X (Twitter)" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61583222586980", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/coreinnovateit/", label: "Instagram" },
   ]
 
   return (

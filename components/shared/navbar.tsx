@@ -306,5 +306,5 @@ const services = [
   { name: "Managed Security", id: "managed-security" },
   { name: "Project Management", id: "project-management" },
   { name: "Software Development", id: "software-development" },
-  { name: "Project Risk", id: "project-risk" },
+  { name: "Risk Management", id: "project-risk" },
 ]
