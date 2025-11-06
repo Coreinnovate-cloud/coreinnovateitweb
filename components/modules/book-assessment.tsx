@@ -73,10 +73,15 @@ const BookAssessment = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/40 text-primary backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/20 to-cyan-500/20 border border-primary/40 text-primary backdrop-blur-sm"
                 >
-                  <Zap className="w-4 h-4" />
-                  <span className="font-semibold text-sm">Get Started Today</span>
+                  <motion.div
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Zap className="w-4 h-4" />
+                  </motion.div>
+                  <span className="font-semibold text-sm uppercase tracking-wider">Get Started Today</span>
                 </motion.div>
 
                 {/* Heading */}
@@ -161,12 +166,16 @@ const BookAssessment = () => {
                 />
 
                 {/* Card */}
-                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-primary/30 space-y-6 min-w-[320px]">
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-primary/30 space-y-6 min-w-[320px] hover:border-primary/50 transition-all duration-300">
                   {/* Icon */}
                   <div className="flex justify-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-16 h-16 bg-gradient-to-br from-primary to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl"
+                    >
                       <Shield className="w-8 h-8 text-white" />
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Text */}
@@ -208,12 +217,15 @@ const BookAssessment = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 + index * 0.1 }}
-                        className="text-center"
+                        whileHover={{ scale: 1.05 }}
+                        className="text-center group cursor-default"
                       >
-                        <div className="text-xl font-bold font-dm-sans text-white">
+                        <div className="text-xl font-bold font-dm-sans bg-gradient-to-r from-white via-primary to-cyan-400 bg-clip-text text-transparent">
                           {stat.value}
                         </div>
-                        <div className="text-xs text-white/60">{stat.label}</div>
+                        <div className="text-xs text-white/60 group-hover:text-white/80 transition-colors">
+                          {stat.label}
+                        </div>
                       </motion.div>
                     ))}
                   </div>

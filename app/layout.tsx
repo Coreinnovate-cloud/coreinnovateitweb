@@ -76,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="KzI9eoAUC6TjQGSJMipOGYAoAUjbbw39N_aqvD829eM" />
         <link rel="canonical" href="https://coreinnovateit.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#16365f" />

@@ -172,7 +172,7 @@ const ProjectRisk = () => {
             className="text-4xl sm:text-5xl font-bold font-dm-sans"
           >
             <span className="bg-gradient-to-r from-white via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-              Project Risk Management Services
+              Project Management Services
             </span>
           </motion.h3>
 
@@ -182,7 +182,7 @@ const ProjectRisk = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-grey max-w-[600px] mx-auto text-lg font-medium leading-relaxed"
           >
-            At CoreInnovate, our Project Risk Management Services help you{" "}
+            At CoreInnovate, our Project Management Services help you{" "}
             <span className="text-amber-400 font-semibold">
               anticipate, evaluate, and control
             </span>{" "}
@@ -393,7 +393,7 @@ const ProjectRisk = () => {
                 <Image
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  alt="Project Risk Management"
+                  alt="Project Management"
                   src={`/project-risk.jpg`}
                 />
               </div>

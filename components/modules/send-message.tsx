@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion"
 import { Send, Sparkles } from "lucide-react"
-import Image from "next/image"
 import React, { useRef, useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import { toast } from "sonner"
+import AnimatedConnections from "../shared/animated-connections"
 import { Button } from "../shared/button"
 import { Input } from "../ui/input"
 import {
@@ -135,18 +135,12 @@ const SendMessage = () => {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            {/* Image Card */}
-            <div className="relative h-[300px] lg:h-[400px] w-full rounded-3xl overflow-hidden group">
-              <Image
-                src={`/support.jpg`}
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                fill
-                alt="support"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+            {/* Animated Connections Card */}
+            <div className="relative h-[300px] lg:h-[400px] w-full rounded-3xl overflow-hidden group shadow-xl">
+              <AnimatedConnections />
 
               {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl">
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl z-10">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <Send className="w-6 h-6 text-primary" />
