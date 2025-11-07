@@ -17,10 +17,22 @@ import { Button } from "./button"
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Linkedin, href: "https://www.linkedin.com/company/coreinnovate-it-solutions/", label: "LinkedIn" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/company/coreinnovate-it-solutions/",
+      label: "LinkedIn",
+    },
     { icon: X, href: "https://x.com/CoreinnovateIT", label: "X (Twitter)" },
-    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61583222586980", label: "Facebook" },
-    { icon: Instagram, href: "https://www.instagram.com/coreinnovateit/", label: "Instagram" },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/profile.php?id=61583222586980",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/coreinnovateit/",
+      label: "Instagram",
+    },
   ]
 
   return (
@@ -55,7 +67,7 @@ const Footer = () => {
                 <div className="relative">
                   <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-cyan-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Image
-                    src="/logo-white.png"
+                    src="/CORE_INNOVATION_IT_SOLUTION.jpg"
                     width={120}
                     height={76}
                     alt="CoreInnovate logo"
@@ -96,6 +108,8 @@ const Footer = () => {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -156,11 +170,12 @@ const Footer = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: "Managed IT & Security", id: "managed-it-services" },
+                    { name: "Managed IT Services", id: "managed-it-services" },
+                    { name: "Cybersecurity", id: "managed-security" },
                     { name: "Cloud Solutions", id: "cloud-management" },
-                    { name: "Managed Security", id: "managed-security" },
-                    { name: "Software Development", id: "software-development" },
-                    { name: "Project Risk", id: "project-risk" },
+                    { name: "Project Management", id: "project-management" },
+                    { name: "Risk Management", id: "project-risk" },
+                    { name: "Information Security", id: "managed-security" },
                   ].map((service) => (
                     <Link
                       key={service.id}
@@ -168,7 +183,9 @@ const Footer = () => {
                       className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
                     >
                       <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
-                      <span className="text-sm font-medium">{service.name}</span>
+                      <span className="text-sm font-medium">
+                        {service.name}
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -271,7 +288,9 @@ const Footer = () => {
           className="border-t border-white/10 py-4 text-center"
         >
           <p className="text-xs text-white/30 leading-relaxed px-4">
-            Registered in England and Wales (Company No. 15566009). Registered Office: Suite 248, Corinium House, Barnwood Point Business Park, Gloucester, GL4 0XZ.
+            Registered in England and Wales (Company No. 15566009). Registered
+            Office: Suite 248, Corinium House, Barnwood Point Business Park,
+            Gloucester, GL4 0XZ.
           </p>
         </motion.div>
       </div>
