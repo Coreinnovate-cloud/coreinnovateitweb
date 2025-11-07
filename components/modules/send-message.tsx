@@ -29,6 +29,7 @@ const SendMessage = () => {
     email: "",
     phone: "",
     companyName: "",
+    jobTitle: "",
     message: "",
     service: "",
   })
@@ -67,6 +68,7 @@ const SendMessage = () => {
             Email: formData.email,
             Phone: formData.phone,
             Company: formData.companyName,
+            JobTitle: formData.jobTitle,
             Service: formData.service,
             Message: formData.message,
             "g-recaptcha-response": captchaValue,
@@ -81,6 +83,7 @@ const SendMessage = () => {
           email: "",
           phone: "",
           companyName: "",
+          jobTitle: "",
           message: "",
           service: "",
         })
@@ -260,6 +263,13 @@ const SendMessage = () => {
                 onChange={(e) =>
                   handleInputChange("companyName", e.target.value)
                 }
+              />
+              <Input
+                label="Job Title"
+                name="Job Title"
+                placeholder="Job Title"
+                value={formData.jobTitle}
+                onChange={(e) => handleInputChange("jobTitle", e.target.value)}
               />
               <Select
                 name="Service"
