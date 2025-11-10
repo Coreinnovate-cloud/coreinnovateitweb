@@ -155,9 +155,16 @@ const Footer = () => {
                       <Button
                         type="submit"
                         disabled={loading}
-                        className="rounded-full px-6 shadow-lg hover:shadow-primary/50 transition-all duration-300"
+                        className="rounded-full px-6 shadow-lg hover:shadow-primary/50 transition-all duration-300 min-w-[110px]"
                       >
-                        {loading ? "..." : "Subscribe"}
+                        {loading ? (
+                          <span className="flex items-center gap-2">
+                            <span className="animate-spin">⏳</span>
+                            Sending...
+                          </span>
+                        ) : (
+                          "Subscribe"
+                        )}
                       </Button>
                     </div>
                   </div>
