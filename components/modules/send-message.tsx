@@ -22,6 +22,7 @@ const SendMessage = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null)
   const recaptchaRef = useRef<ReCAPTCHA>(null)
   const [captchaError, setCaptchaError] = useState<string>("")
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -53,16 +54,19 @@ const SendMessage = () => {
     try {
       setLoading(true)
 
+      // Use AJAX endpoint for FormSubmit
       const response = await fetch(
-        "https://formsubmit.co/hello@coreinnovate.co.uk",
+        "https://formsubmit.co/ajax/hello@coreinnovateit.co.uk",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
           body: JSON.stringify({
             _subject: "New Contact Form Submission",
             _replyto: formData.email,
+            _captcha: "false", // Disable FormSubmit's captcha since we use reCAPTCHA
             FirstName: formData.firstName,
             LastName: formData.lastName,
             Email: formData.email,
@@ -76,7 +80,9 @@ const SendMessage = () => {
         }
       )
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (response.ok && data.success) {
         setFormData({
           firstName: "",
           lastName: "",
@@ -88,7 +94,15 @@ const SendMessage = () => {
           service: "",
         })
         recaptchaRef.current?.reset()
-        toast.success("Message sent successfully!")
+        setIsSuccess(true)
+        toast.success(
+          "Message sent successfully! We'll get back to you soon.",
+          {
+            duration: 5000,
+          }
+        )
+        // Reset success state after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000)
       } else {
         toast.error("Error sending message. Please try again.")
       }
@@ -124,8 +138,8 @@ const SendMessage = () => {
             Let&apos;s Start a Conversation
           </h2>
           <p className="text-lg text-grey max-w-2xl mx-auto">
-            Have a question or ready to transform your IT infrastructure? We&apos;re
-            here to help.
+            Have a question or ready to transform your IT infrastructure?
+            We&apos;re here to help.
           </p>
         </motion.div>
 
@@ -205,15 +219,65 @@ const SendMessage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-100"
+            className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-100 relative"
           >
+            {/* Success Overlay */}
+            {isSuccess && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute inset-0 bg-gradient-to-br from-primary/95 to-cyan-500/95 rounded-3xl flex items-center justify-center z-50"
+              >
+                <div className="text-center text-white space-y-4 p-8">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className="w-20 h-20 bg-white rounded-full mx-auto flex items-center justify-center"
+                  >
+                    <svg
+                      className="w-12 h-12 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </motion.div>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-2xl font-bold"
+                  >
+                    Message Sent Successfully!
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-white/90"
+                  >
+                    Thank you for reaching out. We&apos;ll get back to you
+                    within 24 hours.
+                  </motion.p>
+                </div>
+              </motion.div>
+            )}
+
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-secondary mb-2">
                 Send us a message
               </h3>
               <p className="text-grey">
-                Fill out the form below and we&apos;ll get back to you as soon as
-                possible.
+                Fill out the form below and we&apos;ll get back to you as soon
+                as possible.
               </p>
             </div>
 

@@ -143,7 +143,7 @@ export const contacts = [
   {
     title: "Email Address",
     description: "Contact us by email, we will respond.",
-    contact: "hello@coreinnovate.co.uk",
+    contact: "hello@coreinnovateit.co.uk",
     icon: "/mail.svg",
   },
   {

@@ -230,6 +230,12 @@ const Footer = () => {
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>+44 (0) 1452 222192</span>
                   </div>
+                  <div className="flex items-center gap-2 text-white/60 text-xs">
+                    <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                    <a href="mailto:hello@coreinnovateit.co.uk" className="hover:text-primary transition-colors">
+                      hello@coreinnovateit.co.uk
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </div>
