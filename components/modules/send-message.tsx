@@ -5,6 +5,7 @@ import { Send, Sparkles } from "lucide-react"
 import React, { useRef, useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import { toast } from "sonner"
+import AnimatedConnections from "../shared/animated-connections"
 import { Button } from "../shared/button"
 import { Input } from "../ui/input"
 import {
@@ -43,11 +44,10 @@ const SendMessage = () => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Temporarily disabled for testing
-    // if (!captchaValue) {
-    //   setCaptchaError("Please verify that you are not a robot.")
-    //   return
-    // }
+    if (!captchaValue) {
+      setCaptchaError("Please verify that you are not a robot.")
+      return
+    }
 
     setCaptchaError("")
 
@@ -66,7 +66,7 @@ const SendMessage = () => {
           body: JSON.stringify({
             _subject: "New Contact Form Submission",
             _replyto: formData.email,
-            _captcha: "false", // Disable FormSubmit's captcha since we'll use our own
+            _captcha: "false", // Disable FormSubmit's captcha since we use reCAPTCHA
             FirstName: formData.firstName,
             LastName: formData.lastName,
             Email: formData.email,
@@ -75,6 +75,7 @@ const SendMessage = () => {
             JobTitle: formData.jobTitle,
             Service: formData.service,
             Message: formData.message,
+            "g-recaptcha-response": captchaValue,
           }),
         }
       )
@@ -94,9 +95,12 @@ const SendMessage = () => {
         })
         recaptchaRef.current?.reset()
         setIsSuccess(true)
-        toast.success("Message sent successfully! We'll get back to you soon.", {
-          duration: 5000,
-        })
+        toast.success(
+          "Message sent successfully! We'll get back to you soon.",
+          {
+            duration: 5000,
+          }
+        )
         // Reset success state after 5 seconds
         setTimeout(() => setIsSuccess(false), 5000)
       } else {
@@ -150,7 +154,7 @@ const SendMessage = () => {
           >
             {/* Animated Connections Card */}
             <div className="relative h-[300px] lg:h-[400px] w-full rounded-3xl overflow-hidden group shadow-xl">
-              {/* <AnimatedConnections /> */}
+              <AnimatedConnections />
 
               {/* Floating Badge */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl z-10">
@@ -260,8 +264,8 @@ const SendMessage = () => {
                     transition={{ delay: 0.4 }}
                     className="text-white/90"
                   >
-                    Thank you for reaching out. We&apos;ll get back to you within 24
-                    hours.
+                    Thank you for reaching out. We&apos;ll get back to you
+                    within 24 hours.
                   </motion.p>
                 </div>
               </motion.div>
@@ -370,8 +374,7 @@ const SendMessage = () => {
                   required
                 />
 
-                {/* Temporarily disabled for testing */}
-                {/* <div className="space-y-4">
+                <div className="space-y-4">
                   <ReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY!}
                     ref={recaptchaRef}
@@ -381,7 +384,7 @@ const SendMessage = () => {
                   {captchaError && (
                     <p className="text-red-500 text-sm">{captchaError}</p>
                   )}
-                </div> */}
+                </div>
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
