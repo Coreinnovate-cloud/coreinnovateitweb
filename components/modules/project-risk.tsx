@@ -146,7 +146,7 @@ const ProjectRisk = () => {
           className="text-center space-y-4"
         >
           {/* Glowing Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
@@ -163,7 +163,7 @@ const ProjectRisk = () => {
             <span className="text-sm font-semibold text-amber-500 uppercase tracking-wider">
               Risk Management
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <motion.h3
             initial={{ opacity: 0, y: 20 }}

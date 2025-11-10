@@ -43,10 +43,11 @@ const SendMessage = () => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!captchaValue) {
-      setCaptchaError("Please verify that you are not a robot.")
-      return
-    }
+    // Temporarily disabled for testing
+    // if (!captchaValue) {
+    //   setCaptchaError("Please verify that you are not a robot.")
+    //   return
+    // }
 
     setCaptchaError("")
 
@@ -54,7 +55,7 @@ const SendMessage = () => {
       setLoading(true)
 
       const response = await fetch(
-        "https://formsubmit.co/hello@coreinnovate.co.uk",
+        "https://formsubmit.co/hello@coreinnovateit.co.uk",
         {
           method: "POST",
           headers: {
@@ -310,7 +311,8 @@ const SendMessage = () => {
                   required
                 />
 
-                <div className="space-y-4">
+                {/* Temporarily disabled for testing */}
+                {/* <div className="space-y-4">
                   <ReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY!}
                     ref={recaptchaRef}
@@ -320,7 +322,7 @@ const SendMessage = () => {
                   {captchaError && (
                     <p className="text-red-500 text-sm">{captchaError}</p>
                   )}
-                </div>
+                </div> */}
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
