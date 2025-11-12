@@ -4,11 +4,13 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { CircleCheck, Sparkles, Calendar, Target, Users, ClipboardCheck, TrendingUp, BarChart3 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const ProjectManagement = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const router = useRouter();
 
   const serviceIcons = [Calendar, Target, Users, ClipboardCheck, TrendingUp, BarChart3];
 
@@ -358,6 +360,7 @@ const ProjectManagement = () => {
               className="pt-4"
             >
               <motion.button
+                onClick={() => router.push("/contact-us")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative group px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold shadow-lg hover:shadow-purple-500/50 transition-all duration-300"

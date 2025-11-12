@@ -20,24 +20,32 @@ const ServicesPage = () => {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
 
   useEffect(() => {
-    // Handle scroll to section on page load
-    const hash = window.location.hash
-    if (hash) {
-      const id = hash.substring(1)
-      setTimeout(() => {
-        const element = document.getElementById(id)
-        if (element) {
-          const offset = 100
-          const elementPosition = element.getBoundingClientRect().top
-          const offsetPosition = elementPosition + window.pageYOffset - offset
+    // Handle scroll to section on page load and hash change
+    const handleHashScroll = () => {
+      const hash = window.location.hash
+      if (hash) {
+        const id = hash.substring(1)
+        setTimeout(() => {
+          const element = document.getElementById(id)
+          if (element) {
+            const offset = 100
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - offset
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          })
-        }
-      }, 100)
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            })
+          }
+        }, 100)
+      }
     }
+
+    // Scroll on initial load
+    handleHashScroll()
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashScroll)
 
     // Mouse move effect
     const handleMouseMove = (e: MouseEvent) => {
@@ -45,7 +53,11 @@ const ServicesPage = () => {
     }
 
     window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashScroll)
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
   }, [])
 
   // Floating particles effect

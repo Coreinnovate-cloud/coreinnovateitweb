@@ -13,9 +13,14 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
+import { toast } from "sonner"
 import { Button } from "./button"
 
 const Footer = () => {
+  const [email, setEmail] = useState("")
+  const [loading, setLoading] = useState(false)
+
   const socialLinks = [
     {
       icon: Linkedin,
@@ -34,6 +39,53 @@ const Footer = () => {
       label: "Instagram",
     },
   ]
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!email) {
+      toast.error("Please enter your email address")
+      return
+    }
+
+    try {
+      setLoading(true)
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/hello@coreinnovateit.co.uk",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: "New Newsletter Subscription",
+            _replyto: email,
+            _captcha: "false",
+            Email: email,
+            Type: "Newsletter Subscription",
+          }),
+        }
+      )
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setEmail("")
+        toast.success("Thank you for subscribing to our newsletter!", {
+          duration: 5000,
+        })
+      } else {
+        toast.error("Error subscribing. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error)
+      toast.error("Error subscribing. Please try again.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <footer className="relative overflow-hidden">
@@ -84,22 +136,39 @@ const Footer = () => {
 
               {/* Newsletter */}
               <div className="space-y-3">
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full opacity-20 group-hover:opacity-40 blur transition-opacity duration-500" />
-                  <div className="relative flex items-center gap-2">
-                    <div className="relative flex-1">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                      <input
-                        className="w-full placeholder:text-white/40 text-sm py-3 pl-11 pr-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white focus:outline-none focus:border-primary/50 transition-colors duration-300"
-                        placeholder="Enter your email"
-                        type="email"
-                      />
+                <form onSubmit={handleNewsletterSubmit}>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full opacity-20 group-hover:opacity-40 blur transition-opacity duration-500" />
+                    <div className="relative flex items-center gap-2">
+                      <div className="relative flex-1">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                        <input
+                          className="w-full placeholder:text-white/40 text-sm py-3 pl-11 pr-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                          placeholder="Enter your email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          disabled={loading}
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        disabled={loading}
+                        className="rounded-full px-6 shadow-lg hover:shadow-primary/50 transition-all duration-300 min-w-[110px]"
+                      >
+                        {loading ? (
+                          <span className="flex items-center gap-2">
+                            <span className="animate-spin">⏳</span>
+                            Sending...
+                          </span>
+                        ) : (
+                          "Subscribe"
+                        )}
+                      </Button>
                     </div>
-                    <Button className="rounded-full px-6 shadow-lg hover:shadow-primary/50 transition-all duration-300">
-                      Subscribe
-                    </Button>
                   </div>
-                </div>
+                </form>
               </div>
 
               {/* Social Links */}
