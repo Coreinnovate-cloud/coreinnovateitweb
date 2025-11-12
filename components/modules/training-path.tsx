@@ -1,15 +1,26 @@
-"use client";
+"use client"
 
-import { individualProgrammes, organizationProgrammes } from "@/lib/data";
-import { CircleCheck, GraduationCap, Users, BookOpen, Zap, TrendingUp } from "lucide-react";
-import React, { useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { individualProgrammes, organizationProgrammes } from "@/lib/data"
+import { motion, useInView } from "framer-motion"
+import {
+  BookOpen,
+  CircleCheck,
+  GraduationCap,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react"
+import { useRouter } from "next/navigation"
+import React, { useState } from "react"
 
 const TrainingPath = () => {
-  const [hoveredIndividual, setHoveredIndividual] = useState<number | null>(null);
-  const [hoveredCorporate, setHoveredCorporate] = useState<number | null>(null);
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [hoveredIndividual, setHoveredIndividual] = useState<number | null>(
+    null
+  )
+  const [hoveredCorporate, setHoveredCorporate] = useState<number | null>(null)
+  const ref = React.useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const router = useRouter()
 
   // Floating knowledge nodes
   const knowledgeNodes = Array.from({ length: 25 }, (_, i) => ({
@@ -19,7 +30,7 @@ const TrainingPath = () => {
     size: Math.random() * 8 + 4,
     duration: Math.random() * 6 + 4,
     delay: Math.random() * 3,
-  }));
+  }))
 
   // Learning path lines
   const pathLines = Array.from({ length: 10 }, (_, i) => ({
@@ -29,10 +40,13 @@ const TrainingPath = () => {
     x2: Math.random() * 80 + 10,
     y2: Math.random() * 80 + 10,
     delay: i * 0.3,
-  }));
+  }))
 
   return (
-    <div className="px-4 sm:px-8 max-w-7xl mx-auto lg:px-12 relative overflow-hidden py-16" ref={ref}>
+    <div
+      className="px-4 sm:px-8 max-w-7xl mx-auto lg:px-12 relative overflow-hidden py-16"
+      ref={ref}
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none" />
 
@@ -214,7 +228,11 @@ const TrainingPath = () => {
                 </div>
                 <motion.div
                   animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="w-8 h-8 rounded-full border-2 border-blue-500/30 border-t-blue-500"
                 />
               </motion.div>
@@ -226,7 +244,8 @@ const TrainingPath = () => {
                 Training Programs
               </h3>
               <p className="text-grey max-w-[435px] text-base font-medium">
-                From beginner to job-ready, build the skills employers are looking for.
+                From beginner to job-ready, build the skills employers are
+                looking for.
               </p>
             </div>
 
@@ -245,12 +264,20 @@ const TrainingPath = () => {
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-lg opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"
                     initial={false}
-                    animate={hoveredIndividual === index ? { scale: 1.05 } : { scale: 1 }}
+                    animate={
+                      hoveredIndividual === index
+                        ? { scale: 1.05 }
+                        : { scale: 1 }
+                    }
                   />
 
                   <div className="relative flex gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover/item:border-blue-500/50 transition-all duration-300">
                     <motion.div
-                      animate={hoveredIndividual === index ? { rotate: 360, scale: 1.2 } : { rotate: 0, scale: 1 }}
+                      animate={
+                        hoveredIndividual === index
+                          ? { rotate: 360, scale: 1.2 }
+                          : { rotate: 0, scale: 1 }
+                      }
                       transition={{ duration: 0.5 }}
                     >
                       <CircleCheck className="size-5 text-blue-400 flex-shrink-0 mt-1" />
@@ -261,7 +288,10 @@ const TrainingPath = () => {
                       </p>
                       <ul className="space-y-1">
                         {programme.topics.map((topic) => (
-                          <li className="text-sm text-grey flex items-center gap-2" key={topic}>
+                          <li
+                            className="text-sm text-grey flex items-center gap-2"
+                            key={topic}
+                          >
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50" />
                             {topic}
                           </li>
@@ -281,6 +311,7 @@ const TrainingPath = () => {
               className="pt-4"
             >
               <motion.button
+                onClick={() => router.push("/contact-us")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative group px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
@@ -290,7 +321,11 @@ const TrainingPath = () => {
                   Start Learning
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   >
                     →
                   </motion.span>
@@ -311,7 +346,8 @@ const TrainingPath = () => {
             <motion.div
               className="absolute inset-0 rounded-2xl"
               style={{
-                background: "linear-gradient(90deg, transparent, #6366f1, transparent)",
+                background:
+                  "linear-gradient(90deg, transparent, #6366f1, transparent)",
               }}
               animate={{
                 rotate: 360,
@@ -340,7 +376,11 @@ const TrainingPath = () => {
                   </div>
                   <motion.div
                     animate={{ rotate: [0, -360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className="w-8 h-8 rounded-full border-2 border-indigo-500/30 border-t-indigo-500"
                   />
                 </motion.div>
@@ -353,8 +393,8 @@ const TrainingPath = () => {
                     Training Programs
                   </h3>
                   <p className="text-grey max-w-[435px] text-base font-medium">
-                    Equip your workforce with the knowledge and skills to strengthen
-                    security and boost productivity.
+                    Equip your workforce with the knowledge and skills to
+                    strengthen security and boost productivity.
                   </p>
                 </div>
 
@@ -373,12 +413,20 @@ const TrainingPath = () => {
                       <motion.div
                         className="absolute -inset-2 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl blur-lg opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"
                         initial={false}
-                        animate={hoveredCorporate === index ? { scale: 1.05 } : { scale: 1 }}
+                        animate={
+                          hoveredCorporate === index
+                            ? { scale: 1.05 }
+                            : { scale: 1 }
+                        }
                       />
 
                       <div className="relative flex gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 group-hover/item:border-indigo-500/50 transition-all duration-300">
                         <motion.div
-                          animate={hoveredCorporate === index ? { rotate: 360, scale: 1.2 } : { rotate: 0, scale: 1 }}
+                          animate={
+                            hoveredCorporate === index
+                              ? { rotate: 360, scale: 1.2 }
+                              : { rotate: 0, scale: 1 }
+                          }
                           transition={{ duration: 0.5 }}
                         >
                           <CircleCheck className="size-5 text-indigo-400 fill-indigo-500/20 flex-shrink-0 mt-1" />
@@ -389,7 +437,10 @@ const TrainingPath = () => {
                           </p>
                           <ul className="space-y-1">
                             {programme.topics.map((topic) => (
-                              <li className="text-sm text-grey flex items-center gap-2" key={topic}>
+                              <li
+                                className="text-sm text-grey flex items-center gap-2"
+                                key={topic}
+                              >
                                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/50" />
                                 {topic}
                               </li>
@@ -409,6 +460,7 @@ const TrainingPath = () => {
                   className="pt-4"
                 >
                   <motion.button
+                    onClick={() => router.push("/contact-us")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="relative group px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-lg hover:shadow-indigo-500/50 transition-all duration-300"
@@ -418,7 +470,11 @@ const TrainingPath = () => {
                       Train Your Team
                       <motion.span
                         animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
                       >
                         →
                       </motion.span>
@@ -432,7 +488,7 @@ const TrainingPath = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TrainingPath;
+export default TrainingPath

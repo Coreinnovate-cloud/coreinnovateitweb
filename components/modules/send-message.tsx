@@ -143,17 +143,17 @@ const SendMessage = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
           {/* Left Column - Contact Info & Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="flex flex-col"
           >
             {/* Animated Connections Card */}
-            <div className="relative h-[300px] lg:h-[400px] w-full rounded-3xl overflow-hidden group shadow-xl">
+            <div className="relative h-[400px] lg:h-full min-h-[500px] w-full rounded-3xl overflow-hidden group shadow-xl flex-1">
               <AnimatedConnections />
 
               {/* Floating Badge */}
