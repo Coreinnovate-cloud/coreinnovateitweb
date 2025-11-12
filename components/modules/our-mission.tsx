@@ -1,8 +1,7 @@
 "use client"
 
-import React from "react"
 import { motion } from "framer-motion"
-import { Target, Rocket, Shield, Users } from "lucide-react"
+import { Rocket, Shield, Target, Users } from "lucide-react"
 
 const OurMission = () => {
   const missionPoints = [
@@ -39,10 +38,14 @@ const OurMission = () => {
 
       {/* Animated Dots Pattern */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle, #239dea15 1px, transparent 1px)",
-          backgroundSize: "40px 40px"
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #239dea15 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
       <div className="relative px-4 max-w-7xl mx-auto space-y-12">
@@ -56,7 +59,9 @@ const OurMission = () => {
         >
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary backdrop-blur-sm">
             <Target className="w-4 h-4" />
-            <span className="font-semibold text-sm uppercase tracking-wide">Our Mission</span>
+            <span className="font-semibold text-sm uppercase tracking-wide">
+              Our Mission
+            </span>
           </div>
         </motion.div>
 
@@ -125,10 +130,14 @@ const OurMission = () => {
                 >
                   <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-primary/40 transition-all duration-500 overflow-hidden">
                     {/* Gradient Background on Hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${point.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${point.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                    />
 
                     <div className="relative z-10 space-y-3">
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${point.color} p-2 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${point.color} p-2 group-hover:scale-110 transition-transform duration-300`}
+                      >
                         <point.icon className="w-full h-full text-white" />
                       </div>
                       <div>
@@ -163,18 +172,18 @@ const OurMission = () => {
               className="group relative"
             >
               {/* Quote Mark Decoration */}
-              <div className="absolute -top-4 -left-2 text-6xl text-primary/20 font-serif leading-none">&ldquo;</div>
+              <div className="absolute -top-4 -left-2 text-6xl text-primary/20 font-serif leading-none">
+                &ldquo;
+              </div>
 
               <div className="relative pl-6">
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primary via-cyan-500 to-transparent rounded-full" />
                 <p className="text-base sm:text-lg text-grey leading-relaxed group-hover:text-secondary transition-colors duration-300">
-                  CoreInnovate was created with a simple but powerful mission: to
-                  bridge the gap between technology and business outcomes. Too often,
-                  organisations struggle with IT that is reactive, insecure, or
-                  misaligned with their goals. Our founder, Michael Folley, saw
-                  first-hand how the right strategy and support could transform
-                  businesses, not just by fixing problems, but by preventing them and
-                  driving growth.
+                  Our mission is to empower businesses through technology that
+                  delivers real impact. We blend strategy, automation, and AI to
+                  create intelligent solutions that enhance performance, reduce
+                  risk, and unlock growth potential. Every decision we make is
+                  guided by purpose and driven by innovation.
                 </p>
               </div>
             </motion.div>
@@ -191,9 +200,9 @@ const OurMission = () => {
                 <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-cyan-500 via-blue-500 to-transparent rounded-full" />
                 <p className="text-base sm:text-lg text-grey leading-relaxed group-hover:text-secondary transition-colors duration-300">
                   From the start, CoreInnovate has been built on the belief that
-                  technology should empower people, protect organisations, and create
-                  long-term value. That vision continues to guide everything we do
-                  today.
+                  technology should empower people, protect organisations, and
+                  create long-term value. That vision continues to guide
+                  everything we do today.
                 </p>
               </div>
             </motion.div>

@@ -17,6 +17,10 @@ const NavBar = () => {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : ""
+    // Reset services dropdown when mobile menu closes
+    if (!isOpen) {
+      setIsServicesOpen(false)
+    }
   }, [isOpen])
 
   const linkClasses = (path: string) =>
@@ -250,7 +254,26 @@ const NavBar = () => {
                           transition={{ delay: index * 0.05 }}
                         >
                           <Link
-                            onClick={() => setIsOpen(false)}
+                            onClick={(e) => {
+                              setIsOpen(false)
+                              setIsServicesOpen(false)
+
+                              // Handle scroll if already on services page
+                              if (location === "/services") {
+                                e.preventDefault()
+                                const element = document.getElementById(service.id)
+                                if (element) {
+                                  const offset = 100
+                                  const elementPosition = element.getBoundingClientRect().top
+                                  const offsetPosition = elementPosition + window.pageYOffset - offset
+
+                                  window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: "smooth",
+                                  })
+                                }
+                              }
+                            }}
                             href={`/services#${service.id}`}
                             className="block text-center text-white/70 hover:text-primary transition-colors text-base"
                           >

@@ -1,16 +1,25 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import React, { useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { Cloud, CloudUpload, Gauge, DollarSign, Shield, Network, Sparkles, ArrowRight } from "lucide-react";
+import { motion, useInView } from "framer-motion"
+import {
+  ArrowRight,
+  Cloud,
+  CloudUpload,
+  DollarSign,
+  Gauge,
+  Network,
+  Shield,
+  Sparkles,
+} from "lucide-react"
+import Image from "next/image"
+import React, { useState } from "react"
 
 const CloudManagementServices = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const ref = React.useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
-  const serviceIcons = [CloudUpload, Gauge, DollarSign, Shield, Network];
+  const serviceIcons = [CloudUpload, Gauge, DollarSign, Shield, Network]
 
   // Floating cloud particles
   const cloudParticles = Array.from({ length: 15 }, (_, i) => ({
@@ -20,7 +29,7 @@ const CloudManagementServices = () => {
     size: Math.random() * 30 + 20,
     duration: Math.random() * 15 + 10,
     delay: Math.random() * 5,
-  }));
+  }))
 
   return (
     <div className="px-4 relative py-20 overflow-hidden" ref={ref}>
@@ -52,7 +61,10 @@ const CloudManagementServices = () => {
             ease: "easeInOut",
           }}
         >
-          <Cloud className="text-primary" style={{ width: particle.size, height: particle.size }} />
+          <Cloud
+            className="text-primary"
+            style={{ width: particle.size, height: particle.size }}
+          />
         </motion.div>
       ))}
 
@@ -135,8 +147,11 @@ const CloudManagementServices = () => {
             className="text-tertiary max-w-[600px] mx-auto text-lg font-medium"
           >
             Core Innovate helps you harness the full power of{" "}
-            <span className="text-blue-600 font-semibold">Microsoft Azure</span> and{" "}
-            <span className="text-cyan-600 font-semibold">Amazon Web Services (AWS)</span>
+            <span className="text-blue-600 font-semibold">Microsoft Azure</span>{" "}
+            and{" "}
+            <span className="text-cyan-600 font-semibold">
+              Amazon Web Services (AWS)
+            </span>
           </motion.p>
 
           {/* Decorative Lines */}
@@ -179,7 +194,9 @@ const CloudManagementServices = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blue-200 shadow-lg"
             >
               <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-600">Why Choose Core Innovate</span>
+              <span className="text-sm font-semibold text-blue-600">
+                Why Choose Core Innovate
+              </span>
             </motion.div>
 
             {/* Heading */}
@@ -195,14 +212,15 @@ const CloudManagementServices = () => {
                 </span>
               </h3>
               <p className="text-tertiary lg:max-w-[500px] text-base font-medium">
-                Our Cloud Management Services provide your business with comprehensive solutions
+                Our Cloud Management Services provide your business with
+                comprehensive solutions
               </p>
             </motion.div>
 
             {/* Services List */}
             <div className="space-y-4">
               {services.map((service, index) => {
-                const Icon = serviceIcons[index];
+                const Icon = serviceIcons[index]
                 return (
                   <motion.div
                     key={index}
@@ -217,7 +235,9 @@ const CloudManagementServices = () => {
                     <motion.div
                       className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       initial={false}
-                      animate={hoveredIndex === index ? { scale: 1.03 } : { scale: 1 }}
+                      animate={
+                        hoveredIndex === index ? { scale: 1.03 } : { scale: 1 }
+                      }
                     />
 
                     {/* Service Card */}
@@ -226,7 +246,11 @@ const CloudManagementServices = () => {
                         {/* Icon */}
                         <motion.div
                           className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg"
-                          animate={hoveredIndex === index ? { rotate: [0, -10, 10, -10, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
+                          animate={
+                            hoveredIndex === index
+                              ? { rotate: [0, -10, 10, -10, 0], scale: 1.1 }
+                              : { rotate: 0, scale: 1 }
+                          }
                           transition={{ duration: 0.5 }}
                         >
                           <Icon className="w-7 h-7 text-white" />
@@ -240,7 +264,11 @@ const CloudManagementServices = () => {
                             </h4>
                             <motion.div
                               initial={{ opacity: 0, x: -10 }}
-                              animate={hoveredIndex === index ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                              animate={
+                                hoveredIndex === index
+                                  ? { opacity: 1, x: 0 }
+                                  : { opacity: 0, x: -10 }
+                              }
                               transition={{ duration: 0.3 }}
                             >
                               <ArrowRight className="w-5 h-5 text-blue-600" />
@@ -255,13 +283,17 @@ const CloudManagementServices = () => {
                       {/* Step Number */}
                       <motion.div
                         className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-300/50 flex items-center justify-center"
-                        animate={hoveredIndex === index ? { scale: 1.2 } : { scale: 1 }}
+                        animate={
+                          hoveredIndex === index ? { scale: 1.2 } : { scale: 1 }
+                        }
                       >
-                        <span className="text-xs font-bold text-blue-600">{index + 1}</span>
+                        <span className="text-xs font-bold text-blue-600">
+                          {index + 1}
+                        </span>
                       </motion.div>
                     </div>
                   </motion.div>
-                );
+                )
               })}
             </div>
           </motion.div>
@@ -310,8 +342,12 @@ const CloudManagementServices = () => {
                       <CloudUpload className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-secondary font-bold text-sm">Azure & AWS Certified</p>
-                      <p className="text-tertiary text-xs">Expert Cloud Solutions</p>
+                      <p className="text-secondary font-bold text-sm">
+                        Azure & AWS Certified
+                      </p>
+                      <p className="text-tertiary text-xs">
+                        Expert Cloud Solutions
+                      </p>
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
@@ -327,7 +363,9 @@ const CloudManagementServices = () => {
                         transition={{ delay: 1.4 + i * 0.1, type: "spring" }}
                         className="bg-blue-50 rounded-lg p-2 text-center"
                       >
-                        <p className="text-lg font-bold text-blue-600">{stat.value}</p>
+                        <p className="text-lg font-bold text-blue-600">
+                          {stat.value}
+                        </p>
                         <p className="text-xs text-tertiary">{stat.label}</p>
                       </motion.div>
                     ))}
@@ -345,8 +383,12 @@ const CloudManagementServices = () => {
                 <div className="bg-gradient-to-r from-blue-600 to-cyan-600 backdrop-blur-xl rounded-xl p-4 shadow-xl">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-white font-bold text-sm">Multi-Cloud Expertise</p>
-                      <p className="text-white/80 text-xs">Hybrid & Multi-Cloud Support</p>
+                      <p className="text-white font-bold text-sm">
+                        Multi-Cloud Expertise
+                      </p>
+                      <p className="text-white/80 text-xs">
+                        Hybrid & Multi-Cloud Support
+                      </p>
                     </div>
                     <Network className="w-8 h-8 text-white" />
                   </div>
@@ -384,10 +426,10 @@ const CloudManagementServices = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CloudManagementServices;
+export default CloudManagementServices
 
 const services = [
   {
@@ -408,11 +450,11 @@ const services = [
   {
     title: "Security and Compliance",
     description:
-      "Your data is safe with us. We implement robust security frameworks, enforce best practices, and ensure compliance with industry regulations such as GDPR, ISO 27001, and HIPAA.",
+      "We help businesses achieve and maintain Cyber Essentials, Cyber Essentials Plus, and ISO 27001 compliance through expert guidance, secure frameworks, and ongoing protection.",
   },
   {
     title: "Hybrid and Multi-Cloud Support",
     description:
       "Whether you are running Azure, AWS, or a hybrid mix, we manage complex environments with ease and ensure seamless integration with your on-premises systems.",
   },
-];
+]
