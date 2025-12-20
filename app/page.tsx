@@ -252,9 +252,9 @@ export default function Home() {
       </div>
 
       {/* Core Offerings Section - Scroll Stack */}
-      <section className="relative bg-gradient-to-b from-white to-gray-50">
+      {/* <section className="relative bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 py-20">
-          {/* Section Header */}
+        
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +275,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Core Offerings Cards */}
         <div className="max-w-7xl mx-auto px-4 pb-12">
           <div className="grid md:grid-cols-2 gap-8">
             {coreOfferings.map((offering, index) => (
@@ -288,18 +287,18 @@ export default function Home() {
                 className="group"
               >
                 <div className="relative bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 hover:border-primary/30 hover:shadow-3xl transition-all duration-500 overflow-hidden min-h-[350px] flex flex-col justify-center">
-                  {/* Background Gradient Blob */}
+              
                   <div
                     className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${offering.color} opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-500`}
                   />
 
-                  {/* Card Number */}
+                  
                   <div className="absolute top-6 right-6 text-7xl sm:text-8xl font-bold text-gray-50 group-hover:text-primary/10 transition-colors leading-none">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
                   <div className="relative z-10 w-full space-y-6">
-                    {/* Icon with Gradient */}
+          
                     <div className="flex justify-center">
                       <div
                         className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br ${offering.color} p-5 sm:p-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl`}
@@ -308,7 +307,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Content */}
+               
                     <div className="space-y-4 text-center">
                       <h3 className="text-2xl sm:text-3xl font-bold font-dm-sans text-secondary group-hover:text-primary transition-colors duration-300">
                         {offering.title}
@@ -317,7 +316,7 @@ export default function Home() {
                         {offering.description}
                       </p>
 
-                      {/* Learn More Link */}
+                  
                       <Link href={offering.link}>
                         <div className="flex items-center justify-center gap-2 text-primary font-semibold group-hover:gap-4 transition-all duration-300 cursor-pointer pt-2">
                           <span>Learn More</span>
@@ -327,12 +326,12 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Bottom Border Accent */}
+               
                   <div
                     className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${offering.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`}
                   />
 
-                  {/* Corner Decoration */}
+             
                   <div className="absolute bottom-8 left-8 opacity-5 pointer-events-none">
                     <offering.icon className="w-32 h-32 text-gray-900" />
                   </div>
@@ -342,7 +341,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* CTA Section */}
+   
         <div className="max-w-7xl mx-auto px-4 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -364,7 +363,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI + Human Trust Banner */}
+ 
       <section className="py-16 px-4 bg-gradient-to-r from-dark via-secondary to-dark">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -415,7 +414,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rest of Content */}
+     
       {/* <OurServices /> */}
       <WhatSetsUsApart />
       <SecureScalablePartner />

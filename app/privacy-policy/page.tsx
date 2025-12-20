@@ -792,7 +792,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <p className="leading-relaxed">
                 Registered Office: Suite 248, Corinium House, Barnwood Point
-                Business Park, Gloucester, GL4 0XZ, United Kingdom
+                Business Park, Gloucester, GL4 3HX, United Kingdom
               </p>
               <p>Company Number: 15566009</p>
             </div>

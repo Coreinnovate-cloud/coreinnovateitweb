@@ -160,7 +160,7 @@ const NavBar = () => {
                       }}
                     >
                       <Link
-                        href={`/services#${service.id}`}
+                        href={service.href}
                         className="group block px-6 py-4 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-base font-medium border border-transparent hover:border-white/10"
                       >
                         <div className="flex items-center gap-3">
@@ -254,27 +254,11 @@ const NavBar = () => {
                           transition={{ delay: index * 0.05 }}
                         >
                           <Link
-                            onClick={(e) => {
+                            onClick={() => {
                               setIsOpen(false)
                               setIsServicesOpen(false)
-
-                              // Handle scroll if already on services page
-                              if (location === "/services") {
-                                e.preventDefault()
-                                const element = document.getElementById(service.id)
-                                if (element) {
-                                  const offset = 100
-                                  const elementPosition = element.getBoundingClientRect().top
-                                  const offsetPosition = elementPosition + window.pageYOffset - offset
-
-                                  window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: "smooth",
-                                  })
-                                }
-                              }
                             }}
-                            href={`/services#${service.id}`}
+                            href={service.href}
                             className="block text-center text-white/70 hover:text-primary transition-colors text-base"
                           >
                             {service.name}
@@ -324,10 +308,15 @@ const NavBar = () => {
 export default NavBar
 
 const services = [
-  { name: "Managed IT Services", id: "managed-it-services" },
-  { name: "Cloud Management", id: "cloud-management" },
-  { name: "Managed Security", id: "managed-security" },
-  { name: "Project Management", id: "project-management" },
-  { name: "Software Development", id: "software-development" },
-  { name: "Risk Management", id: "project-risk" },
+  { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
+  { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
+  { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
+  { name: "Compliance as a Service", id: "compliance-as-a-service", href: "/services/compliance-as-a-service" },
+  { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
+  { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
+  { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
+  { name: "Managed Password Management", id: "managed-password-management", href: "/services/managed-password-management" },
+  { name: "SaaS Protection", id: "saas-protection", href: "/services/saas-protection" },
+  { name: "Penetration Testing", id: "penetration-testing", href: "/services/penetration-testing" },
+  { name: "Data Backup & Disaster Recovery", id: "backup-disaster-recovery", href: "/services/backup-disaster-recovery" },
 ]
