@@ -301,7 +301,10 @@ const Footer = () => {
                   </div>
                   <div className="flex items-center gap-2 text-white/60 text-xs">
                     <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                    <a href="mailto:hello@coreinnovateit.co.uk" className="hover:text-primary transition-colors">
+                    <a
+                      href="mailto:hello@coreinnovateit.co.uk"
+                      className="hover:text-primary transition-colors"
+                    >
                       hello@coreinnovateit.co.uk
                     </a>
                   </div>
@@ -365,7 +368,7 @@ const Footer = () => {
           <p className="text-xs text-white/30 leading-relaxed px-4">
             Registered in England and Wales (Company No. 15566009). Registered
             Office: Suite 248, Corinium House, Barnwood Point Business Park,
-            Gloucester, GL4 0XZ.
+            Gloucester, GL4 3HX.
           </p>
         </motion.div>
       </div>
