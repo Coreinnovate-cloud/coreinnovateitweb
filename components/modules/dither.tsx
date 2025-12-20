@@ -160,7 +160,7 @@ const RetroEffect = forwardRef<
   { colorNum: number; pixelSize: number }
 >((props, ref) => {
   const { colorNum, pixelSize } = props
-  const WrappedRetroEffect = wrapEffect(RetroEffectImpl)
+  const WrappedRetroEffect = wrapEffect(RetroEffectImpl) as any
   return (
     <WrappedRetroEffect ref={ref} colorNum={colorNum} pixelSize={pixelSize} />
   )
