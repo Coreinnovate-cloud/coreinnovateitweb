@@ -1,12 +1,16 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import BookAssessment from "@/components/modules/book-assessment"
 import DecryptedText from "@/components/modules/decryptedtext"
-import Dither from "@/components/modules/dither"
 import Faqs from "@/components/modules/faqs"
 import Reviews from "@/components/modules/reviews"
 import SecureScalablePartner from "@/components/modules/secure-scalable-partner"
 import WhatSetsUsApart from "@/components/modules/what-sets-us-apart"
+
+const Dither = dynamic(() => import("@/components/modules/dither"), {
+  ssr: false,
+})
 
 import { Button } from "@/components/shared/button"
 import RemoteAvatar from "@/components/shared/remote-avatar"

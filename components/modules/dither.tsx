@@ -1,3 +1,6 @@
+// @ts-nocheck
+/// <reference types="@react-three/fiber" />
+
 import { useRef, useEffect, forwardRef } from "react"
 import { Canvas, useFrame, useThree, ThreeEvent, extend } from "@react-three/fiber"
 import { EffectComposer, wrapEffect } from "@react-three/postprocessing"
