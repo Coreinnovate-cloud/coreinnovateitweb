@@ -240,11 +240,11 @@ const Footer = () => {
                 <div className="space-y-3">
                   {[
                     { name: "Managed IT Services", id: "managed-it-services" },
-                    { name: "Cybersecurity", id: "managed-security" },
+                    { name: "Cybersecurity", id: "cybersecurity" },
                     { name: "Cloud Solutions", id: "cloud-management" },
                     { name: "Project Management", id: "project-management" },
                     { name: "Risk Management", id: "project-risk" },
-                    { name: "Information Security", id: "managed-security" },
+                    { name: "Information Security", id: "information-security" },
                   ].map((service) => (
                     <Link
                       key={service.id}

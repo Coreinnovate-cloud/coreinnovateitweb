@@ -101,7 +101,7 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#16365f" />
       </head>
-      <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
+      <body className={`${dmSans.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
         <NavBar />
         <main>{children}</main>
         <Footer />
