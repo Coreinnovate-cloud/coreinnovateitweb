@@ -88,6 +88,7 @@ export default function Home() {
             zIndex: 1,
           }}
         >
+          {/* //deployment */}
           <Dither
             waveColor={[0.086, 0.212, 0.373]}
             disableAnimation={false}
