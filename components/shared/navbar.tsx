@@ -146,30 +146,39 @@ const NavBar = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
               >
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {services.map((service, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {serviceCategories.map((category, categoryIndex) => (
                     <motion.div
-                      key={service.id}
+                      key={category.title}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{
                         duration: 0.4,
-                        delay: index * 0.08,
+                        delay: categoryIndex * 0.1,
                         ease: [0.4, 0, 0.2, 1],
                       }}
+                      className="space-y-4"
                     >
-                      <Link
-                        href={service.href}
-                        className="group block px-6 py-4 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-base font-medium border border-transparent hover:border-white/10"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
-                          <span className="group-hover:translate-x-1 transition-transform duration-300">
-                            {service.name}
-                          </span>
-                        </div>
-                      </Link>
+                      <h3 className="text-primary font-dm-sans font-semibold text-sm uppercase tracking-wider">
+                        {category.title}
+                      </h3>
+                      <div className="space-y-2">
+                        {category.services.map((service, index) => (
+                          <Link
+                            key={service.id}
+                            href={service.href}
+                            className="group block px-4 py-2.5 rounded-lg text-white/70 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-sm font-medium border border-transparent hover:border-white/10"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
+                              <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                {service.name}
+                              </span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </motion.div>
                   ))}
                 </div>
@@ -244,25 +253,34 @@ const NavBar = () => {
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="overflow-hidden mt-4 space-y-4"
+                      className="overflow-hidden mt-4 space-y-6"
                     >
-                      {services.map((service, index) => (
+                      {serviceCategories.map((category, categoryIndex) => (
                         <motion.div
-                          key={service.id}
+                          key={category.title}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
+                          transition={{ delay: categoryIndex * 0.1 }}
+                          className="space-y-3"
                         >
-                          <Link
-                            onClick={() => {
-                              setIsOpen(false)
-                              setIsServicesOpen(false)
-                            }}
-                            href={service.href}
-                            className="block text-center text-white/70 hover:text-primary transition-colors text-base"
-                          >
-                            {service.name}
-                          </Link>
+                          <h4 className="text-primary font-dm-sans font-semibold text-xs uppercase tracking-wider text-center">
+                            {category.title}
+                          </h4>
+                          <div className="space-y-2">
+                            {category.services.map((service, index) => (
+                              <Link
+                                key={service.id}
+                                onClick={() => {
+                                  setIsOpen(false)
+                                  setIsServicesOpen(false)
+                                }}
+                                href={service.href}
+                                className="block text-center text-white/70 hover:text-primary transition-colors text-sm"
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -307,16 +325,36 @@ const NavBar = () => {
 
 export default NavBar
 
-const services = [
-  { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
-  { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
-  { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
-  { name: "Compliance as a Service", id: "compliance-as-a-service", href: "/services/compliance-as-a-service" },
-  { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
-  { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
-  { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
-  { name: "Managed Password Management", id: "managed-password-management", href: "/services/managed-password-management" },
-  { name: "SaaS Protection", id: "saas-protection", href: "/services/saas-protection" },
-  { name: "Penetration Testing", id: "penetration-testing", href: "/services/penetration-testing" },
-  { name: "Data Backup & Disaster Recovery", id: "backup-disaster-recovery", href: "/services/backup-disaster-recovery" },
+const serviceCategories = [
+  {
+    title: "Core IT & Cyber Security",
+    services: [
+      { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
+      { name: "Managed Cybersecurity Services", id: "managed-security", href: "/services/managed-security" },
+      { name: "Security Operations Centre (SOC) & Endpoint Security", id: "soc-endpoint-security", href: "/services/soc-endpoint-security" },
+      { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
+      { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
+      { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
+    ]
+  },
+  {
+    title: "Data Protection & Resilience",
+    services: [
+      { name: "Data Backup, Disaster Recovery & Business Continuity", id: "backup-disaster-recovery", href: "/services/backup-disaster-recovery" },
+      { name: "SaaS Protection (Microsoft 365 & Google Workspace)", id: "saas-protection", href: "/services/saas-protection" },
+    ]
+  },
+  {
+    title: "Governance & Compliance",
+    services: [
+      { name: "Compliance as a Service (CaaS)", id: "compliance-as-a-service", href: "/services/compliance-as-a-service" },
+    ]
+  },
+  {
+    title: "Infrastructure & Transformation",
+    services: [
+      { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
+      { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
+    ]
+  },
 ]

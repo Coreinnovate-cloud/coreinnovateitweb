@@ -1,17 +1,35 @@
 "use client"
 
-import React from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "../shared/button"
 import { MoveUpRight, Shield, Zap, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
 const BookAssessment = () => {
+  const [isMounted, setIsMounted] = useState(false)
+
   const benefits = [
     "Free Security Assessment",
     "Expert Consultation",
     "Custom Solutions"
   ]
+
+  // Generate stable random values for particles to avoid hydration mismatch
+  const particles = useMemo(() =>
+    Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      x: (i * 127) % 1920, // Pseudo-random but stable
+      y: (i * 83) % 600,
+      duration: 3 + (i % 3),
+      delay: (i * 0.5) % 5,
+    })),
+    []
+  )
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   return (
     <div className="relative py-20 overflow-hidden">
@@ -240,15 +258,15 @@ const BookAssessment = () => {
         </div>
       </div>
 
-      {/* Floating Particles */}
+      {/* Floating Particles - Only render on client to avoid hydration mismatch */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {isMounted && particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-primary/40 rounded-full"
             initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
-              y: Math.random() * 600,
+              x: particle.x,
+              y: particle.y,
               opacity: 0,
             }}
             animate={{
@@ -256,9 +274,9 @@ const BookAssessment = () => {
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: particle.delay,
               ease: "linear",
             }}
           />

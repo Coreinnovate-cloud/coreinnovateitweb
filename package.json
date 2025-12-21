@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --webpack",
     "build": "next build",
-    "build:turbo": "next build --turbopack",
+    "build:turbo": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "push": "git push origin main && git push upstream main"
@@ -14,8 +14,8 @@
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.4",
-    "@react-three/fiber": "^8.15.0",
-    "@react-three/postprocessing": "^2.15.0",
+    "@react-three/fiber": "^9.4.2",
+    "@react-three/postprocessing": "^3.0.4",
     "@types/react-google-recaptcha": "^2.1.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,6 +26,7 @@
     "lucide-react": "^0.562.0",
     "next": "16.1.0",
     "next-themes": "^0.4.6",
+    "ogl": "^1.0.11",
     "postprocessing": "^6.38.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -33,9 +34,13 @@
     "sonner": "^2.0.7",
     "swiper": "^12.0.3",
     "tailwind-merge": "^3.4.0",
-    "three": "^0.182.0"
+    "three": "^0.167.1"
   },
   "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "resolutions": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

@@ -1,16 +1,12 @@
 "use client"
 
-import dynamic from "next/dynamic"
 import BookAssessment from "@/components/modules/book-assessment"
 import DecryptedText from "@/components/modules/decryptedtext"
 import Faqs from "@/components/modules/faqs"
+import Particles from "@/components/modules/particles"
 import Reviews from "@/components/modules/reviews"
 import SecureScalablePartner from "@/components/modules/secure-scalable-partner"
 import WhatSetsUsApart from "@/components/modules/what-sets-us-apart"
-
-const Dither = dynamic(() => import("@/components/modules/dither"), {
-  ssr: false,
-})
 
 import { Button } from "@/components/shared/button"
 import RemoteAvatar from "@/components/shared/remote-avatar"
@@ -84,24 +80,16 @@ export default function Home() {
 
         {/* Animated Grid Background */}
 
-        <div
-          className="absolute inset-0"
-          style={{
-            width: "100%",
-            height: "100%",
-            zIndex: 1,
-          }}
-        >
-          {/* //deployment */}
-          <Dither
-            waveColor={[0.086, 0.212, 0.373]}
-            disableAnimation={false}
-            enableMouseInteraction={true}
-            mouseRadius={0.3}
-            colorNum={4}
-            waveAmplitude={0.3}
-            waveFrequency={3}
-            waveSpeed={0.05}
+        <div style={{ width: "100%", height: "800px", position: "absolute" }}>
+          <Particles
+            particleColors={["#ffffff", "#ffffff"]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
           />
         </div>
         <div className="w-full px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 relative z-20">
