@@ -83,7 +83,7 @@ export default function Home() {
         <div style={{ width: "100%", height: "800px", position: "absolute" }}>
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
-            particleCount={200}
+            particleCount={600}
             particleSpread={10}
             speed={0.1}
             particleBaseSize={100}
