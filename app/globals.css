@@ -2,7 +2,7 @@
 @import "./globals-mobile.css";
 
 :root {
-  --background: #000;
+  --background: #fff;
   --foreground: #475367;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

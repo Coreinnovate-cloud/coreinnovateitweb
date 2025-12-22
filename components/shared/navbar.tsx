@@ -168,7 +168,7 @@ const NavBar = () => {
                           <Link
                             key={service.id}
                             href={service.href}
-                            className="group block px-4 py-2.5 rounded-lg text-white/70 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-sm font-medium border border-transparent hover:border-white/10"
+                            className="group block px-4 py-2.5 rounded-lg text-white/85 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-sm font-medium border border-transparent hover:border-white/10"
                           >
                             <div className="flex items-center gap-3">
                               <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
@@ -275,7 +275,7 @@ const NavBar = () => {
                                   setIsServicesOpen(false)
                                 }}
                                 href={service.href}
-                                className="block text-center text-white/70 hover:text-primary transition-colors text-sm"
+                                className="block text-center text-white/85 hover:text-primary transition-colors text-sm"
                               >
                                 {service.name}
                               </Link>
@@ -332,6 +332,7 @@ const serviceCategories = [
       { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
       { name: "Managed Cybersecurity Services", id: "managed-security", href: "/services/managed-security" },
       { name: "Security Operations Centre (SOC) & Endpoint Security", id: "soc-endpoint-security", href: "/services/soc-endpoint-security" },
+      { name: "Managed Password Management", id: "managed-password-management", href: "/services/managed-password-management" },
       { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
       { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
       { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
@@ -355,6 +356,12 @@ const serviceCategories = [
     services: [
       { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
       { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
+    ]
+  },
+  {
+    title: "Professional Services",
+    services: [
+      { name: "Penetration Testing", id: "penetration-testing", href: "/services/penetration-testing" },
     ]
   },
 ]

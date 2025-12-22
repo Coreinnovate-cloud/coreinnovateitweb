@@ -1,6 +1,7 @@
 "use client"
 
 import BookAssessment from "@/components/modules/book-assessment"
+import Customers from "@/components/modules/customers"
 import DecryptedText from "@/components/modules/decryptedtext"
 import Faqs from "@/components/modules/faqs"
 import Particles from "@/components/modules/particles"
@@ -74,9 +75,12 @@ export default function Home() {
     <div className="space-y-0">
       {/* Hero Section */}
 
-      <div className="min-h-screen flex items-center justify-center overflow-hidden relative">
+      <div
+        className="min-h-screen flex items-center justify-center overflow-hidden relative bg-black"
+        style={{ background: "#000" }}
+      >
         {/* Blue Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/40 via-blue-500/20 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 via-blue-500/10 to-transparent pointer-events-none z-10" />
 
         {/* Animated Grid Background */}
 
@@ -407,8 +411,9 @@ export default function Home() {
         </div>
       </section>
 
-     
+
       {/* <OurServices /> */}
+      <Customers />
       <WhatSetsUsApart />
       <SecureScalablePartner />
       <Reviews />
