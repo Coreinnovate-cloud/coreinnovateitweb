@@ -146,7 +146,7 @@ const NavBar = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {serviceCategories.map((category, categoryIndex) => (
                     <motion.div
                       key={category.title}
@@ -160,7 +160,7 @@ const NavBar = () => {
                       }}
                       className="space-y-4"
                     >
-                      <h3 className="text-primary font-dm-sans font-semibold text-sm uppercase tracking-wider">
+                      <h3 className="text-primary font-dm-sans font-semibold text-sm uppercase tracking-wider whitespace-nowrap">
                         {category.title}
                       </h3>
                       <div className="space-y-2">
@@ -329,39 +329,86 @@ const serviceCategories = [
   {
     title: "Core IT & Cyber Security",
     services: [
-      { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
-      { name: "Managed Cybersecurity Services", id: "managed-security", href: "/services/managed-security" },
-      { name: "Security Operations Centre (SOC) & Endpoint Security", id: "soc-endpoint-security", href: "/services/soc-endpoint-security" },
-      { name: "Managed Password Management", id: "managed-password-management", href: "/services/managed-password-management" },
-      { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
-      { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
-      { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
-    ]
+      {
+        name: "Managed IT Services",
+        id: "managed-it-services",
+        href: "/services/managed-it-services",
+      },
+      {
+        name: "Managed Cybersecurity Services",
+        id: "managed-security",
+        href: "/services/managed-security",
+      },
+      {
+        name: "Security Operations Centre (SOC) & Endpoint Security",
+        id: "soc-endpoint-security",
+        href: "/services/soc-endpoint-security",
+      },
+      {
+        name: "Managed Password Management",
+        id: "managed-password-management",
+        href: "/services/managed-password-management",
+      },
+      {
+        name: "Email & Cloud Security",
+        id: "email-cloud-security",
+        href: "/services/email-cloud-security",
+      },
+      {
+        name: "Phishing Awareness & Security Training",
+        id: "phishing-awareness-training",
+        href: "/services/phishing-awareness-training",
+      },
+      {
+        name: "Dark Web Monitoring",
+        id: "dark-web-monitoring",
+        href: "/services/dark-web-monitoring",
+      },
+      {
+        name: "Penetration Testing",
+        id: "penetration-testing",
+        href: "/services/penetration-testing",
+      },
+    ],
   },
   {
     title: "Data Protection & Resilience",
     services: [
-      { name: "Data Backup, Disaster Recovery & Business Continuity", id: "backup-disaster-recovery", href: "/services/backup-disaster-recovery" },
-      { name: "SaaS Protection (Microsoft 365 & Google Workspace)", id: "saas-protection", href: "/services/saas-protection" },
-    ]
+      {
+        name: "Data Backup, Disaster Recovery & Business Continuity",
+        id: "backup-disaster-recovery",
+        href: "/services/backup-disaster-recovery",
+      },
+      {
+        name: "SaaS Protection (Microsoft 365 & Google Workspace)",
+        id: "saas-protection",
+        href: "/services/saas-protection",
+      },
+    ],
   },
   {
     title: "Governance & Compliance",
     services: [
-      { name: "Compliance as a Service (CaaS)", id: "compliance-as-a-service", href: "/services/compliance-as-a-service" },
-    ]
+      {
+        name: "Compliance as a Service (CaaS)",
+        id: "compliance-as-a-service",
+        href: "/services/compliance-as-a-service",
+      },
+    ],
   },
   {
-    title: "Infrastructure & Transformation",
+    title: "Infrastructure&Transformation",
     services: [
-      { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
-      { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
-    ]
-  },
-  {
-    title: "Professional Services",
-    services: [
-      { name: "Penetration Testing", id: "penetration-testing", href: "/services/penetration-testing" },
-    ]
+      {
+        name: "Infrastructure & Modernisation",
+        id: "infrastructure-modernisation",
+        href: "/services/infrastructure-modernisation",
+      },
+      {
+        name: "Cloud & Digital Transformation",
+        id: "cloud-management",
+        href: "/services/cloud-management",
+      },
+    ],
   },
 ]
