@@ -239,12 +239,30 @@ const Footer = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: "Managed IT Services", href: "/services/managed-it-services" },
-                    { name: "Managed Cybersecurity", href: "/services/managed-security" },
-                    { name: "SOC & Endpoint Security", href: "/services/soc-endpoint-security" },
-                    { name: "Cloud & Digital Transformation", href: "/services/cloud-management" },
-                    { name: "Compliance as a Service", href: "/services/compliance-as-a-service" },
-                    { name: "Data Backup & Recovery", href: "/services/backup-disaster-recovery" },
+                    {
+                      name: "Managed IT Services",
+                      href: "/services/managed-it-services",
+                    },
+                    {
+                      name: "Managed Cybersecurity",
+                      href: "/services/managed-security",
+                    },
+                    {
+                      name: "SOC & Endpoint Security",
+                      href: "/services/soc-endpoint-security",
+                    },
+                    {
+                      name: "Cloud & Digital Transformation",
+                      href: "/services/cloud-management",
+                    },
+                    {
+                      name: "Compliance as a Service",
+                      href: "/services/compliance-as-a-service",
+                    },
+                    {
+                      name: "Data Backup & Recovery",
+                      href: "/services/backup-disaster-recovery",
+                    },
                   ].map((service) => (
                     <Link
                       key={service.href}
@@ -350,7 +368,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/70 text-center sm:text-right">
               <div className="flex flex-col sm:flex-row items-center gap-2">
-                <span>© 2025 Core Innovate IT Ltd.</span>
+                <span>© 2025 CORE INNOVATE Ltd.</span>
                 <span className="hidden sm:inline">All rights reserved.</span>
               </div>
             </div>

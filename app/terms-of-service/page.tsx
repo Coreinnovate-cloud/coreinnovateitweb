@@ -51,20 +51,19 @@ export default function TermsOfServicePage() {
               General Terms
             </h2>
             <p className="text-grey leading-relaxed text-lg mb-4">
-              By accessing and placing an order with Core Innovate IT Ltd, you
+              By accessing and placing an order with CORE INNOVATE Ltd, you
               confirm that you are in agreement with and bound by the terms of
               service contained in the Terms & Conditions outlined below. These
               terms apply to the entire website and any email or other type of
-              communication between you and Core Innovate IT.
+              communication between you and CORE INNOVATE.
             </p>
             <p className="text-grey leading-relaxed">
-              Under no circumstances shall Core Innovate IT team be liable for
-              any direct, indirect, special, incidental or consequential
-              damages, including, but not limited to, loss of data or profit,
-              arising out of the use, or the inability to use, the materials on
-              this site, even if Core Innovate IT team or an authorized
-              representative has been advised of the possibility of such
-              damages.
+              Under no circumstances shall CORE INNOVATE team be liable for any
+              direct, indirect, special, incidental or consequential damages,
+              including, but not limited to, loss of data or profit, arising out
+              of the use, or the inability to use, the materials on this site,
+              even if CORE INNOVATE team or an authorized representative has
+              been advised of the possibility of such damages.
             </p>
           </div>
         </motion.div>
@@ -114,8 +113,8 @@ export default function TermsOfServicePage() {
                   Country
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  Where Core Innovate IT or the owners/founders of Core Innovate
-                  IT are based, in this case is United Kingdom.
+                  Where CORE INNOVATE or the owners/founders of Core Innovate IT
+                  are based, in this case is United Kingdom.
                 </p>
               </div>
 
@@ -135,7 +134,7 @@ export default function TermsOfServicePage() {
                   Service
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  Refers to the service provided by Core Innovate IT Ltd as
+                  Refers to the service provided by CORE INNOVATE Ltd as
                   described in the relative terms (if available) and on this
                   platform.
                 </p>
@@ -157,8 +156,7 @@ export default function TermsOfServicePage() {
                   Website
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  Core Innovate IT&apos;s site, which can be accessed via this
-                  URL:{" "}
+                  CORE INNOVATE&apos;s site, which can be accessed via this URL:{" "}
                   <a
                     href="https://www.coreinnovateit.com"
                     className="text-primary hover:text-cyan-400 transition-colors"
@@ -171,7 +169,7 @@ export default function TermsOfServicePage() {
               <div className="pl-4 border-l-2 border-primary/30">
                 <h3 className="text-lg font-semibold text-white mb-2">You</h3>
                 <p className="text-grey leading-relaxed">
-                  A person or entity that is registered with Core Innovate IT to
+                  A person or entity that is registered with CORE INNOVATE to
                   use the Services.
                 </p>
               </div>
@@ -198,7 +196,7 @@ export default function TermsOfServicePage() {
                   License
                 </h2>
                 <p className="text-grey leading-relaxed">
-                  Core Innovate IT Ltd grants you a revocable, non-exclusive,
+                  CORE INNOVATE Ltd grants you a revocable, non-exclusive,
                   non-transferable, limited license to download, install and use
                   the website strictly in accordance with the terms of this
                   Agreement.
@@ -206,7 +204,7 @@ export default function TermsOfServicePage() {
                 <p className="text-grey leading-relaxed">
                   You are agreeing to be bound by these Terms & Conditions. If
                   you do not agree to these Terms & Conditions, please do not
-                  use the Core Innovate IT Service. In these Terms & Conditions,
+                  use the CORE INNOVATE Service. In these Terms & Conditions,
                   &quot;you&quot; refers both to you as an individual and to the
                   entity you represent. If you violate any of these Terms &
                   Conditions, we reserve the right to cancel your account or
@@ -261,8 +259,8 @@ export default function TermsOfServicePage() {
                     <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                     <span>
                       Remove, alter or obscure any proprietary notice (including
-                      any notice of copyright or trademark) of Core Innovate IT
-                      or its affiliates, partners, suppliers or the licensors of
+                      any notice of copyright or trademark) of CORE INNOVATE or
+                      its affiliates, partners, suppliers or the licensors of
                       the website
                     </span>
                   </li>
@@ -283,9 +281,9 @@ export default function TermsOfServicePage() {
               Return and Refund Policy
             </h2>
             <p className="text-grey leading-relaxed mb-4">
-              Thanks for shopping at Core Innovate IT. We appreciate the fact
-              that you like to buy the stuff we build. We also want to make sure
-              you have a rewarding experience while you&apos;re exploring,
+              Thanks for shopping at CORE INNOVATE. We appreciate the fact that
+              you like to buy the stuff we build. We also want to make sure you
+              have a rewarding experience while you&apos;re exploring,
               evaluating, and purchasing our products.
             </p>
             <p className="text-grey leading-relaxed">
@@ -352,10 +350,10 @@ export default function TermsOfServicePage() {
               Any feedback, comments, ideas, improvements or suggestions
               (collectively, &quot;Suggestions&quot;) provided by you to Core
               Innovate IT with respect to the website shall remain the sole and
-              exclusive property of Core Innovate IT. Core Innovate IT shall be
-              free to use, copy, modify, publish, or redistribute the
-              Suggestions for any purpose and in any way without any credit or
-              any compensation to you.
+              exclusive property of CORE INNOVATE. CORE INNOVATE shall be free
+              to use, copy, modify, publish, or redistribute the Suggestions for
+              any purpose and in any way without any credit or any compensation
+              to you.
             </p>
           </motion.div>
 
@@ -373,8 +371,8 @@ export default function TermsOfServicePage() {
             <p className="text-grey leading-relaxed">
               This Terms & Conditions applies only to the Services. The Services
               may contain links to other websites not operated or controlled by
-              Core Innovate IT. We are not responsible for the content, accuracy
-              or opinions expressed in such websites, and such websites are not
+              CORE INNOVATE. We are not responsible for the content, accuracy or
+              opinions expressed in such websites, and such websites are not
               investigated, monitored or checked for accuracy or completeness by
               us. Your browsing and interaction on any other website, including
               those that have a link on our platform, is subject to that
@@ -394,7 +392,7 @@ export default function TermsOfServicePage() {
               Cookies
             </h2>
             <p className="text-grey leading-relaxed mb-4">
-              Core Innovate IT uses &quot;Cookies&quot; to identify the areas of
+              CORE INNOVATE uses &quot;Cookies&quot; to identify the areas of
               our website that you have visited. A Cookie is a small piece of
               data stored on your computer or mobile device by your web browser.
               We use Cookies to enhance the performance and functionality of our
@@ -443,13 +441,13 @@ export default function TermsOfServicePage() {
                 </h2>
                 <p className="text-grey leading-relaxed">
                   This Agreement shall remain in effect until terminated by you
-                  or Core Innovate IT. Core Innovate IT may, in its sole
-                  discretion, at any time and for any or no reason, suspend or
-                  terminate this Agreement with or without prior notice.
+                  or CORE INNOVATE. CORE INNOVATE may, in its sole discretion,
+                  at any time and for any or no reason, suspend or terminate
+                  this Agreement with or without prior notice.
                 </p>
                 <p className="text-grey leading-relaxed">
                   This Agreement will terminate immediately, without prior
-                  notice from Core Innovate IT, in the event that you fail to
+                  notice from CORE INNOVATE, in the event that you fail to
                   comply with any provision of this Agreement. You may also
                   terminate this Agreement by deleting the website and all
                   copies thereof from your computer.
@@ -458,9 +456,9 @@ export default function TermsOfServicePage() {
                   Upon termination of this Agreement, you shall cease all use of
                   the website and delete all copies of the website from your
                   computer. Termination of this Agreement will not limit any of
-                  Core Innovate IT&apos;s rights or remedies at law or in equity
-                  in case of breach by you (during the term of this Agreement)
-                  of any of your obligations under the present Agreement.
+                  CORE INNOVATE&apos;s rights or remedies at law or in equity in
+                  case of breach by you (during the term of this Agreement) of
+                  any of your obligations under the present Agreement.
                 </p>
               </div>
             </div>
@@ -478,7 +476,7 @@ export default function TermsOfServicePage() {
               Indemnification
             </h2>
             <p className="text-grey leading-relaxed">
-              You agree to indemnify and hold Core Innovate IT and its parents,
+              You agree to indemnify and hold CORE INNOVATE and its parents,
               subsidiaries, affiliates, officers, employees, agents, partners
               and licensors (if any) harmless from any claim or demand,
               including reasonable attorneys&apos; fees, due to or arising out
@@ -503,15 +501,15 @@ export default function TermsOfServicePage() {
               The website is provided to you &quot;AS IS&quot; and &quot;AS
               AVAILABLE&quot; and with all faults and defects without warranty
               of any kind. To the maximum extent permitted under applicable law,
-              Core Innovate IT, on its own behalf and on behalf of its
-              affiliates and its and their respective licensors and service
-              providers, expressly disclaims all warranties, whether express,
-              implied, statutory or otherwise, with respect to the website,
-              including all implied warranties of merchantability, fitness for a
-              particular purpose, title and non-infringement.
+              CORE INNOVATE, on its own behalf and on behalf of its affiliates
+              and its and their respective licensors and service providers,
+              expressly disclaims all warranties, whether express, implied,
+              statutory or otherwise, with respect to the website, including all
+              implied warranties of merchantability, fitness for a particular
+              purpose, title and non-infringement.
             </p>
             <p className="text-grey leading-relaxed">
-              Without limitation to the foregoing, Core Innovate IT provides no
+              Without limitation to the foregoing, CORE INNOVATE provides no
               warranty or undertaking, and makes no representation of any kind
               that the website will meet your requirements, achieve any intended
               results, be compatible or work with any other software, websites,
@@ -534,14 +532,14 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-grey leading-relaxed mb-4">
               Notwithstanding any damages that you might incur, the entire
-              liability of Core Innovate IT and any of its suppliers under any
+              liability of CORE INNOVATE and any of its suppliers under any
               provision of this Agreement and your exclusive remedy for all of
               the foregoing shall be limited to the amount actually paid by you
               for the website.
             </p>
             <p className="text-grey leading-relaxed">
               To the maximum extent permitted by applicable law, in no event
-              shall Core Innovate IT or its suppliers be liable for any special,
+              shall CORE INNOVATE or its suppliers be liable for any special,
               incidental, indirect, or consequential damages whatsoever
               (including, but not limited to, damages for loss of profits, for
               loss of data or other information, for business interruption, for
@@ -549,7 +547,7 @@ export default function TermsOfServicePage() {
               related to the use of or inability to use the website, third-party
               software and/or third-party hardware used with the website, or
               otherwise in connection with any provision of this Agreement),
-              even if Core Innovate IT or any supplier has been advised of the
+              even if CORE INNOVATE or any supplier has been advised of the
               possibility of such damages and even if the remedy fails of its
               essential purpose.
             </p>
@@ -573,9 +571,9 @@ export default function TermsOfServicePage() {
               possible under applicable law and the remaining provisions will
               continue in full force and effect. No waiver of any term of this
               Agreement shall be deemed a further or continuing waiver of such
-              term or any other term, and Core Innovate IT&apos;s failure to
-              assert any right or provision under this Agreement shall not
-              constitute a waiver of such right or provision.
+              term or any other term, and CORE INNOVATE&apos;s failure to assert
+              any right or provision under this Agreement shall not constitute a
+              waiver of such right or provision.
             </p>
           </motion.div>
 
@@ -591,7 +589,7 @@ export default function TermsOfServicePage() {
               Amendments to this Agreement
             </h2>
             <p className="text-grey leading-relaxed mb-4">
-              Core Innovate IT reserves the right, at its sole discretion, to
+              CORE INNOVATE reserves the right, at its sole discretion, to
               modify or replace this Agreement at any time. If a revision is
               material we will provide at least 30 days&apos; notice prior to
               any new terms taking effect. What constitutes a material change
@@ -601,7 +599,7 @@ export default function TermsOfServicePage() {
               By continuing to access or use our website after any revisions
               become effective, you agree to be bound by the revised terms. If
               you do not agree to the new terms, you are no longer authorized to
-              use Core Innovate IT.
+              use CORE INNOVATE.
             </p>
           </motion.div>
 
@@ -642,11 +640,11 @@ export default function TermsOfServicePage() {
                   Notice of Dispute
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  In the event of a dispute, you or Core Innovate IT must give
-                  the other a Notice of Dispute, which is a written statement
-                  that sets forth the name, address, and contact information of
-                  the party giving it, the facts giving rise to the dispute, and
-                  the relief requested. You must send any Notice of Dispute via
+                  In the event of a dispute, you or CORE INNOVATE must give the
+                  other a Notice of Dispute, which is a written statement that
+                  sets forth the name, address, and contact information of the
+                  party giving it, the facts giving rise to the dispute, and the
+                  relief requested. You must send any Notice of Dispute via
                   email to:{" "}
                   <a
                     href="mailto:hello@coreinnovateit.co.uk"
@@ -654,9 +652,9 @@ export default function TermsOfServicePage() {
                   >
                     hello@coreinnovateit.co.uk
                   </a>
-                  . Core Innovate IT will send any Notice of Dispute to you by
-                  mail to your address if we have it, or otherwise to your email
-                  address. You and Core Innovate IT will attempt to resolve any
+                  . CORE INNOVATE will send any Notice of Dispute to you by mail
+                  to your address if we have it, or otherwise to your email
+                  address. You and CORE INNOVATE will attempt to resolve any
                   dispute through informal negotiation within sixty (60) days
                   from the date the Notice of Dispute is sent.
                 </p>
@@ -667,7 +665,7 @@ export default function TermsOfServicePage() {
                   Binding Arbitration
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  If you and Core Innovate IT don&apos;t resolve any dispute by
+                  If you and CORE INNOVATE don&apos;t resolve any dispute by
                   informal negotiation, any other effort to resolve the dispute
                   will be conducted exclusively by binding arbitration as
                   described in this section. You are giving up the right to
@@ -690,18 +688,18 @@ export default function TermsOfServicePage() {
               Disclaimer
             </h2>
             <p className="text-grey leading-relaxed mb-4">
-              Core Innovate IT is not responsible for any content, code or any
-              other imprecision. Core Innovate IT does not provide warranties or
+              CORE INNOVATE is not responsible for any content, code or any
+              other imprecision. CORE INNOVATE does not provide warranties or
               guarantees.
             </p>
             <p className="text-grey leading-relaxed">
-              In no event shall Core Innovate IT be liable for any special,
-              direct, indirect, consequential, or incidental damages or any
-              damages whatsoever, whether in an action of contract, negligence
-              or other tort, arising out of or in connection with the use of the
-              Service or the contents of the Service. The Company reserves the
-              right to make additions, deletions, or modifications to the
-              contents on the Service at any time without prior notice.
+              In no event shall CORE INNOVATE be liable for any special, direct,
+              indirect, consequential, or incidental damages or any damages
+              whatsoever, whether in an action of contract, negligence or other
+              tort, arising out of or in connection with the use of the Service
+              or the contents of the Service. The Company reserves the right to
+              make additions, deletions, or modifications to the contents on the
+              Service at any time without prior notice.
             </p>
           </motion.div>
 
@@ -730,7 +728,7 @@ export default function TermsOfServicePage() {
                 </p>
                 <div className="text-grey space-y-2">
                   <p>
-                    <strong className="text-white">Core Innovate IT Ltd</strong>
+                    <strong className="text-white">CORE INNOVATE Ltd</strong>
                   </p>
                   <p>
                     Email:{" "}

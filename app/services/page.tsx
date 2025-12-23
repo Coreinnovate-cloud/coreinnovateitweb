@@ -270,7 +270,7 @@ const ServicesPage = () => {
           >
             From managing IT infrastructure to securing data and empowering
             talent,{" "}
-            <span className="text-primary font-semibold">Core Innovate IT</span>{" "}
+            <span className="text-primary font-semibold">CORE INNOVATE</span>{" "}
             delivers{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
               cutting-edge

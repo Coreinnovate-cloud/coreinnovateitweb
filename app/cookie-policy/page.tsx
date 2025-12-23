@@ -47,12 +47,12 @@ export default function CookiePolicyPage() {
           className="prose prose-lg max-w-none mb-12"
         >
           <p className="text-grey leading-relaxed text-lg">
-            This Cookie Policy explains how Core Innovate IT Ltd and its
-            affiliates (collectively &quot;Core Innovate IT&quot;,
-            &quot;we&quot;, &quot;us&quot;, and &quot;ours&quot;), use cookies
-            and similar technologies to recognize you when you visit our
-            website. It explains what these technologies are and why we use
-            them, as well as the choices for how to control them.
+            This Cookie Policy explains how CORE INNOVATE Ltd and its affiliates
+            (collectively &quot;CORE INNOVATE&quot;, &quot;we&quot;,
+            &quot;us&quot;, and &quot;ours&quot;), use cookies and similar
+            technologies to recognize you when you visit our website. It
+            explains what these technologies are and why we use them, as well as
+            the choices for how to control them.
           </p>
         </motion.div>
 
@@ -123,7 +123,7 @@ export default function CookiePolicyPage() {
                   Service
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  Refers to the service provided by Core Innovate IT Ltd as
+                  Refers to the service provided by CORE INNOVATE Ltd as
                   described in the relative terms (if available) and on this
                   platform.
                 </p>
@@ -145,8 +145,7 @@ export default function CookiePolicyPage() {
                   Website
                 </h3>
                 <p className="text-grey leading-relaxed">
-                  Core Innovate IT&apos;s site, which can be accessed via this
-                  URL:{" "}
+                  CORE INNOVATE&apos;s site, which can be accessed via this URL:{" "}
                   <a
                     href="https://www.coreinnovateit.com"
                     className="text-primary hover:text-cyan-400 transition-colors"
@@ -159,7 +158,7 @@ export default function CookiePolicyPage() {
               <div className="pl-4 border-l-2 border-primary/30">
                 <h3 className="text-lg font-semibold text-white mb-2">You</h3>
                 <p className="text-grey leading-relaxed">
-                  A person or entity that is registered with Core Innovate IT to
+                  A person or entity that is registered with CORE INNOVATE to
                   use the Services.
                 </p>
               </div>
@@ -278,7 +277,7 @@ export default function CookiePolicyPage() {
             className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
           >
             <h2 className="text-2xl font-bold font-dm-sans text-white mb-6">
-              What Type of Cookies Does Core Innovate IT Use?
+              What Type of Cookies Does CORE INNOVATE Use?
             </h2>
 
             <p className="text-grey leading-relaxed mb-6">
@@ -440,8 +439,8 @@ export default function CookiePolicyPage() {
                   </h3>
                   <p className="text-grey leading-relaxed">
                     Some cookies that have been set on our website are not set
-                    on a first party basis by Core Innovate IT. The website can
-                    be embedded with content from third parties to serve
+                    on a first party basis by CORE INNOVATE. The website can be
+                    embedded with content from third parties to serve
                     advertising. These third party service providers may set
                     their own cookies on your web browser. Third party service
                     providers control many of the performance and functionality,
@@ -618,7 +617,7 @@ export default function CookiePolicyPage() {
             </p>
             <div className="text-grey space-y-2">
               <p>
-                <strong className="text-white">Core Innovate IT Ltd</strong>
+                <strong className="text-white">CORE INNOVATE Ltd</strong>
               </p>
               <p>
                 Email:{" "}

@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
           className="prose prose-lg max-w-none mb-12"
         >
           <p className="text-black leading-relaxed text-lg">
-            Core Innovate IT Ltd (&quot;we&quot;, &quot;our&quot;, or
+            CORE INNOVATE Ltd (&quot;we&quot;, &quot;our&quot;, or
             &quot;us&quot;) is committed to protecting your privacy. This
             Privacy Policy explains how we collect, use, disclose, and safeguard
             your information when you visit our website or use our services.
@@ -770,7 +770,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="text-black space-y-2">
               <p>
-                <strong className="text-black">Core Innovate IT Ltd</strong>
+                <strong className="text-black">CORE INNOVATE Ltd</strong>
               </p>
               <p>
                 Email:{" "}

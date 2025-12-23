@@ -38,7 +38,7 @@ const WhatSetsUsApart = () => {
             <div className="relative overflow-hidden rounded-3xl w-full h-[400px] lg:h-[550px] shadow-2xl">
               <Image
                 src="/training.png"
-                alt="Core Innovate IT Training and Services"
+                alt="CORE INNOVATE Training and Services"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 priority

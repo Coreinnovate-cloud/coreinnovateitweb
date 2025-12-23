@@ -1,12 +1,23 @@
-import { Metadata } from "next";
-import { Shield, Eye, Zap, Brain, Lock, TrendingUp, CheckCircle, AlertTriangle, FileCheck, Activity } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/shared/button";
+import { Button } from "@/components/shared/button"
+import {
+  Activity,
+  Brain,
+  CheckCircle,
+  Eye,
+  FileCheck,
+  Shield,
+  TrendingUp,
+  Zap,
+} from "lucide-react"
+import { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Security Operations Centre (SOC) & Endpoint Security | CoreInnovate IT",
-  description: "AI-Powered, 24/7 Threat Detection and Response. Continuous monitoring, intelligent endpoint protection, and expert-led incident response.",
-};
+  title:
+    "Security Operations Centre (SOC) & Endpoint Security | CoreInnovate IT",
+  description:
+    "AI-Powered, 24/7 Threat Detection and Response. Continuous monitoring, intelligent endpoint protection, and expert-led incident response.",
+}
 
 export default function SOCEndpointSecurityPage() {
   return (
@@ -19,7 +30,9 @@ export default function SOCEndpointSecurityPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 mb-6">
             <Eye className="w-4 h-4 text-red-400" />
-            <span className="text-sm text-red-300">Security Operations Centre (SOC) & Endpoint Security</span>
+            <span className="text-sm text-red-300">
+              Security Operations Centre (SOC) & Endpoint Security
+            </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-dm-sans">
@@ -27,15 +40,23 @@ export default function SOCEndpointSecurityPage() {
           </h1>
 
           <p className="text-xl text-gray-300 max-w-3xl leading-relaxed mb-4">
-            Cyber threats now move faster than manual monitoring alone can handle. Traditional antivirus and rule-based security tools are no longer enough to detect modern attacks that use stealth, automation, and social engineering.
+            Cyber threats now move faster than manual monitoring alone can
+            handle. Traditional antivirus and rule-based security tools are no
+            longer enough to detect modern attacks that use stealth, automation,
+            and social engineering.
           </p>
 
           <p className="text-lg text-gray-400 max-w-3xl leading-relaxed">
-            Core Innovate IT delivers an AI-powered Security Operations Centre (SOC) combined with advanced endpoint and XDR protection. Artificial intelligence continuously analyses behaviour across users, devices, and systems, while our security specialists validate, investigate, and respond in real time.
+            CORE INNOVATE delivers an AI-powered Security Operations Centre
+            (SOC) combined with advanced endpoint and XDR protection. Artificial
+            intelligence continuously analyses behaviour across users, devices,
+            and systems, while our security specialists validate, investigate,
+            and respond in real time.
           </p>
 
           <p className="text-lg text-primary font-semibold mt-4 max-w-3xl">
-            This fusion of AI decision-making and human expertise enables faster detection, deeper visibility, and more effective response.
+            This fusion of AI decision-making and human expertise enables faster
+            detection, deeper visibility, and more effective response.
           </p>
         </div>
       </section>
@@ -48,7 +69,9 @@ export default function SOCEndpointSecurityPage() {
           </h2>
 
           <p className="text-lg text-gray-300 mb-8 max-w-4xl">
-            Attackers increasingly rely on techniques that evade signature-based tools. AI changes the balance by identifying behaviour, intent, and anomalies that traditional security misses.
+            Attackers increasingly rely on techniques that evade signature-based
+            tools. AI changes the balance by identifying behaviour, intent, and
+            anomalies that traditional security misses.
           </p>
 
           <p className="text-lg text-gray-300 mb-6 max-w-4xl">
@@ -60,7 +83,7 @@ export default function SOCEndpointSecurityPage() {
               "Detection of unknown and zero-day threats",
               "Faster identification of lateral movement and account misuse",
               "Reduced dwell time for attackers",
-              "Continuous adaptation as threats evolve"
+              "Continuous adaptation as threats evolve",
             ].map((benefit, index) => (
               <div key={index} className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
@@ -79,7 +102,7 @@ export default function SOCEndpointSecurityPage() {
       <section className="py-20 px-4 sm:px-8 lg:px-12 bg-slate-950">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 font-dm-sans text-center">
-            How Core Innovate IT Delivers AI-Driven SOC Services
+            How CORE INNOVATE Delivers AI-Driven SOC Services
           </h2>
 
           <div className="space-y-12">
@@ -94,7 +117,8 @@ export default function SOCEndpointSecurityPage() {
                     Continuous AI Surveillance, 24/7
                   </h3>
                   <p className="text-gray-300 mb-4">
-                    Artificial intelligence continuously monitors activity across your environment.
+                    Artificial intelligence continuously monitors activity
+                    across your environment.
                   </p>
                 </div>
               </div>
@@ -104,7 +128,7 @@ export default function SOCEndpointSecurityPage() {
                   "Analyses endpoint, network, and user behaviour in real time",
                   "Identifies deviations from normal activity patterns",
                   "Flags high-risk events for immediate investigation",
-                  "Operates continuously, without fatigue or blind spots"
+                  "Operates continuously, without fatigue or blind spots",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -114,7 +138,8 @@ export default function SOCEndpointSecurityPage() {
               </ul>
 
               <p className="text-gray-400 mt-4 ml-16">
-                This ensures threats are detected at the earliest possible stage.
+                This ensures threats are detected at the earliest possible
+                stage.
               </p>
             </div>
 
@@ -129,7 +154,8 @@ export default function SOCEndpointSecurityPage() {
                     AI-Powered Endpoint and XDR Protection
                   </h3>
                   <p className="text-gray-300 mb-4">
-                    Our endpoint security uses machine learning and behavioural analytics to detect both known and unknown threats.
+                    Our endpoint security uses machine learning and behavioural
+                    analytics to detect both known and unknown threats.
                   </p>
                 </div>
               </div>
@@ -139,7 +165,7 @@ export default function SOCEndpointSecurityPage() {
                   "Behaviour-based malware and ransomware detection",
                   "Correlation across endpoints, identities, and cloud services",
                   "Automatic containment of suspicious activity",
-                  "Reduced reliance on static signatures"
+                  "Reduced reliance on static signatures",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
@@ -164,7 +190,8 @@ export default function SOCEndpointSecurityPage() {
                     Human-Led Response, AI-Enhanced Decisions
                   </h3>
                   <p className="text-gray-300 mb-4">
-                    AI identifies and prioritises threats. Our security specialists take action.
+                    AI identifies and prioritises threats. Our security
+                    specialists take action.
                   </p>
                 </div>
               </div>
@@ -174,7 +201,7 @@ export default function SOCEndpointSecurityPage() {
                   "Analysts validate AI findings to eliminate false positives",
                   "Confirmed threats are investigated and contained",
                   "Clear escalation paths and response actions",
-                  "Continuous tuning to improve detection accuracy"
+                  "Continuous tuning to improve detection accuracy",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
@@ -209,7 +236,7 @@ export default function SOCEndpointSecurityPage() {
                   "Automated correlation of events and incidents",
                   "Detailed forensic timelines for investigations",
                   "Clear reporting for audits, insurers, and leadership",
-                  "Evidence aligned with regulatory expectations"
+                  "Evidence aligned with regulatory expectations",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -248,7 +275,7 @@ export default function SOCEndpointSecurityPage() {
               "Supports growth in users, devices, and cloud services",
               "Maintains consistent protection across environments",
               "Adapts automatically to new patterns and risks",
-              "Security remains strong as complexity increases"
+              "Security remains strong as complexity increases",
             ].map((benefit, index) => (
               <div key={index} className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
@@ -275,9 +302,12 @@ export default function SOCEndpointSecurityPage() {
               "Managed IT services for device and user governance",
               "Email and cloud security to correlate attack signals",
               "Identity protection to detect misuse and privilege abuse",
-              "Compliance frameworks to support audit readiness"
+              "Compliance frameworks to support audit readiness",
             ].map((item, index) => (
-              <div key={index} className="bg-slate-900 border border-slate-800 rounded-lg p-6 hover:border-primary/50 transition-colors">
+              <div
+                key={index}
+                className="bg-slate-900 border border-slate-800 rounded-lg p-6 hover:border-primary/50 transition-colors"
+              >
                 <div className="flex items-start gap-3">
                   <Activity className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <p className="text-gray-300">{item}</p>
@@ -287,7 +317,8 @@ export default function SOCEndpointSecurityPage() {
           </div>
 
           <p className="text-lg text-primary font-semibold mt-8">
-            This delivers a single, intelligent security layer rather than disconnected tools.
+            This delivers a single, intelligent security layer rather than
+            disconnected tools.
           </p>
         </div>
       </section>
@@ -302,12 +333,18 @@ export default function SOCEndpointSecurityPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { icon: Zap, text: "Faster threat detection and response" },
-              { icon: Shield, text: "Reduced impact of ransomware and breaches" },
+              {
+                icon: Shield,
+                text: "Reduced impact of ransomware and breaches",
+              },
               { icon: Eye, text: "Continuous visibility and assurance" },
               { icon: FileCheck, text: "Improved compliance and reporting" },
-              { icon: Brain, text: "Security that evolves as threats change" }
+              { icon: Brain, text: "Security that evolves as threats change" },
             ].map((item, index) => (
-              <div key={index} className="bg-slate-950 border border-slate-800 rounded-xl p-6 hover:border-primary/50 transition-all text-center">
+              <div
+                key={index}
+                className="bg-slate-950 border border-slate-800 rounded-xl p-6 hover:border-primary/50 transition-all text-center"
+              >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
@@ -326,7 +363,8 @@ export default function SOCEndpointSecurityPage() {
           </h2>
 
           <p className="text-lg text-gray-300 mb-8">
-            If you want security that thinks, learns, and responds continuously, Core Innovate IT can help.
+            If you want security that thinks, learns, and responds continuously,
+            CORE INNOVATE can help.
           </p>
 
           <Link href="/contact-us">
@@ -341,7 +379,8 @@ export default function SOCEndpointSecurityPage() {
             </h3>
 
             <p className="text-gray-300 mb-6">
-              If you want visibility before committing to full coverage, we offer a controlled assessment.
+              If you want visibility before committing to full coverage, we
+              offer a controlled assessment.
             </p>
 
             <Link href="/services/book-assessment">
@@ -353,5 +392,5 @@ export default function SOCEndpointSecurityPage() {
         </div>
       </section>
     </main>
-  );
+  )
 }
