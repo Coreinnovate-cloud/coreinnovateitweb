@@ -482,6 +482,11 @@ const serviceCategories = [
         id: "web-software-development",
         href: "/services/web-software-development",
       },
+      {
+        name: "AUTOTASK & Datto Integration Portal",
+        id: "autotask-integration",
+        href: "/autotask-integration",
+      },
     ],
   },
 ]
