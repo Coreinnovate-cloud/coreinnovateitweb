@@ -4,10 +4,11 @@ import { NextRequest, NextResponse } from "next/server"
 // GET - Get a specific ticket
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const ticketID = parseInt(params.id)
+    const { id } = await params
+    const ticketID = parseInt(id)
 
     if (isNaN(ticketID)) {
       return NextResponse.json({ error: "Invalid ticket ID" }, { status: 400 })
@@ -29,10 +30,11 @@ export async function GET(
 // PATCH - Update a ticket
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const ticketID = parseInt(params.id)
+    const { id } = await params
+    const ticketID = parseInt(id)
 
     if (isNaN(ticketID)) {
       return NextResponse.json({ error: "Invalid ticket ID" }, { status: 400 })
