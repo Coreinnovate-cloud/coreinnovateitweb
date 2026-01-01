@@ -7,18 +7,23 @@ const Customers = () => {
   const customers = [
     {
       name: "Microsoft",
-      logo: "/customers/microsoft(1).webp",
+      logo: "/new_partners/microsoft (1) (1).webp",
       alt: "Microsoft Partner Logo",
     },
     {
       name: "Kaseya",
-      logo: "/customers/partner-kaseya-logo.png",
+      logo: "/new_partners/partner-kaseya-logo (1).png",
       alt: "Kaseya Logo",
     },
     {
       name: "Red Hat",
-      logo: "/customers/Red_Hat-Logo.wine.png",
+      logo: "/new_partners/Red_Hat-Logo.wine (1).png",
       alt: "Red Hat Logo",
+    },
+    {
+      name: "Halcyon",
+      logo: "/new_partners/Halcyon.png",
+      alt: "Halcyon Logo",
     },
   ]
 
@@ -47,7 +52,7 @@ const Customers = () => {
         </motion.div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-center justify-items-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 items-center justify-items-center max-w-6xl mx-auto">
           {customers.map((customer, index) => (
             <motion.div
               key={customer.name}
@@ -57,7 +62,11 @@ const Customers = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group w-full"
             >
-              <div className="relative h-24 md:h-32 flex items-center justify-center p-6 rounded-lg bg-white/90 border border-white/30 hover:bg-white hover:border-white/50 transition-all duration-300">
+              <div className={`relative h-24 md:h-32 flex items-center justify-center p-6 rounded-lg border transition-all duration-300 ${
+                customer.name === "Halcyon"
+                  ? "bg-slate-800/90 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600"
+                  : "bg-white/90 border-white/30 hover:bg-white hover:border-white/50"
+              }`}>
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg blur-xl" />
 

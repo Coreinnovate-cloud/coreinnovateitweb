@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import {
   AlertTriangle,
   CheckCircle2,
@@ -177,7 +178,7 @@ const OperatingModel = () => {
         </div>
 
         {/* Why Choose Core Innovate */}
-        <div className="space-y-8">
+        <div className="space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -214,6 +215,37 @@ const OperatingModel = () => {
                         {reason.description}
                       </p>
                     </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Infographics Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {[
+              { src: "/infographics/Infographic 1.png", alt: "Core Innovate Infographic 1" },
+              { src: "/infographics/Infographic 2.png", alt: "Core Innovate Infographic 2" },
+              { src: "/infographics/Infographic 3.png", alt: "Core Innovate Infographic 3" },
+              { src: "/infographics/Infographic 4.png", alt: "Core Innovate Infographic 4" },
+            ].map((infographic, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative bg-white rounded-xl overflow-hidden shadow-lg border border-slate-200 hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src={infographic.src}
+                      alt={infographic.alt}
+                      fill
+                      className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                      unoptimized
+                    />
                   </div>
                 </div>
               </motion.div>
