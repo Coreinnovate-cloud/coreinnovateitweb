@@ -1,11 +1,26 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { Shield, FileCheck, AlertTriangle, CheckCircle2, FileText, TrendingDown, Target, Lock, Users, Settings, Eye, ClipboardCheck, Award, BookOpen } from "lucide-react";
+import {
+  AlertTriangle,
+  Award,
+  BookOpen,
+  CheckCircle2,
+  ClipboardCheck,
+  Eye,
+  FileCheck,
+  FileText,
+  Settings,
+  Shield,
+  Target,
+  TrendingDown,
+  Users,
+} from "lucide-react"
+import { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Compliance as a Service (CaaS) | CoreInnovate IT",
-  description: "Structured compliance that supports business continuity. Achieve, evidence, and maintain compliance with regulatory and industry frameworks.",
-};
+  description:
+    "Structured compliance that supports business continuity. Achieve, evidence, and maintain compliance with regulatory and industry frameworks.",
+}
 
 export default function ComplianceAsAServicePage() {
   return (
@@ -16,16 +31,25 @@ export default function ComplianceAsAServicePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
             <Shield className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-indigo-300">Compliance as a Service (CaaS)</span>
+            <span className="text-sm text-indigo-300">
+              Compliance as a Service (CaaS)
+            </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-300 bg-clip-text text-transparent">
             Structured Compliance That Supports Business Continuity
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mb-8">
-            Regulatory compliance is no longer a one-off exercise. It is an ongoing operational requirement that directly affects security, insurance cover, and business continuity.
+            Regulatory compliance is no longer a one-off exercise. It is an
+            ongoing operational requirement that directly affects security,
+            insurance cover, and business continuity.
           </p>
           <p className="text-lg text-gray-400 max-w-4xl">
-            Core Innovate IT delivers Compliance as a Service (CaaS) to help organisations achieve, evidence, and maintain compliance with regulatory and industry frameworks while reducing operational and security risk. Our approach integrates compliance into day-to-day IT and security operations, rather than treating it as a separate or reactive activity.
+            CORE INNOVATE delivers Compliance as a Service (CaaS) to help
+            organisations achieve, evidence, and maintain compliance with
+            regulatory and industry frameworks while reducing operational and
+            security risk. Our approach integrates compliance into day-to-day IT
+            and security operations, rather than treating it as a separate or
+            reactive activity.
           </p>
         </div>
       </section>
@@ -43,15 +67,40 @@ export default function ComplianceAsAServicePage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {[
-              { icon: AlertTriangle, text: "Regulatory penalties and enforcement action", color: "red" },
-              { icon: FileText, text: "Denied cyber insurance claims", color: "orange" },
-              { icon: TrendingDown, text: "Increased premiums", color: "amber" },
-              { icon: Users, text: "Reputational damage and loss of client trust", color: "rose" },
-              { icon: Shield, text: "Higher exposure to security incidents", color: "red" }
+              {
+                icon: AlertTriangle,
+                text: "Regulatory penalties and enforcement action",
+                color: "red",
+              },
+              {
+                icon: FileText,
+                text: "Denied cyber insurance claims",
+                color: "orange",
+              },
+              {
+                icon: TrendingDown,
+                text: "Increased premiums",
+                color: "amber",
+              },
+              {
+                icon: Users,
+                text: "Reputational damage and loss of client trust",
+                color: "rose",
+              },
+              {
+                icon: Shield,
+                text: "Higher exposure to security incidents",
+                color: "red",
+              },
             ].map((item, index) => (
-              <div key={index} className="p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-red-500/50 transition-all">
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-red-500/50 transition-all"
+              >
                 <div className="flex items-start gap-4">
-                  <div className={`p-2 rounded-lg bg-${item.color}-500/10 flex-shrink-0`}>
+                  <div
+                    className={`p-2 rounded-lg bg-${item.color}-500/10 flex-shrink-0`}
+                  >
                     <item.icon className={`w-6 h-6 text-${item.color}-400`} />
                   </div>
                   <p className="text-gray-300">{item.text}</p>
@@ -60,7 +109,8 @@ export default function ComplianceAsAServicePage() {
             ))}
           </div>
           <p className="text-center text-lg text-indigo-300 font-medium">
-            Effective compliance strengthens security, improves resilience, and supports long-term business stability.
+            Effective compliance strengthens security, improves resilience, and
+            supports long-term business stability.
           </p>
         </div>
       </section>
@@ -82,22 +132,29 @@ export default function ComplianceAsAServicePage() {
                   <div className="p-2 rounded-lg bg-indigo-500/10">
                     <Eye className="w-6 h-6 text-indigo-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Ongoing Risk Assessment and Monitoring</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Ongoing Risk Assessment and Monitoring
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  Compliance is continuous. Our CaaS solution includes regular assessments of:
+                  Compliance is continuous. Our CaaS solution includes regular
+                  assessments of:
                 </p>
                 <p className="text-gray-400">
-                  This allows us to identify gaps early and address them before they become audit findings or security incidents.
+                  This allows us to identify gaps early and address them before
+                  they become audit findings or security incidents.
                 </p>
               </div>
               <div className="space-y-3">
                 {[
                   "Technical controls",
                   "Administrative processes",
-                  "Physical and environmental safeguards"
+                  "Physical and environmental safeguards",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
@@ -112,22 +169,28 @@ export default function ComplianceAsAServicePage() {
                   <div className="p-2 rounded-lg bg-purple-500/10">
                     <FileCheck className="w-6 h-6 text-purple-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Documented Evidence of Compliance</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Documented Evidence of Compliance
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-4">
                   Evidence is often the most difficult part of compliance.
                 </p>
                 <p className="text-gray-400">
-                  This provides clear proof of due care and due diligence for auditors, regulators, and insurers.
+                  This provides clear proof of due care and due diligence for
+                  auditors, regulators, and insurers.
                 </p>
               </div>
               <div className="space-y-3">
                 {[
                   "Up-to-date policies and procedures",
                   "Audit logs and technical evidence",
-                  "Risk registers and remediation records"
+                  "Risk registers and remediation records",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
@@ -142,22 +205,29 @@ export default function ComplianceAsAServicePage() {
                   <div className="p-2 rounded-lg bg-blue-500/10">
                     <Shield className="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Reduced Insurance Risk and Premium Exposure</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Reduced Insurance Risk and Premium Exposure
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  Insurers increasingly assess security posture before issuing or renewing cyber policies.
+                  Insurers increasingly assess security posture before issuing
+                  or renewing cyber policies.
                 </p>
                 <p className="text-gray-400">
-                  Our compliance services align closely with cyber insurance expectations.
+                  Our compliance services align closely with cyber insurance
+                  expectations.
                 </p>
               </div>
               <div className="space-y-3">
                 {[
                   "Improves insurability",
                   "Reduces the likelihood of claim denial",
-                  "Supports more favourable premiums"
+                  "Supports more favourable premiums",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
@@ -172,7 +242,9 @@ export default function ComplianceAsAServicePage() {
                   <div className="p-2 rounded-lg bg-cyan-500/10">
                     <Target className="w-6 h-6 text-cyan-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Tailored Remediation Planning</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Tailored Remediation Planning
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-4">
                   No two organisations face the same risks.
@@ -185,9 +257,12 @@ export default function ComplianceAsAServicePage() {
                 {[
                   "Specific to your industry and regulatory scope",
                   "Prioritised based on real risk",
-                  "Aligned with your operational capacity"
+                  "Aligned with your operational capacity",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
@@ -202,13 +277,17 @@ export default function ComplianceAsAServicePage() {
                   <div className="p-2 rounded-lg bg-emerald-500/10">
                     <Award className="w-6 h-6 text-emerald-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Certification and Audit Preparation</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    Certification and Audit Preparation
+                  </h3>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  We guide you through the full certification and audit lifecycle.
+                  We guide you through the full certification and audit
+                  lifecycle.
                 </p>
                 <p className="text-gray-400">
-                  You remain supported from planning through to audit completion.
+                  You remain supported from planning through to audit
+                  completion.
                 </p>
               </div>
               <div className="space-y-3">
@@ -216,9 +295,12 @@ export default function ComplianceAsAServicePage() {
                   "Readiness assessments",
                   "Gap analysis and remediation",
                   "Evidence preparation",
-                  "Audit support and guidance"
+                  "Audit support and guidance",
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800">
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-slate-900/50 border border-slate-800"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
@@ -237,7 +319,8 @@ export default function ComplianceAsAServicePage() {
               Regulations and Frameworks We Support
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-              Our Compliance as a Service solution supports alignment with multiple regulatory and industry standards, including:
+              Our Compliance as a Service solution supports alignment with
+              multiple regulatory and industry standards, including:
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
@@ -251,9 +334,12 @@ export default function ComplianceAsAServicePage() {
               "Cyber Essentials",
               "Cyber Essentials Plus",
               "DORA",
-              "NIST CSF"
+              "NIST CSF",
             ].map((framework, index) => (
-              <div key={index} className="p-4 rounded-lg bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 text-center hover:border-indigo-500/50 transition-all">
+              <div
+                key={index}
+                className="p-4 rounded-lg bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 text-center hover:border-indigo-500/50 transition-all"
+              >
                 <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center mx-auto mb-3">
                   <FileCheck className="w-5 h-5 text-indigo-400" />
                 </div>
@@ -262,7 +348,8 @@ export default function ComplianceAsAServicePage() {
             ))}
           </div>
           <p className="text-center text-gray-400">
-            We help organisations manage overlapping requirements efficiently without duplicating effort.
+            We help organisations manage overlapping requirements efficiently
+            without duplicating effort.
           </p>
         </div>
       </section>
@@ -275,27 +362,50 @@ export default function ComplianceAsAServicePage() {
               A Complete Compliance Solution
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-              True compliance requires coverage across people, processes, and technology.
+              True compliance requires coverage across people, processes, and
+              technology.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {[
-              { title: "Managed IT Services", desc: "System governance and control", icon: Settings },
-              { title: "Cyber Security Services", desc: "Identity, endpoint, email, and monitoring", icon: Shield },
-              { title: "Security Awareness", desc: "Training and vulnerability management", icon: BookOpen },
-              { title: "Documentation", desc: "Evidence management", icon: FileText }
+              {
+                title: "Managed IT Services",
+                desc: "System governance and control",
+                icon: Settings,
+              },
+              {
+                title: "Cyber Security Services",
+                desc: "Identity, endpoint, email, and monitoring",
+                icon: Shield,
+              },
+              {
+                title: "Security Awareness",
+                desc: "Training and vulnerability management",
+                icon: BookOpen,
+              },
+              {
+                title: "Documentation",
+                desc: "Evidence management",
+                icon: FileText,
+              },
             ].map((item, index) => (
-              <div key={index} className="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all">
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all"
+              >
                 <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4">
                   <item.icon className="w-6 h-6 text-indigo-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
           <p className="text-center text-gray-400">
-            This ensures compliance is supported by real operational controls, not just policy documents.
+            This ensures compliance is supported by real operational controls,
+            not just policy documents.
           </p>
         </div>
       </section>
@@ -314,35 +424,40 @@ export default function ComplianceAsAServicePage() {
                 step: "1",
                 title: "Assessment and Discovery",
                 desc: "We assess your current environment to identify risks, gaps, and regulatory exposure.",
-                icon: ClipboardCheck
+                icon: ClipboardCheck,
               },
               {
                 step: "2",
                 title: "Planning and Design",
                 desc: "We design a compliance roadmap aligned with your business goals and obligations.",
-                icon: FileText
+                icon: FileText,
               },
               {
                 step: "3",
                 title: "Implementation and Validation",
                 desc: "We implement required controls and validate effectiveness through evidence and testing.",
-                icon: Settings
+                icon: Settings,
               },
               {
                 step: "4",
                 title: "Ongoing Assurance",
                 desc: "Compliance is maintained through continuous monitoring, documentation, and review.",
-                icon: Eye
-              }
+                icon: Eye,
+              },
             ].map((item, index) => (
-              <div key={index} className="relative p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800">
+              <div
+                key={index}
+                className="relative p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800"
+              >
                 <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">
                   {item.step}
                 </div>
                 <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-4 mt-4">
                   <item.icon className="w-6 h-6 text-indigo-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
@@ -366,9 +481,12 @@ export default function ComplianceAsAServicePage() {
               "Reduced security and regulatory risk",
               "Clear accountability",
               "Audit readiness at all times",
-              "Confidence for leadership, clients, and insurers"
+              "Confidence for leadership, clients, and insurers",
             ].map((item, index) => (
-              <div key={index} className="p-6 rounded-xl bg-slate-900 border border-slate-800">
+              <div
+                key={index}
+                className="p-6 rounded-xl bg-slate-900 border border-slate-800"
+              >
                 <CheckCircle2 className="w-8 h-8 text-indigo-400 mb-4" />
                 <p className="text-gray-300">{item}</p>
               </div>
@@ -387,19 +505,30 @@ export default function ComplianceAsAServicePage() {
             Get Started
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            If you are finding it challenging to manage compliance obligations or prepare for audits, we can help.
+            If you are finding it challenging to manage compliance obligations
+            or prepare for audits, we can help.
           </p>
           <Link
             href="/contact-us"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/20"
           >
             Speak to a Compliance Specialist
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </Link>
         </div>
       </section>
     </main>
-  );
+  )
 }

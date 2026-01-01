@@ -49,10 +49,10 @@ export default function EmailCloudSecurityPage() {
             leakage continue to drive the majority of security incidents.
           </p>
           <p className="text-lg text-gray-400 max-w-4xl">
-            Core Innovate IT delivers AI-powered email and cloud security
-            designed to detect sophisticated threats that traditional security
-            tools miss. Our approach focuses on intent, behaviour, and context,
-            not just known indicators.
+            CORE INNOVATE delivers AI-powered email and cloud security designed
+            to detect sophisticated threats that traditional security tools
+            miss. Our approach focuses on intent, behaviour, and context, not
+            just known indicators.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function EmailCloudSecurityPage() {
               Our Approach to Email and Cloud Security
             </h2>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
-              Core Innovate IT secures email and cloud services using advanced
+              CORE INNOVATE secures email and cloud services using advanced
               AI-driven detection, continuous monitoring, and integrated user
               protection. This service works in alignment with our Managed IT
               and Cyber Security offerings to provide consistent control across

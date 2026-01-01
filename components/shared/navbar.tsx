@@ -12,6 +12,7 @@ import { Button } from "./button"
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
 
   const location = usePathname()
 
@@ -22,6 +23,15 @@ const NavBar = () => {
       setIsServicesOpen(false)
     }
   }, [isOpen])
+
+  useEffect(() => {
+    // Set default hovered category when dropdown opens
+    if (isServicesOpen && !hoveredCategory) {
+      setHoveredCategory(serviceCategories[0].title)
+    } else if (!isServicesOpen) {
+      setHoveredCategory(null)
+    }
+  }, [isServicesOpen, hoveredCategory])
 
   const linkClasses = (path: string) =>
     `relative transition-colors duration-300 hover:text-primary ${
@@ -136,7 +146,10 @@ const NavBar = () => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
               onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              onMouseLeave={() => {
+                setIsServicesOpen(false)
+                setHoveredCategory(null)
+              }}
               className="overflow-hidden backdrop-blur-lg bg-dark/98 border-b border-white/5 shadow-2xl"
             >
               <motion.div
@@ -146,32 +159,96 @@ const NavBar = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
               >
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {services.map((service, index) => (
-                    <motion.div
-                      key={service.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: index * 0.08,
-                        ease: [0.4, 0, 0.2, 1],
-                      }}
-                    >
-                      <Link
-                        href={service.href}
-                        className="group block px-6 py-4 rounded-lg text-white/80 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-base font-medium border border-transparent hover:border-white/10"
+                <div className="grid grid-cols-12 gap-8">
+                  {/* Left Column - Categories */}
+                  <div className="col-span-4 space-y-2 border-r border-white/10 pr-8">
+                    {serviceCategories.map((category, categoryIndex) => (
+                      <motion.button
+                        key={category.title}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{
+                          duration: 0.4,
+                          delay: categoryIndex * 0.1,
+                          ease: [0.4, 0, 0.2, 1],
+                        }}
+                        onMouseEnter={() => setHoveredCategory(category.title)}
+                        className={cn(
+                          "w-full text-left px-4 py-3 rounded-lg transition-all duration-300 font-dm-sans font-semibold text-sm uppercase tracking-wider",
+                          hoveredCategory === category.title
+                            ? "bg-white/10 text-primary border border-white/20"
+                            : "text-white/85 hover:bg-white/5 border border-transparent"
+                        )}
                       >
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
-                          <span className="group-hover:translate-x-1 transition-transform duration-300">
-                            {service.name}
-                          </span>
+                        <div className="flex items-center justify-between">
+                          <span>{category.title}</span>
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
                         </div>
-                      </Link>
-                    </motion.div>
-                  ))}
+                      </motion.button>
+                    ))}
+                  </div>
+
+                  {/* Right Column - Services */}
+                  <div className="col-span-8">
+                    <AnimatePresence mode="wait">
+                      {hoveredCategory ? (
+                        <motion.div
+                          key={hoveredCategory}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 20 }}
+                          transition={{ duration: 0.3 }}
+                          className="space-y-3"
+                        >
+                          <h3 className="text-primary font-dm-sans font-bold text-lg mb-6">
+                            {hoveredCategory}
+                          </h3>
+                          <div className="grid grid-cols-1 gap-2">
+                            {serviceCategories
+                              .find((cat) => cat.title === hoveredCategory)
+                              ?.services.map((service) => (
+                                <Link
+                                  key={service.id}
+                                  href={service.href}
+                                  className="group block px-4 py-3 rounded-lg text-white/85 hover:text-primary hover:bg-white/5 transition-all duration-300 font-dm-sans text-sm font-medium border border-transparent hover:border-white/10"
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors duration-300" />
+                                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                                      {service.name}
+                                    </span>
+                                  </div>
+                                </Link>
+                              ))}
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center justify-center h-full min-h-[300px]"
+                        >
+                          <p className="text-white/50 text-center font-dm-sans">
+                            Hover over a category to view services
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -244,25 +321,34 @@ const NavBar = () => {
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="overflow-hidden mt-4 space-y-4"
+                      className="overflow-hidden mt-4 space-y-6"
                     >
-                      {services.map((service, index) => (
+                      {serviceCategories.map((category, categoryIndex) => (
                         <motion.div
-                          key={service.id}
+                          key={category.title}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
+                          transition={{ delay: categoryIndex * 0.1 }}
+                          className="space-y-3"
                         >
-                          <Link
-                            onClick={() => {
-                              setIsOpen(false)
-                              setIsServicesOpen(false)
-                            }}
-                            href={service.href}
-                            className="block text-center text-white/70 hover:text-primary transition-colors text-base"
-                          >
-                            {service.name}
-                          </Link>
+                          <h4 className="text-primary font-dm-sans font-semibold text-xs uppercase tracking-wider text-center">
+                            {category.title}
+                          </h4>
+                          <div className="space-y-2">
+                            {category.services.map((service, index) => (
+                              <Link
+                                key={service.id}
+                                onClick={() => {
+                                  setIsOpen(false)
+                                  setIsServicesOpen(false)
+                                }}
+                                href={service.href}
+                                className="block text-center text-white/85 hover:text-primary transition-colors text-sm"
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -307,16 +393,100 @@ const NavBar = () => {
 
 export default NavBar
 
-const services = [
-  { name: "Managed IT Services", id: "managed-it-services", href: "/services/managed-it-services" },
-  { name: "Cloud & Digital Transformation", id: "cloud-management", href: "/services/cloud-management" },
-  { name: "Infrastructure & Modernisation", id: "infrastructure-modernisation", href: "/services/infrastructure-modernisation" },
-  { name: "Compliance as a Service", id: "compliance-as-a-service", href: "/services/compliance-as-a-service" },
-  { name: "Email & Cloud Security", id: "email-cloud-security", href: "/services/email-cloud-security" },
-  { name: "Dark Web Monitoring", id: "dark-web-monitoring", href: "/services/dark-web-monitoring" },
-  { name: "Phishing Awareness & Security Training", id: "phishing-awareness-training", href: "/services/phishing-awareness-training" },
-  { name: "Managed Password Management", id: "managed-password-management", href: "/services/managed-password-management" },
-  { name: "SaaS Protection", id: "saas-protection", href: "/services/saas-protection" },
-  { name: "Penetration Testing", id: "penetration-testing", href: "/services/penetration-testing" },
-  { name: "Data Backup & Disaster Recovery", id: "backup-disaster-recovery", href: "/services/backup-disaster-recovery" },
+const serviceCategories = [
+  {
+    title: "Core IT & Cyber Security",
+    services: [
+      {
+        name: "Managed IT Services",
+        id: "managed-it-services",
+        href: "/services/managed-it-services",
+      },
+      {
+        name: "Managed Cybersecurity Services",
+        id: "managed-security",
+        href: "/services/managed-security",
+      },
+      {
+        name: "Security Operations Centre (SOC) & Endpoint Security",
+        id: "soc-endpoint-security",
+        href: "/services/soc-endpoint-security",
+      },
+      {
+        name: "Managed Password Management",
+        id: "managed-password-management",
+        href: "/services/managed-password-management",
+      },
+      {
+        name: "Email & Cloud Security",
+        id: "email-cloud-security",
+        href: "/services/email-cloud-security",
+      },
+      {
+        name: "Phishing Awareness & Security Training",
+        id: "phishing-awareness-training",
+        href: "/services/phishing-awareness-training",
+      },
+      {
+        name: "Dark Web Monitoring",
+        id: "dark-web-monitoring",
+        href: "/services/dark-web-monitoring",
+      },
+      {
+        name: "Penetration Testing",
+        id: "penetration-testing",
+        href: "/services/penetration-testing",
+      },
+    ],
+  },
+  {
+    title: "Data Protection & Resilience",
+    services: [
+      {
+        name: "Data Backup, Disaster Recovery & Business Continuity",
+        id: "backup-disaster-recovery",
+        href: "/services/backup-disaster-recovery",
+      },
+      {
+        name: "SaaS Protection (Microsoft 365 & Google Workspace)",
+        id: "saas-protection",
+        href: "/services/saas-protection",
+      },
+    ],
+  },
+  {
+    title: "Governance & Compliance",
+    services: [
+      {
+        name: "Compliance as a Service (CaaS)",
+        id: "compliance-as-a-service",
+        href: "/services/compliance-as-a-service",
+      },
+    ],
+  },
+  {
+    title: "Infrastructure & Transformation",
+    services: [
+      {
+        name: "Infrastructure & Modernisation",
+        id: "infrastructure-modernisation",
+        href: "/services/infrastructure-modernisation",
+      },
+      {
+        name: "Cloud & Digital Transformation",
+        id: "cloud-management",
+        href: "/services/cloud-management",
+      },
+      {
+        name: "Web & Software Development",
+        id: "web-software-development",
+        href: "/services/web-software-development",
+      },
+      {
+        name: "AUTOTASK & Datto Integration Portal",
+        id: "autotask-integration",
+        href: "/autotask-integration",
+      },
+    ],
+  },
 ]

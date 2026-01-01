@@ -346,19 +346,48 @@ const SendMessage = () => {
                   <SelectItem value="Managed IT Services">
                     Managed IT Services
                   </SelectItem>
-                  <SelectItem value="Cloud Management">
-                    Cloud Management
+                  <SelectItem value="Managed Cybersecurity Services">
+                    Managed Cybersecurity Services
                   </SelectItem>
-                  <SelectItem value="Managed Security">
-                    Managed Security
+                  <SelectItem value="SOC & Endpoint Security">
+                    SOC & Endpoint Security
                   </SelectItem>
-                  <SelectItem value="Project Management">
-                    Project Management
+                  <SelectItem value="Managed Password Management">
+                    Managed Password Management
                   </SelectItem>
-                  <SelectItem value="Software Development">
-                    Software Development
+                  <SelectItem value="Email & Cloud Security">
+                    Email & Cloud Security
                   </SelectItem>
-                  <SelectItem value="Project Risk">Project Risk</SelectItem>
+                  <SelectItem value="Phishing Awareness & Security Training">
+                    Phishing Awareness & Security Training
+                  </SelectItem>
+                  <SelectItem value="Dark Web Monitoring">
+                    Dark Web Monitoring
+                  </SelectItem>
+                  <SelectItem value="Penetration Testing">
+                    Penetration Testing
+                  </SelectItem>
+                  <SelectItem value="Data Backup, Disaster Recovery & Business Continuity">
+                    Data Backup, Disaster Recovery & Business Continuity
+                  </SelectItem>
+                  <SelectItem value="SaaS Protection">
+                    SaaS Protection (Microsoft 365 & Google Workspace)
+                  </SelectItem>
+                  <SelectItem value="Compliance as a Service">
+                    Compliance as a Service (CaaS)
+                  </SelectItem>
+                  <SelectItem value="Infrastructure & Modernisation">
+                    Infrastructure & Modernisation
+                  </SelectItem>
+                  <SelectItem value="Cloud & Digital Transformation">
+                    Cloud & Digital Transformation
+                  </SelectItem>
+                  <SelectItem value="Web & Software Development">
+                    Web & Software Development
+                  </SelectItem>
+                  <SelectItem value="AUTOTASK & Datto Integration Portal">
+                    AUTOTASK & Datto Integration Portal
+                  </SelectItem>
                   <SelectItem value="Other">Other</SelectItem>
                 </SelectContent>
               </Select>

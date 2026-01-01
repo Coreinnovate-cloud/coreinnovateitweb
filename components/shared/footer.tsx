@@ -129,7 +129,7 @@ const Footer = () => {
               </Link>
 
               {/* Description */}
-              <p className="text-white/70 text-base leading-relaxed">
+              <p className="text-white/85 text-base leading-relaxed">
                 Be the first to receive all the recent updates, articles, and
                 valuable materials about IT security and innovation.
               </p>
@@ -141,9 +141,9 @@ const Footer = () => {
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-full opacity-20 group-hover:opacity-40 blur transition-opacity duration-500" />
                     <div className="relative flex items-center gap-2">
                       <div className="relative flex-1">
-                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/60" />
                         <input
-                          className="w-full placeholder:text-white/40 text-sm py-3 pl-11 pr-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white focus:outline-none focus:border-primary/50 transition-colors duration-300"
+                          className="w-full placeholder:text-white/50 text-sm py-3 pl-11 pr-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white focus:outline-none focus:border-primary/50 transition-colors duration-300"
                           placeholder="Enter your email"
                           type="email"
                           value={email}
@@ -186,7 +186,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.1, y: -2 }}
                     className="group relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300"
                   >
-                    <social.icon className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors duration-300" />
+                    <social.icon className="w-4 h-4 text-white/75 group-hover:text-primary transition-colors duration-300" />
                   </motion.a>
                 ))}
               </div>
@@ -216,7 +216,7 @@ const Footer = () => {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                      className="group flex items-center gap-2 text-white/80 hover:text-primary transition-colors duration-300"
                     >
                       <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
                       <span className="text-sm font-medium">{link.label}</span>
@@ -239,17 +239,35 @@ const Footer = () => {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: "Managed IT Services", id: "managed-it-services" },
-                    { name: "Cybersecurity", id: "managed-security" },
-                    { name: "Cloud Solutions", id: "cloud-management" },
-                    { name: "Project Management", id: "project-management" },
-                    { name: "Risk Management", id: "project-risk" },
-                    { name: "Information Security", id: "managed-security" },
+                    {
+                      name: "Managed IT Services",
+                      href: "/services/managed-it-services",
+                    },
+                    {
+                      name: "Managed Cybersecurity",
+                      href: "/services/managed-security",
+                    },
+                    {
+                      name: "SOC & Endpoint Security",
+                      href: "/services/soc-endpoint-security",
+                    },
+                    {
+                      name: "Cloud & Digital Transformation",
+                      href: "/services/cloud-management",
+                    },
+                    {
+                      name: "Compliance as a Service",
+                      href: "/services/compliance-as-a-service",
+                    },
+                    {
+                      name: "Data Backup & Recovery",
+                      href: "/services/backup-disaster-recovery",
+                    },
                   ].map((service) => (
                     <Link
-                      key={service.id}
-                      href={`/services#${service.id}`}
-                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                      key={service.href}
+                      href={service.href}
+                      className="group flex items-center gap-2 text-white/80 hover:text-primary transition-colors duration-300"
                     >
                       <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
                       <span className="text-sm font-medium">
@@ -281,7 +299,7 @@ const Footer = () => {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className="group flex items-center gap-2 text-white/60 hover:text-primary transition-colors duration-300"
+                      className="group flex items-center gap-2 text-white/80 hover:text-primary transition-colors duration-300"
                     >
                       <ArrowRight className="w-0 h-4 text-primary opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300" />
                       <span className="text-sm font-medium">{link.label}</span>
@@ -291,15 +309,15 @@ const Footer = () => {
 
                 {/* Contact Info */}
                 <div className="pt-6 space-y-3">
-                  <div className="flex items-start gap-2 text-white/60 text-xs">
+                  <div className="flex items-start gap-2 text-white/80 text-xs">
                     <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                     <span>United Kingdom</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white/60 text-xs">
+                  <div className="flex items-center gap-2 text-white/80 text-xs">
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>+44 (0) 1452 222192</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white/60 text-xs">
+                  <div className="flex items-center gap-2 text-white/80 text-xs">
                     <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                     <a
                       href="mailto:hello@coreinnovateit.co.uk"
@@ -324,7 +342,7 @@ const Footer = () => {
         >
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Legal Links */}
-            <div className="flex flex-wrap text-sm font-medium text-white/60 items-center gap-6">
+            <div className="flex flex-wrap text-sm font-medium text-white/80 items-center gap-6">
               <Link
                 href="/terms-of-service"
                 className="hover:text-primary transition-colors duration-300"
@@ -348,9 +366,9 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/40 text-center sm:text-right">
+            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/70 text-center sm:text-right">
               <div className="flex flex-col sm:flex-row items-center gap-2">
-                <span>© 2025 Core Innovate IT Ltd.</span>
+                <span>© 2025 CORE INNOVATE Ltd.</span>
                 <span className="hidden sm:inline">All rights reserved.</span>
               </div>
             </div>
@@ -365,7 +383,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="border-t border-white/10 py-4 text-center"
         >
-          <p className="text-xs text-white/30 leading-relaxed px-4">
+          <p className="text-xs text-white/70 leading-relaxed px-4">
             Registered in England and Wales (Company No. 15566009). Registered
             Office: Suite 248, Corinium House, Barnwood Point Business Park,
             Gloucester, GL4 3HX.
