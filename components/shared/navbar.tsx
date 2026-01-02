@@ -437,6 +437,11 @@ const serviceCategories = [
         id: "penetration-testing",
         href: "/services/penetration-testing",
       },
+      {
+        name: "Vulnerability Management",
+        id: "vulnerability-management",
+        href: "/services/vulnerability-management",
+      },
     ],
   },
   {
