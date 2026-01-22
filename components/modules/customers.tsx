@@ -25,6 +25,11 @@ const Customers = () => {
       logo: "/new_partners/Halcyon.png",
       alt: "Halcyon Logo",
     },
+    {
+      name: "Proofpoint",
+      logo: "/new_partners/proofpoint.png",
+      alt: "proofpoint Logo",
+    },
   ]
 
   return (
@@ -52,7 +57,7 @@ const Customers = () => {
         </motion.div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 items-center justify-items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-16 items-center justify-items-center max-w-6xl mx-auto">
           {customers.map((customer, index) => (
             <motion.div
               key={customer.name}
@@ -62,11 +67,13 @@ const Customers = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group w-full"
             >
-              <div className={`relative h-24 md:h-32 flex items-center justify-center p-6 rounded-lg border transition-all duration-300 ${
-                customer.name === "Halcyon"
-                  ? "bg-slate-800/90 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600"
-                  : "bg-white/90 border-white/30 hover:bg-white hover:border-white/50"
-              }`}>
+              <div
+                className={`relative h-24 md:h-32 flex items-center justify-center p-6 rounded-lg border transition-all duration-300 ${
+                  customer.name === "Halcyon"
+                    ? "bg-slate-800/90 border-slate-700/50 hover:bg-slate-800 hover:border-slate-600"
+                    : "bg-white/90 border-white/30 hover:bg-white hover:border-white/50"
+                }`}
+              >
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg blur-xl" />
 

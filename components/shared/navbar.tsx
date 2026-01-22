@@ -264,7 +264,7 @@ const NavBar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full h-screen bg-dark/98 backdrop-blur-lg z-[70] flex flex-col p-4 items-center gap-12 text-white font-dm-sans text-lg font-medium overflow-y-auto"
+            className="fixed top-0 left-0 w-full h-screen bg-dark/98 backdrop-blur-lg z-[70] flex flex-col p-4 sm:p-6 items-center gap-8 sm:gap-12 text-white font-dm-sans text-lg font-medium overflow-y-auto pb-safe"
           >
             <div className="w-full flex items-center justify-between top-6">
               <Link onClick={() => setIsOpen(false)} href="/">
@@ -288,7 +288,7 @@ const NavBar = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-6 flex flex-col items-center w-full max-w-md"
+              className="space-y-4 sm:space-y-6 flex flex-col items-center w-full max-w-md px-2"
             >
               {/* Services Section */}
               <div className="w-full">
@@ -343,7 +343,7 @@ const NavBar = () => {
                                   setIsServicesOpen(false)
                                 }}
                                 href={service.href}
-                                className="block text-center text-white/85 hover:text-primary transition-colors text-sm"
+                                className="text-center text-white/85 hover:text-primary transition-colors text-sm py-2 min-h-11 flex items-center justify-center"
                               >
                                 {service.name}
                               </Link>
@@ -487,11 +487,11 @@ const serviceCategories = [
         id: "web-software-development",
         href: "/services/web-software-development",
       },
-      {
-        name: "AUTOTASK & Datto Integration Portal",
-        id: "autotask-integration",
-        href: "/autotask-integration",
-      },
+      // {
+      //   name: "AUTOTASK & Datto Integration Portal",
+      //   id: "autotask-integration",
+      //   href: "/autotask-integration",
+      // },
     ],
   },
 ]

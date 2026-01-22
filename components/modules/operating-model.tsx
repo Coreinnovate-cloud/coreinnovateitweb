@@ -222,7 +222,7 @@ const OperatingModel = () => {
           </div>
 
           {/* Infographics Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mt-8 sm:mt-12">
             {[
               { src: "/infographics/Infographic 1.png", alt: "Core Innovate Infographic 1" },
               { src: "/infographics/Infographic 2.png", alt: "Core Innovate Infographic 2" },
@@ -262,9 +262,9 @@ const OperatingModel = () => {
           className="bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl p-8 md:p-12 shadow-xl border border-red-100"
         >
           <div className="space-y-6">
-            <div className="flex items-center gap-3 justify-center">
-              <AlertTriangle className="w-8 h-8 text-red-600" />
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 font-dm-sans">
+            <div className="flex flex-col sm:flex-row items-center gap-3 justify-center text-center sm:text-left">
+              <AlertTriangle className="w-8 h-8 text-red-600 shrink-0" />
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 font-dm-sans">
                 The Problem with Typical Managed IT Providers
               </h3>
             </div>
