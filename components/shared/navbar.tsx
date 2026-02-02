@@ -13,6 +13,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
+  const [expandedMobileCategory, setExpandedMobileCategory] = useState<string | null>(null)
 
   const location = usePathname()
 
@@ -21,6 +22,7 @@ const NavBar = () => {
     // Reset services dropdown when mobile menu closes
     if (!isOpen) {
       setIsServicesOpen(false)
+      setExpandedMobileCategory(null)
     }
   }, [isOpen])
 
@@ -321,34 +323,73 @@ const NavBar = () => {
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="overflow-hidden mt-4 space-y-6"
+                      className="overflow-hidden mt-4 space-y-2"
                     >
                       {serviceCategories.map((category, categoryIndex) => (
                         <motion.div
                           key={category.title}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: categoryIndex * 0.1 }}
-                          className="space-y-3"
+                          transition={{ delay: categoryIndex * 0.05 }}
+                          className="border border-white/10 rounded-lg overflow-hidden"
                         >
-                          <h4 className="text-primary font-dm-sans font-semibold text-xs uppercase tracking-wider text-center">
-                            {category.title}
-                          </h4>
-                          <div className="space-y-2">
-                            {category.services.map((service, index) => (
-                              <Link
-                                key={service.id}
-                                onClick={() => {
-                                  setIsOpen(false)
-                                  setIsServicesOpen(false)
-                                }}
-                                href={service.href}
-                                className="text-center text-white/85 hover:text-primary transition-colors text-sm py-2 min-h-11 flex items-center justify-center"
+                          {/* Category Header - Clickable */}
+                          <button
+                            onClick={() => setExpandedMobileCategory(
+                              expandedMobileCategory === category.title ? null : category.title
+                            )}
+                            className="w-full flex items-center justify-between px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors"
+                          >
+                            <span className="text-primary font-dm-sans font-semibold text-xs uppercase tracking-wider">
+                              {category.title}
+                            </span>
+                            <svg
+                              className={cn(
+                                "w-4 h-4 text-primary transition-transform duration-300",
+                                expandedMobileCategory === category.title && "rotate-180"
+                              )}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          {/* Category Services - Collapsible */}
+                          <AnimatePresence>
+                            {expandedMobileCategory === category.title && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
                               >
-                                {service.name}
-                              </Link>
-                            ))}
-                          </div>
+                                <div className="px-2 py-2 space-y-1 bg-white/[0.02]">
+                                  {category.services.map((service) => (
+                                    <Link
+                                      key={service.id}
+                                      onClick={() => {
+                                        setIsOpen(false)
+                                        setIsServicesOpen(false)
+                                        setExpandedMobileCategory(null)
+                                      }}
+                                      href={service.href}
+                                      className="text-left text-white/85 hover:text-primary hover:bg-white/5 transition-colors text-sm py-2.5 px-3 min-h-11 flex items-center rounded-md"
+                                    >
+                                      {service.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </motion.div>
                       ))}
                     </motion.div>
