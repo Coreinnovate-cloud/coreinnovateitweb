@@ -104,8 +104,8 @@ const Footer = () => {
 
       <div className="relative px-4 max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="py-16 lg:py-20">
-          <div className="grid gap-12 lg:grid-cols-3">
+        <div className="py-12 sm:py-16 lg:py-20">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-3">
             {/* Company Info & Newsletter */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -193,7 +193,7 @@ const Footer = () => {
             </motion.div>
 
             {/* Links Grid */}
-            <div className="grid grid-cols-2 gap-8 lg:grid-cols-3 col-span-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3 col-span-1 lg:col-span-2">
               {/* Company */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -342,24 +342,24 @@ const Footer = () => {
         >
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             {/* Legal Links */}
-            <div className="flex flex-wrap text-sm font-medium text-white/80 items-center gap-6">
+            <div className="flex flex-wrap text-sm font-medium text-white/80 items-center justify-center sm:justify-start gap-4 sm:gap-6">
               <Link
                 href="/terms-of-service"
-                className="hover:text-primary transition-colors duration-300"
+                className="hover:text-primary transition-colors duration-300 min-h-11 flex items-center"
               >
                 Terms of Service
               </Link>
-              <span className="w-1 h-1 bg-white/20 rounded-full" />
+              <span className="w-1 h-1 bg-white/20 rounded-full hidden sm:block" />
               <Link
                 href="/privacy-policy"
-                className="hover:text-primary transition-colors duration-300"
+                className="hover:text-primary transition-colors duration-300 min-h-11 flex items-center"
               >
                 Privacy Policy
               </Link>
-              <span className="w-1 h-1 bg-white/20 rounded-full" />
+              <span className="w-1 h-1 bg-white/20 rounded-full hidden sm:block" />
               <Link
                 href="/cookie-policy"
-                className="hover:text-primary transition-colors duration-300"
+                className="hover:text-primary transition-colors duration-300 min-h-11 flex items-center"
               >
                 Cookie Policy
               </Link>

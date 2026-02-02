@@ -42,7 +42,7 @@ const Reviews = () => {
         </motion.div>
 
         {/* Zigzag Reviews Layout */}
-        <div className="space-y-16">
+        <div className="space-y-10 sm:space-y-16">
           {testimonials.map((testimonial, index) => {
             const isEven = index % 2 === 0
 
@@ -53,7 +53,7 @@ const Reviews = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className={`grid lg:grid-cols-2 gap-8 items-center ${
+                className={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${
                   isEven ? "" : "lg:grid-flow-dense"
                 }`}
               >
@@ -62,9 +62,9 @@ const Reviews = () => {
                   <ReviewComponent {...testimonial} />
                 </div>
 
-                {/* Decorative Element */}
+                {/* Decorative Element - Hidden on mobile */}
                 <div
-                  className={`relative ${isEven ? "lg:order-2" : "lg:order-1"}`}
+                  className={`relative hidden lg:block ${isEven ? "lg:order-2" : "lg:order-1"}`}
                 >
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}

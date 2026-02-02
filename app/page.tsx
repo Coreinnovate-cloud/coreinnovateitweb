@@ -15,8 +15,17 @@ import RemoteAvatar from "@/components/shared/remote-avatar"
 import { motion } from "framer-motion"
 import { Brain, MoveUpRight, Users } from "lucide-react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
   return (
     <div className="space-y-0">
       {/* Hero Section */}
@@ -33,11 +42,11 @@ export default function Home() {
         <div style={{ width: "100%", height: "800px", position: "absolute" }}>
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
-            particleCount={600}
+            particleCount={isMobile ? 150 : 600}
             particleSpread={10}
             speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
+            particleBaseSize={isMobile ? 80 : 100}
+            moveParticlesOnHover={!isMobile}
             alphaParticles={false}
             disableRotation={false}
           />
