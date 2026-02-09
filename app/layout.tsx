@@ -100,6 +100,13 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <meta name="theme-color" content="#16365f" />
+        {/* Klaviyo tracking script - replace YOUR_COMPANY_ID with actual Klaviyo company ID */}
+        {process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID && (
+          <script
+            async
+            src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID}`}
+          />
+        )}
       </head>
       <body className={`${dmSans.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
         <NavBar />
