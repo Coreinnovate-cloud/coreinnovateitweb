@@ -107,6 +107,15 @@ const NavBar = () => {
                 </Link>
                 <Link
                   className={cn(
+                    linkClasses("/cost-estimator"),
+                    "text-white font-dm-sans font-medium text-base"
+                  )}
+                  href="/cost-estimator"
+                >
+                  Cost Estimator
+                </Link>
+                <Link
+                  className={cn(
                     linkClasses("/about-us"),
                     "text-white font-dm-sans font-medium text-base"
                   )}
@@ -403,6 +412,13 @@ const NavBar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Resources
+              </Link>
+              <Link
+                href="/cost-estimator"
+                className="hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Cost Estimator
               </Link>
               <Link
                 href="/about-us"
