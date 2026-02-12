@@ -12,17 +12,20 @@ import { Button } from "./button"
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false)
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [expandedMobileCategory, setExpandedMobileCategory] = useState<string | null>(null)
+  const [expandedMobileIndustries, setExpandedMobileIndustries] = useState(false)
 
   const location = usePathname()
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : ""
-    // Reset services dropdown when mobile menu closes
+    // Reset dropdowns when mobile menu closes
     if (!isOpen) {
       setIsServicesOpen(false)
       setExpandedMobileCategory(null)
+      setExpandedMobileIndustries(false)
     }
   }, [isOpen])
 
@@ -81,6 +84,38 @@ const NavBar = () => {
                       className={cn(
                         "w-4 h-4 transition-all duration-300 ease-out",
                         isServicesOpen && "rotate-180"
+                      )}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Industries Dropdown */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setIsIndustriesOpen(true)}
+                  onMouseLeave={() => setIsIndustriesOpen(false)}
+                >
+                  <button
+                    className={cn(
+                      "text-white font-dm-sans font-medium text-base transition-all duration-300 hover:text-primary flex items-center gap-1.5 py-2 group",
+                      location.startsWith("/industries") && "text-primary"
+                    )}
+                  >
+                    Industries
+                    <svg
+                      className={cn(
+                        "w-4 h-4 transition-all duration-300 ease-out",
+                        isIndustriesOpen && "rotate-180"
                       )}
                       fill="none"
                       stroke="currentColor"
@@ -265,6 +300,52 @@ const NavBar = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Industries Dropdown Menu */}
+        <AnimatePresence>
+          {isIndustriesOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              onMouseEnter={() => setIsIndustriesOpen(true)}
+              onMouseLeave={() => setIsIndustriesOpen(false)}
+              className="overflow-hidden backdrop-blur-lg bg-dark/98 border-b border-white/5 shadow-2xl"
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+              >
+                <h3 className="text-primary font-dm-sans font-bold text-lg mb-6">
+                  Solutions by Industry
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {industries.map((industry, index) => (
+                    <motion.div
+                      key={industry.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <Link
+                        href={industry.href}
+                        className="group block p-4 rounded-lg bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300"
+                      >
+                        <span className="text-white/85 group-hover:text-primary transition-colors font-dm-sans text-sm font-medium">
+                          {industry.name}
+                        </span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <AnimatePresence>
@@ -401,6 +482,61 @@ const NavBar = () => {
                           </AnimatePresence>
                         </motion.div>
                       ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries Section */}
+              <div className="w-full">
+                <button
+                  onClick={() => setExpandedMobileIndustries(!expandedMobileIndustries)}
+                  className="flex items-center justify-center gap-2 w-full py-2 text-white hover:text-primary transition-colors"
+                >
+                  Industries
+                  <svg
+                    className={cn(
+                      "w-4 h-4 transition-transform duration-300",
+                      expandedMobileIndustries && "rotate-180"
+                    )}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {expandedMobileIndustries && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden mt-4 space-y-2"
+                    >
+                      <div className="border border-white/10 rounded-lg overflow-hidden">
+                        <div className="px-2 py-2 space-y-1 bg-white/[0.02]">
+                          {industries.map((industry) => (
+                            <Link
+                              key={industry.id}
+                              onClick={() => {
+                                setIsOpen(false)
+                                setExpandedMobileIndustries(false)
+                              }}
+                              href={industry.href}
+                              className="text-left text-white/85 hover:text-primary hover:bg-white/5 transition-colors text-sm py-2.5 px-3 min-h-11 flex items-center rounded-md"
+                            >
+                              {industry.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -550,5 +686,33 @@ const serviceCategories = [
       //   href: "/autotask-integration",
       // },
     ],
+  },
+]
+
+const industries = [
+  {
+    name: "Healthcare & Care Providers",
+    id: "healthcare",
+    href: "/industries/healthcare",
+  },
+  {
+    name: "Professional Services",
+    id: "professional-services",
+    href: "/industries/professional-services",
+  },
+  {
+    name: "Charities & Non-Profits",
+    id: "charities-non-profits",
+    href: "/industries/charities-non-profits",
+  },
+  {
+    name: "Manufacturing",
+    id: "manufacturing",
+    href: "/industries/manufacturing",
+  },
+  {
+    name: "Growing Businesses & Startups",
+    id: "growing-businesses",
+    href: "/industries/growing-businesses",
   },
 ]

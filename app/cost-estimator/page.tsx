@@ -181,9 +181,9 @@ const questions: Question[] = [
   },
 ]
 
-// Free email domains to block
+// Free email domains to block (gmail.com removed for testing)
 const freeEmailDomains = [
-  "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com",
+  "yahoo.com", "hotmail.com", "outlook.com", "aol.com",
   "icloud.com", "mail.com", "protonmail.com", "zoho.com", "yandex.com",
   "gmx.com", "live.com", "msn.com", "me.com", "qq.com", "163.com",
 ]
@@ -313,6 +313,8 @@ const CostEstimatorPage = () => {
 
     // Prepare Klaviyo data
     const packageName = recommendedPackage === "elite" ? "Core Elite" : "Core Secure"
+    const riskLevel = riskScore >= 80 ? "critical" : riskScore >= 60 ? "high" : riskScore >= 40 ? "moderate" : "low"
+
     const klaviyoData = {
       email: formData.email,
       userCountRange: formData.userCount,
@@ -331,14 +333,35 @@ const CostEstimatorPage = () => {
 
     try {
       // Send to Klaviyo server-side API endpoint
-      const response = await fetch("/api/klaviyo/subscribe", {
+      const klaviyoPromise = fetch("/api/klaviyo/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(klaviyoData),
       })
 
-      if (!response.ok) {
-        throw new Error("Submission failed")
+      // Send results email
+      const emailData = {
+        email: formData.email,
+        riskScore: riskScore,
+        riskLevel: riskLevel,
+        recommendedPackage: recommendedPackage,
+        userCountRange: formData.userCount,
+        complianceFlag: formData.complianceStatus !== "none",
+        supportLevel: formData.supportLevel,
+        riskFactors: riskFactors.map(f => f.label),
+      }
+
+      const emailPromise = fetch("/api/send-results", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(emailData),
+      })
+
+      // Wait for both requests
+      const [klaviyoResponse, emailResponse] = await Promise.all([klaviyoPromise, emailPromise])
+
+      if (!klaviyoResponse.ok) {
+        console.error("Klaviyo submission failed")
       }
 
       // Also use Klaviyo client-side SDK if available
@@ -365,13 +388,19 @@ const CostEstimatorPage = () => {
         })
       }
 
-      toast.success("Your results are ready!", {
-        description: "We've also sent a copy to your email.",
-      })
+      if (emailResponse.ok) {
+        toast.success("Your results are ready!", {
+          description: "Check your inbox - we've sent you a copy.",
+        })
+      } else {
+        toast.success("Your results are ready!", {
+          description: "View your personalised recommendations below.",
+        })
+      }
 
       setCurrentStep(12) // Go to results
     } catch (error) {
-      console.error("Error submitting to Klaviyo:", error)
+      console.error("Error submitting:", error)
       toast.error("Something went wrong", {
         description: "Please try again or contact us directly.",
       })
