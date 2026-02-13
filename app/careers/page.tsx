@@ -1,14 +1,20 @@
 "use client"
 
 import { Button } from "@/components/shared/button"
+import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import {
   ArrowRight,
+  Briefcase,
   CheckCircle,
+  ChevronRight,
+  Clock,
   Heart,
   Lightbulb,
   Mail,
+  MapPin,
   RefreshCw,
+  Search,
   Shield,
   Star,
   Target,
@@ -17,8 +23,71 @@ import {
   Zap,
 } from "lucide-react"
 import Link from "next/link"
+import { useMemo, useState } from "react"
+
+interface JobRole {
+  id: string
+  title: string
+  department: string
+  type: string
+  location: string
+  description: string
+  href: string
+}
+
+// Job listings data - add/remove roles here
+const jobListings: JobRole[] = [
+  // Example roles - uncomment and modify when you have open positions
+  // {
+  //   id: "1",
+  //   title: "Senior Security Engineer",
+  //   department: "Cybersecurity",
+  //   type: "Full-time",
+  //   location: "Remote (UK)",
+  //   description: "Help design and implement security solutions for our clients across healthcare, professional services, and more.",
+  //   href: "/contact-us",
+  // },
+  // {
+  //   id: "2",
+  //   title: "IT Support Engineer",
+  //   department: "IT Operations",
+  //   type: "Full-time",
+  //   location: "London",
+  //   description: "Provide proactive IT support and management for our growing client base.",
+  //   href: "/contact-us",
+  // },
+  // {
+  //   id: "3",
+  //   title: "Compliance Analyst",
+  //   department: "Governance & Compliance",
+  //   type: "Full-time",
+  //   location: "Hybrid (London)",
+  //   description: "Support clients with compliance frameworks including ISO 27001, Cyber Essentials, and GDPR.",
+  //   href: "/contact-us",
+  // },
+]
+
+const departments = ["All Departments", "Cybersecurity", "IT Operations", "Governance & Compliance", "Engineering", "Sales & Marketing", "Operations"]
+const jobTypes = ["All Types", "Full-time", "Part-time", "Contract"]
+const locations = ["All Locations", "London", "Remote (UK)", "Hybrid (London)", "Manchester"]
 
 const CareersPage = () => {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedDepartment, setSelectedDepartment] = useState("All Departments")
+  const [selectedType, setSelectedType] = useState("All Types")
+  const [selectedLocation, setSelectedLocation] = useState("All Locations")
+
+  const filteredJobs = useMemo(() => {
+    return jobListings.filter((job) => {
+      const matchesSearch = searchQuery === "" ||
+        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.description.toLowerCase().includes(searchQuery.toLowerCase())
+      const matchesDepartment = selectedDepartment === "All Departments" || job.department === selectedDepartment
+      const matchesType = selectedType === "All Types" || job.type === selectedType
+      const matchesLocation = selectedLocation === "All Locations" || job.location === selectedLocation
+      return matchesSearch && matchesDepartment && matchesType && matchesLocation
+    })
+  }, [searchQuery, selectedDepartment, selectedType, selectedLocation])
   const coreValues = [
     {
       letter: "C",
@@ -450,37 +519,172 @@ const CareersPage = () => {
       <section id="open-roles" className="py-20 px-4 sm:px-8 lg:px-12 bg-gradient-to-br from-dark via-secondary to-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-dm-sans">
               Open Roles
             </h2>
-            <p className="text-white/80 text-lg mb-12">
+            <p className="text-white/80 text-lg">
               We&apos;re always looking for talented individuals to join our team.
             </p>
+          </motion.div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/10">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Users className="w-10 h-10 text-white" />
+          {/* Search & Filters */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8"
+          >
+            {/* Search Bar */}
+            <div className="relative mb-4">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+              <input
+                type="text"
+                placeholder="Search roles by title or keyword..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all font-dm-sans"
+              />
+            </div>
+
+            {/* Filter Dropdowns */}
+            <div className="grid sm:grid-cols-3 gap-3">
+              {/* Department */}
+              <div className="relative">
+                <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
+                <select
+                  value={selectedDepartment}
+                  onChange={(e) => setSelectedDepartment(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white/80 focus:outline-none focus:border-primary/50 transition-all font-dm-sans text-sm appearance-none cursor-pointer"
+                >
+                  {departments.map((dept) => (
+                    <option key={dept} value={dept} className="bg-slate-800 text-white">
+                      {dept}
+                    </option>
+                  ))}
+                </select>
+                <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 rotate-90 pointer-events-none" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 font-dm-sans">
-                No Open Positions Right Now
-              </h3>
-              <p className="text-white/70 mb-8 max-w-lg mx-auto">
-                We don&apos;t have any open roles at the moment, but we&apos;re always interested in hearing from exceptional people. Send us your CV and tell us why you&apos;d be a great fit.
-              </p>
-              <Link href="/contact-us">
-                <Button size="lg" variant="white" className="shadow-lg">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Send Your CV
-                </Button>
-              </Link>
+
+              {/* Job Type */}
+              <div className="relative">
+                <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
+                <select
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white/80 focus:outline-none focus:border-primary/50 transition-all font-dm-sans text-sm appearance-none cursor-pointer"
+                >
+                  {jobTypes.map((type) => (
+                    <option key={type} value={type} className="bg-slate-800 text-white">
+                      {type}
+                    </option>
+                  ))}
+                </select>
+                <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 rotate-90 pointer-events-none" />
+              </div>
+
+              {/* Location */}
+              <div className="relative">
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white/80 focus:outline-none focus:border-primary/50 transition-all font-dm-sans text-sm appearance-none cursor-pointer"
+                >
+                  {locations.map((loc) => (
+                    <option key={loc} value={loc} className="bg-slate-800 text-white">
+                      {loc}
+                    </option>
+                  ))}
+                </select>
+                <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 rotate-90 pointer-events-none" />
+              </div>
             </div>
           </motion.div>
+
+          {/* Job Listings */}
+          {filteredJobs.length > 0 ? (
+            <div className="space-y-4">
+              {filteredJobs.map((job, index) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <Link
+                    href={job.href}
+                    className="group block bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-white font-dm-sans group-hover:text-primary transition-colors mb-2">
+                          {job.title}
+                        </h3>
+                        <p className="text-white/60 text-sm mb-3">{job.description}</p>
+                        <div className="flex flex-wrap gap-3">
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                            <Briefcase className="w-3 h-3" />
+                            {job.department}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                            <Clock className="w-3 h-3" />
+                            {job.type}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                            <MapPin className="w-3 h-3" />
+                            {job.location}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/10">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 font-dm-sans">
+                  {jobListings.length === 0
+                    ? "No Open Positions Right Now"
+                    : "No Matching Roles Found"}
+                </h3>
+                <p className="text-white/70 mb-8 max-w-lg mx-auto">
+                  {jobListings.length === 0
+                    ? "We don't have any open roles at the moment, but we're always interested in hearing from exceptional people. Send us your CV and tell us why you'd be a great fit."
+                    : "Try adjusting your filters or search terms. You can also send us your CV directly."}
+                </p>
+                <Link href="/contact-us">
+                  <Button size="lg" variant="white" className="shadow-lg">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Send Your CV
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
