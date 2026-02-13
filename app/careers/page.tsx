@@ -24,6 +24,7 @@ const CareersPage = () => {
       letter: "C",
       title: "Change-Driven",
       description: "We are agile by design.",
+      subtitle: "Technology, threats, and regulations evolve constantly. So do we.",
       details: [
         "We challenge outdated ways of working",
         "We adapt quickly and decisively",
@@ -37,12 +38,13 @@ const CareersPage = () => {
       letter: "O",
       title: "Ownership",
       description: "Excellence starts with ownership.",
+      subtitle: "Every team member is trusted to:",
       details: [
         "Take responsibility for their work",
         "Think beyond their job title",
         "Act in the best interest of the client and the team",
       ],
-      tagline: "If something needs fixing, we fix it. If something can be improved, we improve it.",
+      tagline: "We don't micromanage, but we do expect accountability. If something needs fixing, we fix it. If something can be improved, we improve it.",
       icon: Target,
       gradient: "from-primary to-blue-500",
     },
@@ -50,12 +52,18 @@ const CareersPage = () => {
       letter: "R",
       title: "Relationships",
       description: "Strong teams outperform clever individuals.",
+      subtitle: "We place a high value on:",
       details: [
         "Respectful communication",
         "Collaboration across roles",
         "Supporting each other under pressure",
       ],
-      tagline: "How we work together matters as much as what we deliver.",
+      dontTolerate: [
+        "Ego-driven behaviour",
+        "Poor communication",
+        "Undermining colleagues",
+      ],
+      tagline: "Professional, calm, and constructive relationships are non-negotiable.",
       icon: Users,
       gradient: "from-cyan-500 to-primary",
     },
@@ -63,6 +71,7 @@ const CareersPage = () => {
       letter: "E",
       title: "Excellence",
       description: "Excellence is compulsory. Not optional. Not situational.",
+      subtitle: "Whether it's supporting a user, designing a secure environment, writing documentation, or communicating with a client — the standard is the same.",
       details: [
         "Attention to detail",
         "Clear thinking",
@@ -232,6 +241,10 @@ const CareersPage = () => {
                       </div>
                     </div>
 
+                    {value.subtitle && (
+                      <p className="text-grey mb-4">{value.subtitle}</p>
+                    )}
+
                     <div className="space-y-3 mb-6">
                       {value.details.map((detail, i) => (
                         <div key={i} className="flex items-start gap-3">
@@ -240,6 +253,20 @@ const CareersPage = () => {
                         </div>
                       ))}
                     </div>
+
+                    {value.dontTolerate && (
+                      <div className="mb-6 bg-red-50 rounded-xl p-4 border border-red-100">
+                        <p className="text-sm font-semibold text-red-800 mb-3">We don&apos;t tolerate:</p>
+                        <div className="space-y-2">
+                          {value.dontTolerate.map((item: string, i: number) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <XCircle className="w-4 h-4 text-red-400 shrink-0" />
+                              <span className="text-sm text-red-700">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <p className="text-primary font-semibold italic border-l-4 border-primary pl-4">
                       {value.tagline}
