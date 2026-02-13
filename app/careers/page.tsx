@@ -37,39 +37,56 @@ interface JobRole {
 
 // Job listings data - add/remove roles here
 const jobListings: JobRole[] = [
-  // Example roles - uncomment and modify when you have open positions
-  // {
-  //   id: "1",
-  //   title: "Senior Security Engineer",
-  //   department: "Cybersecurity",
-  //   type: "Full-time",
-  //   location: "Remote (UK)",
-  //   description: "Help design and implement security solutions for our clients across healthcare, professional services, and more.",
-  //   href: "/contact-us",
-  // },
-  // {
-  //   id: "2",
-  //   title: "IT Support Engineer",
-  //   department: "IT Operations",
-  //   type: "Full-time",
-  //   location: "London",
-  //   description: "Provide proactive IT support and management for our growing client base.",
-  //   href: "/contact-us",
-  // },
-  // {
-  //   id: "3",
-  //   title: "Compliance Analyst",
-  //   department: "Governance & Compliance",
-  //   type: "Full-time",
-  //   location: "Hybrid (London)",
-  //   description: "Support clients with compliance frameworks including ISO 27001, Cyber Essentials, and GDPR.",
-  //   href: "/contact-us",
-  // },
+  {
+    id: "technical-presales-engineer",
+    title: "Technical Presales Engineer",
+    department: "Engineering & Presales",
+    type: "Full-time",
+    location: "Remote (Occasional Travel)",
+    description: "Bridge the gap between client needs and technical delivery. Scope IT & cybersecurity solutions, lead technical discovery, and design proposals that solve real problems.",
+    href: "/careers/technical-presales-engineer",
+  },
+  {
+    id: "it-project-manager",
+    title: "IT Project Manager (Mid-Level)",
+    department: "Operations & PM",
+    type: "Full-time",
+    location: "Remote (Occasional Travel)",
+    description: "Lead IT and cybersecurity projects from kick-off to completion. Manage timelines, client expectations, and cross-functional delivery across infrastructure, security, and compliance.",
+    href: "/careers/it-project-manager",
+  },
+  {
+    id: "sales-marketing-executive",
+    title: "Sales & Marketing Executive",
+    department: "Sales & Marketing",
+    type: "Full-time",
+    location: "Hybrid",
+    description: "Drive new business opportunities through outreach, lead generation, and relationship building. Support marketing campaigns across LinkedIn, email, and events.",
+    href: "/careers/sales-marketing-executive",
+  },
+  {
+    id: "2nd-line-it-analyst",
+    title: "2nd Line IT Analyst",
+    department: "IT Operations",
+    type: "Full-time",
+    location: "Remote (Shift-based)",
+    description: "Provide advanced technical support across Microsoft 365, Azure, networking, and endpoint management. Troubleshoot escalated issues and maintain client infrastructure.",
+    href: "/careers/2nd-line-it-analyst",
+  },
+  {
+    id: "l2-security-analyst",
+    title: "L2 Security Analyst (Mid-Level)",
+    department: "Cybersecurity",
+    type: "Full-time",
+    location: "Remote (Shift-based)",
+    description: "Investigate and respond to security incidents, manage SIEM/EDR platforms, and support clients with threat detection, vulnerability management, and compliance.",
+    href: "/careers/l2-security-analyst",
+  },
 ]
 
-const departments = ["All Departments", "Cybersecurity", "IT Operations", "Governance & Compliance", "Engineering", "Sales & Marketing", "Operations"]
+const departments = ["All Departments", "Engineering & Presales", "Operations & PM", "Sales & Marketing", "IT Operations", "Cybersecurity"]
 const jobTypes = ["All Types", "Full-time", "Part-time", "Contract"]
-const locations = ["All Locations", "London", "Remote (UK)", "Hybrid (London)", "Manchester"]
+const locations = ["All Locations", "Remote (Occasional Travel)", "Remote (Shift-based)", "Hybrid"]
 
 const CareersPage = () => {
   const [searchQuery, setSearchQuery] = useState("")
