@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your IT & Security Assessment Results</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e293b 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        .header p {
+            color: #94a3b8;
+            font-size: 16px;
+            margin: 0;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .risk-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .risk-low { background-color: #10b981; }
+        .risk-moderate { background-color: #f59e0b; }
+        .risk-high { background-color: #ef4444; }
+        .risk-critical { background-color: #dc2626; }
+        .risk-score-box {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .risk-score {
+            font-size: 64px;
+            font-weight: 700;
+            color: #3b82f6;
+            line-height: 1;
+            margin: 0;
+        }
+        .risk-score-label {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        .summary-box {
+            background-color: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+        .summary-box h3 {
+            color: #1e293b;
+            font-size: 18px;
+            margin: 0 0 16px 0;
+            font-weight: 600;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+        .summary-label {
+            color: #64748b;
+            font-size: 14px;
+        }
+        .summary-value {
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .risk-factors-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+        .risk-factors-box h3 {
+            color: #92400e;
+            font-size: 18px;
+            margin: 0 0 16px 0;
+            font-weight: 600;
+        }
+        .risk-factors-box ul {
+            margin: 0;
+            padding: 0 0 0 20px;
+            color: #92400e;
+        }
+        .risk-factors-box li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .package-box {
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .recommended-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .package-box h2 {
+            color: #ffffff;
+            font-size: 32px;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+        .package-tagline {
+            color: #c7d2fe;
+            font-size: 16px;
+            margin: 0 0 24px 0;
+        }
+        .features-list {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+        .feature-item {
+            color: #ffffff;
+            font-size: 14px;
+            padding: 10px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-check {
+            color: #34d399;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: #f8fafc;
+        }
+        .cta-section p {
+            color: #64748b;
+            font-size: 18px;
+            margin: 0 0 24px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+        }
+        .footer {
+            background-color: #1e293b;
+            padding: 30px;
+            text-align: center;
+        }
+        .footer p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 0 0 8px 0;
+        }
+        .footer-small {
+            color: #64748b;
+            font-size: 12px;
+            margin: 0;
+        }
+        @media only screen and (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .risk-score {
+                font-size: 48px;
+            }
+            .package-box h2 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://coreinnovateit.com/logo.png" alt="Core Innovate IT" class="logo">
+            <h1>Your IT & Security Assessment Results</h1>
+            <p>Here's your personalised security analysis</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Risk Badge -->
+            <div style="text-align: center;">
+                {% if event.risk_level == 'low' %}
+                <span class="risk-badge risk-low">{{ event.risk_level|upper }} Risk</span>
+                {% elif event.risk_level == 'moderate' %}
+                <span class="risk-badge risk-moderate">{{ event.risk_level|upper }} Risk</span>
+                {% elif event.risk_level == 'high' %}
+                <span class="risk-badge risk-high">{{ event.risk_level|upper }} Risk</span>
+                {% else %}
+                <span class="risk-badge risk-critical">{{ event.risk_level|upper }} Risk</span>
+                {% endif %}
+            </div>
+
+            <!-- Risk Score -->
+            <div class="risk-score-box">
+                <div class="risk-score">{{ event.risk_score }}</div>
+                <div class="risk-score-label">Risk Score (out of 100)</div>
+            </div>
+
+            <!-- Assessment Summary -->
+            <div class="summary-box">
+                <h3>Assessment Summary</h3>
+                <div class="summary-row">
+                    <span class="summary-label">Organisation Size</span>
+                    <span class="summary-value">{{ event.user_count_range }}</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Compliance Requirements</span>
+                    <span class="summary-value">{% if event.compliance_flag %}Yes{% else %}No{% endif %}</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Support Preference</span>
+                    <span class="summary-value">{{ event.support_level }}</span>
+                </div>
+            </div>
+
+            <!-- Risk Factors (only show if there are any) -->
+            {% if event.risk_factors %}
+            <div class="risk-factors-box">
+                <h3>⚠️ Key Risk Factors Identified</h3>
+                <ul>
+                    {% assign factors = event.risk_factors | split: ", " %}
+                    {% for factor in factors %}
+                    <li>{{ factor }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <!-- Recommended Package -->
+            <div class="package-box">
+                <div class="recommended-badge">Recommended</div>
+                <h2>{{ event.package_name }}</h2>
+                <p class="package-tagline">{{ event.package_tagline }}</p>
+
+                <div class="features-list">
+                    {% assign features = event.package_features | split: "|" %}
+                    {% for feature in features %}
+                    <div class="feature-item">
+                        <span class="feature-check">✓</span>
+                        <span>{{ feature }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <p><strong>Ready to protect your organisation?</strong></p>
+            <a href="{{ event.cta_url }}" class="cta-button">Book a Free Consultation</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Core Innovate IT</strong> | Secure IT & Cybersecurity Solutions</p>
+            <p class="footer-small">This email was sent because you completed our IT & Security Cost Estimator.</p>
+        </div>
+    </div>
+</body>
+</html>

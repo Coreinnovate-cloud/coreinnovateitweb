@@ -568,7 +568,7 @@ const CostEstimatorPage = () => {
             </motion.div>
           )}
 
-          {/* Email Capture / Teaser */}
+          {/* Email Capture - No pricing shown */}
           {currentStep === 11 && (
             <motion.div
               key="email"
@@ -577,7 +577,7 @@ const CostEstimatorPage = () => {
               exit={{ opacity: 0, y: -20 }}
               className="min-h-[80vh] flex flex-col items-center justify-center py-12"
             >
-              {/* Teaser Result */}
+              {/* Assessment Complete Badge */}
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -587,21 +587,22 @@ const CostEstimatorPage = () => {
                   <Shield className="w-8 h-8 text-white" />
                 </div>
 
-                <p className="text-slate-600 mb-2">Organisations like yours typically invest</p>
-                <p className="text-4xl sm:text-5xl font-bold text-secondary font-dm-sans mb-2">
-                  £{priceRange.min} – £{priceRange.max}
+                <h2 className="text-2xl sm:text-3xl font-bold text-secondary font-dm-sans mb-3">
+                  Your assessment is complete
+                </h2>
+                <p className="text-slate-600 text-lg">
+                  We&apos;ve analysed your responses and prepared a personalised report including your risk score, recommended service level, and estimated pricing.
                 </p>
-                <p className="text-slate-600">per user / month</p>
               </motion.div>
 
               {/* Email Form */}
               <div className="w-full max-w-md space-y-6">
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold text-secondary font-dm-sans mb-2">
-                    Get your full results
-                  </h2>
-                  <p className="text-slate-600">
-                    Enter your work email to see your recommended service level and key risk factors.
+                  <h3 className="text-xl font-bold text-secondary font-dm-sans mb-2">
+                    Enter your email to unlock your results
+                  </h3>
+                  <p className="text-slate-500 text-sm">
+                    We&apos;ll also send a copy of your full report to your inbox.
                   </p>
                 </div>
 
@@ -662,11 +663,20 @@ const CostEstimatorPage = () => {
                       </>
                     ) : (
                       <>
-                        View My Results
+                        Unlock My Results
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </>
                     )}
                   </Button>
+
+                  <div className="flex items-center justify-center gap-4 pt-2">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                      <Lock className="w-3.5 h-3.5" />
+                      <span>Your data is secure</span>
+                    </div>
+                    <div className="w-1 h-1 rounded-full bg-slate-300" />
+                    <div className="text-xs text-slate-400">No spam, ever</div>
+                  </div>
                 </div>
               </div>
             </motion.div>
