@@ -32,14 +32,6 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    if (klaviyoApiKey.startsWith("pk_")) {
-      console.error("ERROR: Using Klaviyo PUBLIC key (pk_...). The API requires a PRIVATE key. Go to Klaviyo > Settings > API Keys > Create Private API Key.")
-      return NextResponse.json({
-        success: false,
-        message: "Klaviyo misconfigured: using public key instead of private key",
-      }, { status: 500 })
-    }
-
     // Klaviyo API v3 - Create or update profile
     const profileData = {
       data: {

@@ -277,15 +277,6 @@ export async function POST(request: NextRequest) {
       },
     }
 
-    // Validate API key format
-    if (klaviyoApiKey.startsWith("pk_")) {
-      console.error("ERROR: You are using a Klaviyo PUBLIC key (pk_...). The Events API requires a PRIVATE key. Go to Klaviyo > Settings > API Keys > Create Private API Key.")
-      return NextResponse.json({
-        error: "Klaviyo configuration error",
-        message: "Using a public key (pk_) instead of a private key. Please update KLAVIYO_PRIVATE_API_KEY in .env.local with a private API key from Klaviyo > Settings > API Keys.",
-      }, { status: 500 })
-    }
-
     console.log("Sending Klaviyo event for:", email, "Event: Assessment Results Ready")
 
     const eventResponse = await fetch("https://a.klaviyo.com/api/events/", {
