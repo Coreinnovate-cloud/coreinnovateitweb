@@ -4,6 +4,7 @@ import NavBar from "@/components/shared/navbar"
 import { Toaster } from "@/components/ui/sonner"
 import type { Metadata } from "next"
 import { DM_Sans, Inter } from "next/font/google"
+import Script from "next/script"
 import "swiper/css"
 import "swiper/css/pagination"
 import "./globals.css"
@@ -100,7 +101,20 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <meta name="theme-color" content="#16365f" />
-        {/* Klaviyo tracking script - replace YOUR_COMPANY_ID with actual Klaviyo company ID */}
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PXNYMCP57Z"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PXNYMCP57Z');
+          `}
+        </Script>
+        {/* Klaviyo tracking script */}
         {process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID && (
           <script
             async

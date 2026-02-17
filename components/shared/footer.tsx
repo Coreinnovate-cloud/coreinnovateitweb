@@ -368,7 +368,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/70 text-center sm:text-right">
               <div className="flex flex-col sm:flex-row items-center gap-2">
-                <span>© 2025 CORE INNOVATE Ltd.</span>
+                <span>© {new Date().getFullYear()} CORE INNOVATE Ltd.</span>
                 <span className="hidden sm:inline">All rights reserved.</span>
               </div>
             </div>

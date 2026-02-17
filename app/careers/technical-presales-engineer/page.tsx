@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/shared/button"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import {
   ArrowLeft,
   Briefcase,
@@ -12,6 +12,7 @@ import {
   Target,
 } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 const responsibilities = [
   "Lead technical discovery sessions with prospective and existing clients",
@@ -42,6 +43,8 @@ const successCriteria = [
 ]
 
 const TechnicalPresalesEngineerPage = () => {
+  const [showApplyInfo, setShowApplyInfo] = useState(false)
+
   return (
     <div className="space-y-0">
       {/* Hero */}
@@ -186,12 +189,41 @@ const TechnicalPresalesEngineerPage = () => {
             <p className="text-white/80 text-lg mb-6 leading-relaxed">
               At Core Innovate, we hire for mindset, capability, and values. If you take ownership, value teamwork, and deliver excellence, you&apos;ll fit in well here.
             </p>
-            <Link href="/contact-us">
-              <Button size="lg" className="shadow-2xl shadow-primary/30">
-                <Mail className="w-5 h-5 mr-2" />
-                Apply Now
-              </Button>
-            </Link>
+            <AnimatePresence mode="wait">
+              {showApplyInfo ? (
+                <motion.div
+                  key="info"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 max-w-lg mx-auto"
+                >
+                  <Mail className="w-8 h-8 text-primary mx-auto mb-3" />
+                  <p className="text-white font-semibold text-lg mb-2">
+                    To apply, please email your CV to
+                  </p>
+                  <a
+                    href="mailto:talent@coreinnovateit.co.uk"
+                    className="text-primary hover:text-cyan-400 transition-colors text-xl font-bold underline underline-offset-4"
+                  >
+                    talent@coreinnovateit.co.uk
+                  </a>
+                  <p className="text-white/70 text-sm mt-3">
+                    and tell us why you believe you would be a great fit for our team.
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.div key="button" exit={{ opacity: 0, y: -10 }}>
+                  <Button
+                    size="lg"
+                    className="shadow-2xl shadow-primary/30"
+                    onClick={() => setShowApplyInfo(true)}
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Apply Now
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>

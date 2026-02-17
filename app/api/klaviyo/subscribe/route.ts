@@ -26,12 +26,18 @@ export async function POST(request: NextRequest) {
 
     if (!klaviyoApiKey) {
       console.error("Klaviyo API key not configured")
-      // Return success anyway to not block the user experience
-      // The lead can be captured through other means
       return NextResponse.json({
         success: true,
         message: "Submission received (Klaviyo not configured)"
       })
+    }
+
+    if (klaviyoApiKey.startsWith("pk_")) {
+      console.error("ERROR: Using Klaviyo PUBLIC key (pk_...). The API requires a PRIVATE key. Go to Klaviyo > Settings > API Keys > Create Private API Key.")
+      return NextResponse.json({
+        success: false,
+        message: "Klaviyo misconfigured: using public key instead of private key",
+      }, { status: 500 })
     }
 
     // Klaviyo API v3 - Create or update profile
@@ -125,13 +131,23 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    // Create event for tracking
+    // Create event for tracking (Klaviyo API v3 format)
     const eventData = {
       data: {
         type: "event",
         attributes: {
-          profile: { $email: email },
-          metric: { name: "Calculator Completed" },
+          profile: {
+            data: {
+              type: "profile",
+              attributes: { email: email },
+            },
+          },
+          metric: {
+            data: {
+              type: "metric",
+              attributes: { name: "Calculator Completed" },
+            },
+          },
           properties: {
             user_count_range: userCountRange,
             risk_score: riskScore,
@@ -145,7 +161,7 @@ export async function POST(request: NextRequest) {
       },
     }
 
-    await fetch("https://a.klaviyo.com/api/events/", {
+    const eventResponse = await fetch("https://a.klaviyo.com/api/events/", {
       method: "POST",
       headers: {
         "Authorization": `Klaviyo-API-Key ${klaviyoApiKey}`,
@@ -154,6 +170,11 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify(eventData),
     })
+
+    if (!eventResponse.ok) {
+      const errorText = await eventResponse.text()
+      console.error("Klaviyo event tracking error:", eventResponse.status, errorText)
+    }
 
     return NextResponse.json({ success: true, message: "Successfully subscribed" })
   } catch (error) {
