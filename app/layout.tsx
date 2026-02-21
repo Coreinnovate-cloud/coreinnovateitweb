@@ -25,15 +25,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "CoreInnovate IT - Enterprise IT Security & Managed Services",
-    template: "%s | CoreInnovate IT",
+    default: "Core Innovate IT | Managed IT Services, Cybersecurity & Compliance",
+    template: "%s | Core Innovate IT",
   },
   description:
-    "We deliver AI-powered IT and cybersecurity solutions that protect your business and support growth. 24/7 managed services, cloud solutions, and expert security.",
+    "Core Innovate IT delivers managed IT services, cybersecurity, and compliance solutions that protect your business and support growth. 24/7 support, cloud solutions, and expert security.",
   keywords: [
-    "IT security",
     "managed IT services",
     "cybersecurity",
+    "IT compliance",
     "cloud solutions",
     "IT support",
     "information security",
@@ -41,33 +41,34 @@ export const metadata: Metadata = {
     "ISO 27001",
     "NIST CSF",
     "SOC 2",
+    "Core Innovate IT",
   ],
-  authors: [{ name: "CoreInnovate IT" }],
-  creator: "CoreInnovate IT",
-  publisher: "CoreInnovate IT",
+  authors: [{ name: "Core Innovate IT" }],
+  creator: "Core Innovate IT",
+  publisher: "Core Innovate IT",
   metadataBase: new URL("https://coreinnovateit.com"),
   openGraph: {
     type: "website",
     locale: "en_GB",
     url: "https://coreinnovateit.com",
-    title: "CoreInnovate IT - Enterprise IT Security & Managed Services",
+    title: "Core Innovate IT | Managed IT Services, Cybersecurity & Compliance",
     description:
-      "AI-powered IT and cybersecurity solutions that protect your business and support growth.",
-    siteName: "CoreInnovate IT",
+      "Managed IT services, cybersecurity, and compliance solutions that protect your business and support growth.",
+    siteName: "Core Innovate IT",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "CoreInnovate IT - Secure, Scalable IT Solutions",
+        alt: "Core Innovate IT | Managed IT Services, Cybersecurity & Compliance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CoreInnovate IT - Enterprise IT Security & Managed Services",
+    title: "Core Innovate IT | Managed IT Services, Cybersecurity & Compliance",
     description:
-      "AI-powered IT and cybersecurity solutions that protect your business and support growth.",
+      "Managed IT services, cybersecurity, and compliance solutions that protect your business and support growth.",
     images: ["/og-image.jpg"],
   },
   robots: {
