@@ -29,37 +29,41 @@ export async function POST(request: NextRequest) {
 
     // Validate email
     if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Invalid email address" }, { status: 400 })
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 },
+      )
     }
 
     // Package details
-    const packageDetails = recommendedPackage === "elite"
-      ? {
-          name: "CORE Elite",
-          tagline: "Comprehensive protection for high-risk environments",
-          features: [
-            "24/7 Security Operations Centre (SOC)",
-            "Advanced Endpoint Detection & Response (EDR)",
-            "Managed Detection and Response (MDR)",
-            "Compliance Management & Reporting",
-            "Dark Web Monitoring",
-            "Phishing Simulation & Training",
-            "Priority Support (20-min response)",
-          ],
-        }
-      : {
-          name: "CORE Secure",
-          tagline: "Essential protection for growing organisations",
-          features: [
-            "Managed IT Support",
-            "Endpoint Protection",
-            "Email Security",
-            "Cloud Backup & Recovery",
-            "Security Awareness Training",
-            "Regular Security Assessments",
-            "Business Hours Support",
-          ],
-        }
+    const packageDetails =
+      recommendedPackage === "elite"
+        ? {
+            name: "CORE Elite",
+            tagline: "Comprehensive protection for high-risk environments",
+            features: [
+              "24/7 Security Operations Centre (SOC)",
+              "Advanced Endpoint Detection & Response (EDR)",
+              "Managed Detection and Response (MDR)",
+              "Compliance Management & Reporting",
+              "Dark Web Monitoring",
+              "Phishing Simulation & Training",
+              "Priority Support (20-min response)",
+            ],
+          }
+        : {
+            name: "CORE Secure",
+            tagline: "Essential protection for growing organisations",
+            features: [
+              "Managed IT Support",
+              "Endpoint Protection",
+              "Email Security",
+              "Cloud Backup & Recovery",
+              "Security Awareness Training",
+              "Regular Security Assessments",
+              "Business Hours Support",
+            ],
+          }
 
     // Risk level colors
     const riskColors = {
@@ -69,7 +73,8 @@ export async function POST(request: NextRequest) {
       critical: { bg: "#DC2626", text: "#FEF2F2" },
     }
 
-    const riskColor = riskColors[riskLevel as keyof typeof riskColors] || riskColors.moderate
+    const riskColor =
+      riskColors[riskLevel as keyof typeof riskColors] || riskColors.moderate
 
     // Create HTML email — theme: #239dea primary, #16365f dark, #1d2739 secondary, #f7f9fc light, #475367 tertiary
     const htmlContent = `
@@ -137,7 +142,9 @@ export async function POST(request: NextRequest) {
             </td>
           </tr>
 
-          ${riskFactors.length > 0 ? `
+          ${
+            riskFactors.length > 0
+              ? `
           <!-- Risk Factors -->
           <tr>
             <td style="padding: 0 30px 24px 30px;">
@@ -146,14 +153,16 @@ export async function POST(request: NextRequest) {
                   <td style="padding: 22px 24px;">
                     <h3 style="color: #92400e; font-size: 16px; margin: 0 0 14px 0; font-weight: 700;">&#9888; Key Risk Factors Identified</h3>
                     <ul style="margin: 0; padding: 0 0 0 20px; color: #92400e; font-size: 14px; line-height: 1.9;">
-                      ${riskFactors.map(factor => `<li>${factor}</li>`).join("")}
+                      ${riskFactors.map((factor) => `<li>${factor}</li>`).join("")}
                     </ul>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
-          ` : ""}
+          `
+              : ""
+          }
 
           <!-- Recommended Package -->
           <tr>
@@ -167,14 +176,18 @@ export async function POST(request: NextRequest) {
                     <h2 style="color: #ffffff; font-size: 30px; margin: 0 0 8px 0; text-align: center; font-weight: 700;">${packageDetails.name}</h2>
                     <p style="color: rgba(255,255,255,0.8); font-size: 15px; margin: 0 0 24px 0; text-align: center;">${packageDetails.tagline}</p>
                     <table role="presentation" style="width: 100%; border-collapse: collapse;">
-                      ${packageDetails.features.map(feature => `
+                      ${packageDetails.features
+                        .map(
+                          (feature) => `
                         <tr>
                           <td style="padding: 9px 0; color: #ffffff; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.12);">
                             <span style="color: #a8edbb; margin-right: 10px; font-weight: 700;">&#10003;</span>
                             ${feature}
                           </td>
                         </tr>
-                      `).join("")}
+                      `,
+                        )
+                        .join("")}
                     </table>
                   </td>
                 </tr>
@@ -226,14 +239,18 @@ export async function POST(request: NextRequest) {
     const resendApiKey = process.env.RESEND_API_KEY
     if (!resendApiKey) {
       console.error("Resend API key not configured")
-      return NextResponse.json({
-        error: "Email service not configured",
-        message: "RESEND_API_KEY is missing from environment variables",
-      }, { status: 500 })
+      return NextResponse.json(
+        {
+          error: "Email service not configured",
+          message: "RESEND_API_KEY is missing from environment variables",
+        },
+        { status: 500 },
+      )
     }
 
     const resend = new Resend(resendApiKey)
-    const fromEmail = process.env.KLAVIYO_FROM_EMAIL || "noreply@coreinnovateit.co.uk"
+    const fromEmail =
+      process.env.KLAVIYO_FROM_EMAIL || "noreply@coreinnovateit.co.uk"
 
     console.log("Sending assessment email to:", email)
 
@@ -246,10 +263,13 @@ export async function POST(request: NextRequest) {
 
     if (emailError) {
       console.error("Resend email error:", emailError)
-      return NextResponse.json({
-        error: "Failed to send email",
-        message: emailError.message,
-      }, { status: 500 })
+      return NextResponse.json(
+        {
+          error: "Failed to send email",
+          message: emailError.message,
+        },
+        { status: 500 },
+      )
     }
 
     console.log("Email sent successfully:", emailData?.id)
@@ -291,12 +311,12 @@ export async function POST(request: NextRequest) {
       fetch("https://a.klaviyo.com/api/events/", {
         method: "POST",
         headers: {
-          "Authorization": `Klaviyo-API-Key ${klaviyoApiKey}`,
+          Authorization: `Klaviyo-API-Key ${klaviyoApiKey}`,
           "Content-Type": "application/json",
-          "revision": "2024-02-15",
+          revision: "2024-02-15",
         },
         body: JSON.stringify(eventPayload),
-      }).catch(err => console.error("Klaviyo event tracking error:", err))
+      }).catch((err) => console.error("Klaviyo event tracking error:", err))
     }
 
     return NextResponse.json({
@@ -307,9 +327,12 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Send results error:", error)
     const errorMessage = error instanceof Error ? error.message : String(error)
-    return NextResponse.json({
-      error: "Failed to send email",
-      message: errorMessage,
-    }, { status: 500 })
+    return NextResponse.json(
+      {
+        error: "Failed to send email",
+        message: errorMessage,
+      },
+      { status: 500 },
+    )
   }
 }
