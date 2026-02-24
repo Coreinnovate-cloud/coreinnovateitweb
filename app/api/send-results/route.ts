@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
             <td style="padding: 32px 30px 24px 30px;">
               <div style="text-align: center; margin-bottom: 20px;">
                 <span style="display: inline-block; background-color: ${riskColor.bg}; color: #ffffff; padding: 10px 28px; border-radius: 50px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">
-                  ${riskLevel} Risk
+                  ${riskLevel.charAt(0).toUpperCase() + riskLevel.slice(1)} Risk
                 </span>
               </div>
               <div style="text-align: center; padding: 28px; background: linear-gradient(135deg, #eaf6fd 0%, #dbeafe 100%); border-radius: 12px; border: 1px solid #bfdbfe;">
@@ -184,12 +184,20 @@ export async function POST(request: NextRequest) {
 
           <!-- CTA -->
           <tr>
-            <td style="padding: 8px 30px 40px 30px; text-align: center; background-color: #f7f9fc;">
-              <div style="padding: 36px 0;">
-                <p style="color: #1d2739; font-size: 17px; margin: 0 0 6px 0; font-weight: 700;">Ready to protect your organisation?</p>
-                <p style="color: #475367; font-size: 14px; margin: 0 0 24px 0;">Speak with our team and get a tailored security plan.</p>
-                <a href="https://coreinnovateit.com/contact-us" style="display: inline-block; background: linear-gradient(135deg, #239dea 0%, #16365f 100%); color: #ffffff; text-decoration: none; padding: 15px 40px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px; box-shadow: 0 4px 14px rgba(35,157,234,0.35);">Book a Free Consultation</a>
-              </div>
+            <td style="padding: 32px 30px 40px 30px; text-align: center; background-color: #f7f9fc;">
+              <p style="color: #1d2739; font-size: 17px; margin: 0 0 6px 0; font-weight: 700;">Ready to protect your organisation?</p>
+              <p style="color: #475367; font-size: 14px; margin: 0 0 28px 0;">Speak with our team and get a tailored security plan.</p>
+              <!-- Email-safe button: solid background-color for Outlook fallback -->
+              <table role="presentation" style="margin: 0 auto; border-collapse: collapse;">
+                <tr>
+                  <td style="background-color: #239dea; border-radius: 8px; text-align: center;">
+                    <a href="https://coreinnovateit.com/contact-us"
+                       style="display: inline-block; background-color: #239dea; color: #ffffff; text-decoration: none; padding: 15px 40px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px; mso-padding-alt: 0; font-family: Arial, sans-serif;">
+                      Book a Free Consultation
+                    </a>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
