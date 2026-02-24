@@ -191,7 +191,7 @@ export async function POST(request: NextRequest) {
               <table role="presentation" style="margin: 0 auto; border-collapse: collapse;">
                 <tr>
                   <td style="background-color: #239dea; border-radius: 8px; text-align: center;">
-                    <a href="https://coreinnovateit.com/contact-us"
+                    <a href="https://www.coreinnovateit.co.uk/contact-us"
                        style="display: inline-block; background-color: #239dea; color: #ffffff; text-decoration: none; padding: 15px 40px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 0.3px; mso-padding-alt: 0; font-family: Arial, sans-serif;">
                       Book a Free Consultation
                     </a>
