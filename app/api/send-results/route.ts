@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
           <!-- Header -->
           <tr>
             <td style="background: linear-gradient(135deg, #16365f 0%, #1d2739 100%); padding: 40px 30px; text-align: center;">
-              <img src="https://www.coreinnovateit.co.uk/_next/image?url=%2Flogo.png&w=256&q=75" alt="Core Innovate IT" style="height: 50px; margin-bottom: 20px;">
+              <img src="https://www.coreinnovateit.co.uk/_next/image?url=%2Flogo.png&w=256&q=75" alt="Core Innovate IT Managed IT & Cybersecurity" style="height: 50px; margin-bottom: 20px;">
               <h1 style="color: #ffffff; font-size: 26px; margin: 0 0 10px 0; font-weight: 700; letter-spacing: -0.5px;">Your IT & Security Assessment Results</h1>
               <p style="color: #239dea; font-size: 15px; margin: 0; font-weight: 500;">Here's your personalised security analysis</p>
             </td>
@@ -263,13 +263,10 @@ export async function POST(request: NextRequest) {
 
     if (emailError) {
       console.error("Resend email error:", emailError)
-      return NextResponse.json(
-        {
-          error: "Failed to send email",
-          message: emailError.message,
-        },
-        { status: 500 },
-      )
+      return NextResponse.json({
+        error: "Failed to send email",
+        message: emailError.message,
+      })
     }
 
     console.log("Email sent successfully:", emailData?.id)
