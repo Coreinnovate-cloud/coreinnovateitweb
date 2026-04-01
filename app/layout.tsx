@@ -46,11 +46,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Core Innovate IT" }],
   creator: "Core Innovate IT",
   publisher: "Core Innovate IT",
-  metadataBase: new URL("https://coreinnovateit.com"),
+  metadataBase: new URL("https://www.coreinnovateit.co.uk"),
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://coreinnovateit.com",
+    url: "https://www.coreinnovateit.co.uk",
     title: "Core Innovate IT | Managed IT Services, Cybersecurity & Compliance",
     description:
       "Managed IT services, cybersecurity, and compliance solutions that protect your business and support growth.",
@@ -96,7 +96,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="KzI9eoAUC6TjQGSJMipOGYAoAUjbbw39N_aqvD829eM"
         />
-        <link rel="canonical" href="https://coreinnovateit.com" />
+        <link rel="canonical" href="https://www.coreinnovateit.co.uk" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"

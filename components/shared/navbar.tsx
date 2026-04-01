@@ -60,7 +60,7 @@ const NavBar = () => {
                   src="/logo.png"
                   width={107}
                   height={68}
-                  alt="core innovate logo"
+                  alt="Core Innovate IT Managed IT & Cybersecurity"
                   className="h-12 w-auto sm:h-16"
                 />
               </Link>
@@ -79,7 +79,7 @@ const NavBar = () => {
                       location === "/services" && "text-primary"
                     )}
                   >
-                    Services
+                    Managed IT & Cybersecurity Services
                     <svg
                       className={cn(
                         "w-4 h-4 transition-all duration-300 ease-out",
@@ -138,7 +138,7 @@ const NavBar = () => {
                   )}
                   href="/resources"
                 >
-                  Resources
+                  Cybersecurity Resources & Insights
                 </Link>
                 <Link
                   className={cn(
@@ -373,7 +373,7 @@ const NavBar = () => {
                   src="/logo.png"
                   width={107}
                   height={68}
-                  alt="core innovate logo"
+                  alt="Core Innovate IT Managed IT & Cybersecurity"
                 />
               </Link>
 
@@ -397,7 +397,7 @@ const NavBar = () => {
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   className="flex items-center justify-center gap-2 w-full py-2 text-white hover:text-primary transition-colors"
                 >
-                  Services
+                  Managed IT & Cybersecurity Services
                   <svg
                     className={cn(
                       "w-4 h-4 transition-transform duration-300",
@@ -556,7 +556,7 @@ const NavBar = () => {
                 className="hover:text-primary transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
-                Resources
+                Cybersecurity Resources & Insights
               </Link>
               <Link
                 href="/cost-estimator"
