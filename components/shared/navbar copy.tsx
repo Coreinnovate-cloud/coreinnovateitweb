@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "./button";
 
-const NavBar = () => {
+const NavBarCopy = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isServicesOpen, setIsServicesOpen] = useState(false);
 	const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
@@ -52,28 +52,124 @@ const NavBar = () => {
 		<div className="relative">
 			<div className="fixed w-full z-50">
 				<div className="backdrop-blur-md bg-dark/70 border-b border-white/10">
-					<nav className="py-2.5 px-4 sm:px-6 lg:px-8">
+					<nav className="py-4 px-4 sm:px-6 lg:px-8">
 						<div className="max-w-7xl mx-auto flex items-center justify-between">
 							{/* Logo */}
 							<Link
 								href="/"
-								className="shrink-0 transition-transform hover:scale-105 duration-300">
+								className="flex-shrink-0 transition-transform hover:scale-105 duration-300">
 								<Image
 									src="/logo.png"
 									width={107}
 									height={68}
 									alt="Core Innovate IT Managed IT & Cybersecurity"
-									className="w-22 h-auto"
+									className="h-12 w-auto sm:h-16"
 								/>
 							</Link>
 
-							<Link href="/contact-us" className="hidden lg:block">
-								<Button
-									size="lg"
-									className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-									Contact Us
-								</Button>
-							</Link>
+							{/* Desktop Navigation */}
+							<div className="hidden lg:flex items-center gap-6 xl:gap-8">
+								{/* Services Dropdown */}
+								<div
+									className="relative"
+									onMouseEnter={() => setIsServicesOpen(true)}
+									onMouseLeave={() => setIsServicesOpen(false)}>
+									<button
+										className={cn(
+											"text-white font-dm-sans font-medium text-base transition-all duration-300 hover:text-primary flex items-center gap-1.5 py-2 group",
+											location === "/services" && "text-primary",
+										)}>
+										Managed IT & Cybersecurity Services
+										<svg
+											className={cn(
+												"w-4 h-4 transition-all duration-300 ease-out",
+												isServicesOpen && "rotate-180",
+											)}
+											fill="none"
+											stroke="currentColor"
+											viewBox="0 0 24 24">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M19 9l-7 7-7-7"
+											/>
+										</svg>
+									</button>
+								</div>
+
+								{/* Industries Dropdown */}
+								<div
+									className="relative"
+									onMouseEnter={() => setIsIndustriesOpen(true)}
+									onMouseLeave={() => setIsIndustriesOpen(false)}>
+									<button
+										className={cn(
+											"text-white font-dm-sans font-medium text-base transition-all duration-300 hover:text-primary flex items-center gap-1.5 py-2 group",
+											location.startsWith("/industries") && "text-primary",
+										)}>
+										Industries
+										<svg
+											className={cn(
+												"w-4 h-4 transition-all duration-300 ease-out",
+												isIndustriesOpen && "rotate-180",
+											)}
+											fill="none"
+											stroke="currentColor"
+											viewBox="0 0 24 24">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M19 9l-7 7-7-7"
+											/>
+										</svg>
+									</button>
+								</div>
+
+								<Link
+									className={cn(
+										linkClasses("/resources"),
+										"text-white font-dm-sans font-medium text-base",
+									)}
+									href="/resources">
+									Cybersecurity Resources & Insights
+								</Link>
+
+								<Link
+									className={cn(
+										linkClasses("/cost-estimator"),
+										"text-white font-dm-sans font-medium text-base",
+									)}
+									href="/cost-estimator">
+									Cost Estimator
+								</Link>
+								<Link
+									className={cn(
+										linkClasses("/careers"),
+										"text-white font-dm-sans font-medium text-base",
+									)}
+									href="/careers">
+									Careers
+								</Link>
+								<Link
+									className={cn(
+										linkClasses("/about-us"),
+										"text-white font-dm-sans font-medium text-base",
+									)}
+									href="/about-us">
+									About Us
+								</Link>
+
+								{/* Contact Button */}
+								<Link href="/contact-us">
+									<Button
+										size="lg"
+										className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+										Contact Us
+									</Button>
+								</Link>
+							</div>
 
 							{/* Mobile Menu Button */}
 							<div className="lg:hidden">
@@ -84,105 +180,6 @@ const NavBar = () => {
 									size={24}
 								/>
 							</div>
-						</div>
-					</nav>
-
-					<nav className="hidden lg:block border-t border-white/10 py-1 px-4 sm:px-6 lg:px-8">
-						{/* Desktop Navigation */}
-						<div className="flex items-center justify-center gap-6 xl:gap-8 max-w-7xl mx-auto">
-							{/* Services Dropdown */}
-							<div
-								className="relative"
-								onMouseEnter={() => setIsServicesOpen(true)}
-								onMouseLeave={() => setIsServicesOpen(false)}>
-								<button
-									className={cn(
-										"text-white font-dm-sans font-medium text-base transition-all duration-300 hover:text-primary flex items-center gap-1.5 py-2 group",
-										location === "/services" && "text-primary",
-									)}>
-									Managed IT & Cybersecurity Services
-									<svg
-										className={cn(
-											"w-4 h-4 transition-all duration-300 ease-out",
-											isServicesOpen && "rotate-180",
-										)}
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24">
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M19 9l-7 7-7-7"
-										/>
-									</svg>
-								</button>
-							</div>
-
-							{/* Industries Dropdown */}
-							<div
-								className="relative"
-								onMouseEnter={() => setIsIndustriesOpen(true)}
-								onMouseLeave={() => setIsIndustriesOpen(false)}>
-								<button
-									className={cn(
-										"text-white font-dm-sans font-medium text-base transition-all duration-300 hover:text-primary flex items-center gap-1.5 py-2 group",
-										location.startsWith("/industries") && "text-primary",
-									)}>
-									Industries
-									<svg
-										className={cn(
-											"w-4 h-4 transition-all duration-300 ease-out",
-											isIndustriesOpen && "rotate-180",
-										)}
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24">
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M19 9l-7 7-7-7"
-										/>
-									</svg>
-								</button>
-							</div>
-
-							<Link
-								className={cn(
-									linkClasses("/resources"),
-									"text-white font-dm-sans font-medium text-base",
-								)}
-								href="/resources">
-								Cybersecurity Resources & Insights
-							</Link>
-
-							<Link
-								className={cn(
-									linkClasses("/cost-estimator"),
-									"text-white font-dm-sans font-medium text-base",
-								)}
-								href="/cost-estimator">
-								Cost Estimator
-							</Link>
-							<Link
-								className={cn(
-									linkClasses("/careers"),
-									"text-white font-dm-sans font-medium text-base",
-								)}
-								href="/careers">
-								Careers
-							</Link>
-							<Link
-								className={cn(
-									linkClasses("/about-us"),
-									"text-white font-dm-sans font-medium text-base",
-								)}
-								href="/about-us">
-								About Us
-							</Link>
-
-							{/* Contact Button */}
 						</div>
 					</nav>
 				</div>
@@ -571,7 +568,7 @@ const NavBar = () => {
 	);
 };
 
-export default NavBar;
+export default NavBarCopy;
 
 const serviceCategories = [
 	{
