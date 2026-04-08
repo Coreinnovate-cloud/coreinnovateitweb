@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://coreinnovateit.com/sitemap.xml
+
+# Disallow admin and private pages
+Disallow: /client-support
+Disallow: /partners

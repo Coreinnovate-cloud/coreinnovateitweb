@@ -1,0 +1,449 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Send, Sparkles } from "lucide-react"
+import React, { useRef, useState } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
+import { toast } from "sonner"
+import AnimatedConnections from "../shared/animated-connections"
+import { Button } from "../shared/button"
+import { Input } from "../ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select"
+import { Textarea } from "../ui/textarea"
+
+const SendMessage = () => {
+  const [loading, setLoading] = useState(false)
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null)
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const [captchaError, setCaptchaError] = useState<string>("")
+  const [isSuccess, setIsSuccess] = useState(false)
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    jobTitle: "",
+    message: "",
+    service: "",
+  })
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+  }
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!captchaValue) {
+      setCaptchaError("Please verify that you are not a robot.")
+      return
+    }
+
+    setCaptchaError("")
+
+    try {
+      setLoading(true)
+
+      // Use AJAX endpoint for FormSubmit
+      const response = await fetch(
+        "https://formsubmit.co/ajax/hello@coreinnovateit.co.uk",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: "New Contact Form Submission",
+            _replyto: formData.email,
+            _captcha: "false", // Disable FormSubmit's captcha since we use reCAPTCHA
+            FirstName: formData.firstName,
+            LastName: formData.lastName,
+            Email: formData.email,
+            Phone: formData.phone,
+            Company: formData.companyName,
+            JobTitle: formData.jobTitle,
+            Service: formData.service,
+            Message: formData.message,
+            "g-recaptcha-response": captchaValue,
+          }),
+        }
+      )
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          companyName: "",
+          jobTitle: "",
+          message: "",
+          service: "",
+        })
+        recaptchaRef.current?.reset()
+        setIsSuccess(true)
+        toast.success(
+          "Message sent successfully! We'll get back to you soon.",
+          {
+            duration: 5000,
+          }
+        )
+        // Reset success state after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000)
+      } else {
+        toast.error("Error sending message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error sending message:", error)
+      toast.error("Error sending message. Please try again.")
+    } finally {
+      setLoading(false)
+      setCaptchaValue(null)
+    }
+  }
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value)
+  }
+
+  return (
+    <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <Sparkles className="w-4 h-4" />
+            Get In Touch
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-secondary mb-4">
+            Let&apos;s Start a Conversation
+          </h2>
+          <p className="text-lg text-grey max-w-2xl mx-auto">
+            Have a question or ready to transform your IT infrastructure?
+            We&apos;re here to help.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
+          {/* Left Column - Contact Info & Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col"
+          >
+            {/* Animated Connections Card */}
+            <div className="relative h-[400px] lg:h-full min-h-[500px] w-full rounded-3xl overflow-hidden group shadow-xl flex-1">
+              <AnimatedConnections />
+
+              {/* Floating Badge */}
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Send className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-secondary">Quick Response</h4>
+                    <p className="text-sm text-grey">Usually within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info Cards */}
+            {/* <div className="space-y-4">
+              <motion.div
+                whileHover={{ x: 8 }}
+                className="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:border-primary/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-secondary mb-1">Email Us</h4>
+                  <p className="text-grey text-sm">hello@coreinnovate.co.uk</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ x: 8 }}
+                className="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:border-primary/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-secondary mb-1">Call Us</h4>
+                  <p className="text-grey text-sm">+44 (0) 20 1234 5678</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ x: 8 }}
+                className="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:border-primary/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-primary flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-secondary mb-1">Visit Us</h4>
+                  <p className="text-grey text-sm">London, United Kingdom</p>
+                </div>
+              </motion.div>
+            </div> */}
+          </motion.div>
+
+          {/* Right Column - Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-100 relative"
+          >
+            {/* Success Overlay */}
+            {isSuccess && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="absolute inset-0 bg-gradient-to-br from-primary/95 to-cyan-500/95 rounded-3xl flex items-center justify-center z-50"
+              >
+                <div className="text-center text-white space-y-4 p-8">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className="w-20 h-20 bg-white rounded-full mx-auto flex items-center justify-center"
+                  >
+                    <svg
+                      className="w-12 h-12 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </motion.div>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-2xl font-bold"
+                  >
+                    Message Sent Successfully!
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-white/90"
+                  >
+                    Thank you for reaching out. We&apos;ll get back to you
+                    within 24 hours.
+                  </motion.p>
+                </div>
+              </motion.div>
+            )}
+
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-secondary mb-2">
+                Send us a message
+              </h3>
+              <p className="text-grey">
+                Fill out the form below and we&apos;ll get back to you as soon
+                as possible.
+              </p>
+            </div>
+
+            <form
+              onSubmit={onSubmit}
+              className="flex flex-col sm:grid sm:grid-cols-2 gap-x-4 gap-y-6"
+            >
+              <Input
+                label="First Name"
+                placeholder="First Name"
+                name="First Name"
+                value={formData.firstName}
+                onChange={(e) => handleInputChange("firstName", e.target.value)}
+                required
+              />
+              <Input
+                label="Last Name"
+                name="Last Name"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={(e) => handleInputChange("lastName", e.target.value)}
+                required
+              />
+              <Input
+                label="Phone Number"
+                type="tel"
+                name="Phone Number"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                required
+              />
+              <Input
+                label="Email Address"
+                type="email"
+                name="Email Address"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+                required
+              />
+              <Input
+                label="Company Name"
+                name="Company Name"
+                placeholder="Company Name"
+                value={formData.companyName}
+                onChange={(e) =>
+                  handleInputChange("companyName", e.target.value)
+                }
+              />
+              <Input
+                label="Job Title"
+                name="Job Title"
+                placeholder="Job Title"
+                value={formData.jobTitle}
+                onChange={(e) => handleInputChange("jobTitle", e.target.value)}
+              />
+              <Select
+                name="Service"
+                onValueChange={(value) => handleInputChange("service", value)}
+              >
+                <SelectTrigger label="Services" className="!p-6">
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Managed IT Services">
+                    Managed IT Services
+                  </SelectItem>
+                  <SelectItem value="Managed Cybersecurity Services">
+                    Managed Cybersecurity Services
+                  </SelectItem>
+                  <SelectItem value="SOC & Endpoint Security">
+                    SOC & Endpoint Security
+                  </SelectItem>
+                  <SelectItem value="Managed Password Management">
+                    Managed Password Management
+                  </SelectItem>
+                  <SelectItem value="Email & Cloud Security">
+                    Email & Cloud Security
+                  </SelectItem>
+                  <SelectItem value="Phishing Awareness & Security Training">
+                    Phishing Awareness & Security Training
+                  </SelectItem>
+                  <SelectItem value="Dark Web Monitoring">
+                    Dark Web Monitoring
+                  </SelectItem>
+                  <SelectItem value="Penetration Testing">
+                    Penetration Testing
+                  </SelectItem>
+                  <SelectItem value="Data Backup, Disaster Recovery & Business Continuity">
+                    Data Backup, Disaster Recovery & Business Continuity
+                  </SelectItem>
+                  <SelectItem value="SaaS Protection">
+                    SaaS Protection (Microsoft 365 & Google Workspace)
+                  </SelectItem>
+                  <SelectItem value="Compliance as a Service">
+                    Compliance as a Service (CaaS)
+                  </SelectItem>
+                  <SelectItem value="Infrastructure & Modernisation">
+                    Infrastructure & Modernisation
+                  </SelectItem>
+                  <SelectItem value="Cloud & Digital Transformation">
+                    Cloud & Digital Transformation
+                  </SelectItem>
+                  <SelectItem value="Web & Software Development">
+                    Web & Software Development
+                  </SelectItem>
+                  <SelectItem value="AUTOTASK & Datto Integration Portal">
+                    AUTOTASK & Datto Integration Portal
+                  </SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <div className="col-span-2 space-y-12">
+                <Textarea
+                  name="Message"
+                  label="Message"
+                  className="!h-[133px]"
+                  placeholder="Enter message..."
+                  value={formData.message}
+                  onChange={(e) => handleInputChange("message", e.target.value)}
+                  required
+                />
+
+                <div className="space-y-4">
+                  <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY!}
+                    ref={recaptchaRef}
+                    onChange={handleCaptchaChange}
+                  />
+
+                  {captchaError && (
+                    <p className="text-red-500 text-sm">{captchaError}</p>
+                  )}
+                </div>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    type="submit"
+                    className="w-full h-14 text-lg gap-2"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <span className="animate-spin">⏳</span>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-5 h-5" />
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SendMessage
